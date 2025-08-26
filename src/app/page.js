@@ -87,11 +87,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 pt-14 sm:pt-16 pb-10 sm:pb-12 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Developer Notes &
             <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
@@ -143,25 +139,14 @@ export default function Home() {
 
       {/* Quick Categories */}
       <section className="container mx-auto px-4 sm:px-6 pb-14 sm:pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Popular Categories</h2>
           <p className="text-gray-300">Jump straight to what you need</p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {quickCategories.map((category, idx) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-            >
+            <motion.div key={category.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
               <Link href="/notes" className="block">
                 <div className={`${category.color} rounded-lg p-4 text-center hover:scale-105 transition-transform cursor-pointer`}>
                   <div className="font-semibold text-lg">{category.name}</div>
@@ -175,12 +160,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section id="features" className="container mx-auto px-4 sm:px-6 py-14 sm:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Everything You Need</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Built for developers who value efficiency, privacy, and having their tools readily accessible
@@ -209,23 +189,13 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 sm:px-6 py-14 sm:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-400/30 rounded-2xl p-8 md:p-12 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to boost your productivity?
-          </h2>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-400/30 rounded-2xl p-8 md:p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to boost your productivity?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Join developers who save time with instant access to commands, snippets, and their personal library.
           </p>
-          <Link 
-          href="/auth"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
-          >
-          Start Using DevNotes
+          <Link href="/auth" className="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+            Start Using DevNotes
           </Link>
         </motion.div>
       </section>

@@ -1,10 +1,18 @@
 "use client"
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 
-export default function NotesCheatSheet() {
+export default function NotesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex items-center justify-center">Loading…</div>}>
+      <NotesCheatSheet />
+    </Suspense>
+  )
+}
+
+function NotesCheatSheet() {
   const [query, setQuery] = useState('')
   const [copiedKey, setCopiedKey] = useState(null)
 
