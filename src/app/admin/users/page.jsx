@@ -39,13 +39,7 @@ export default function AdminUsers() {
   }, [authLoading, me, isAdmin, router])
 
   // Mock user data - replace with actual API call
-  const mockUsers = [
-    { id: 1, name: "John Doe", email: "john@example.com", role: "admin", status: "active", lastLogin: "2024-01-15T10:30:00Z", created: "2024-01-01T00:00:00Z", avatar: null, loginCount: 45, filesUploaded: 12 },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "user", status: "active", lastLogin: "2024-01-14T15:45:00Z", created: "2024-01-03T00:00:00Z", avatar: null, loginCount: 23, filesUploaded: 8 },
-    { id: 3, name: "Mike Wilson", email: "mike@example.com", role: "user", status: "inactive", lastLogin: "2024-01-10T09:15:00Z", created: "2024-01-05T00:00:00Z", avatar: null, loginCount: 12, filesUploaded: 3 },
-    { id: 4, name: "Sarah Davis", email: "sarah@example.com", role: "moderator", status: "active", lastLogin: "2024-01-15T12:20:00Z", created: "2024-01-02T00:00:00Z", avatar: null, loginCount: 67, filesUploaded: 25 },
-    { id: 5, name: "Tom Brown", email: "tom@example.com", role: "user", status: "suspended", lastLogin: "2024-01-08T14:30:00Z", created: "2024-01-07T00:00:00Z", avatar: null, loginCount: 5, filesUploaded: 1 },
-  ]
+  
 
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
@@ -433,6 +427,47 @@ export default function AdminUsers() {
           </motion.div>
         )}
       </div>
+      <footer className="bg-black/50 py-8 border-t border-white/20">
+      <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        {/* Left: Branding */}
+        <div className="text-gray-300 font-medium">
+          DevNotes • Developer Cheat Sheets <br className="md:hidden" />
+          <span className="text-sm text-gray-400">by CodeWithRaheem</span>
+        </div>
+
+        {/* Right: Social & Info */}
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          <p className="text-gray-400 text-sm">
+            Updated regularly • Copy & use safely
+          </p>
+          <div className="flex gap-4 mt-2 md:mt-0">
+            <a href="https://github.com/siddiquiraheem527" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
+                alt="GitHub" 
+                className="w-5 h-5 filter invert hover:invert-0 transition"
+              />
+            </a>
+            <a href="https://twitter.com/codewithraheem" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" 
+                alt="Twitter" 
+                className="w-5 h-5 filter invert hover:invert-0 transition"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/codewithraheem" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" 
+                alt="LinkedIn" 
+                className="w-5 h-5 filter invert hover:invert-0 transition"
+              />
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
     </div>
   )
 }

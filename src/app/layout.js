@@ -19,6 +19,9 @@ export const metadata = {
     "local library",
     "privacy first notes",
   ],
+  verification: {
+    google:"IkzMs-iymGtdkGAk-ai5P6-sYaSM7KjGDRpEoopc9_4" , // ✅ correct way
+  },
   authors: [{ name: "DevNotes" }],
   creator: "DevNotes",
   publisher: "DevNotes",

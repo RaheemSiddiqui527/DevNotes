@@ -26,6 +26,12 @@ const FileSchema = new mongoose.Schema({
 const FileModel = mongoose.models.UserFile || mongoose.model('UserFile', FileSchema)
 
 function uploadsRoot() {
+  // In production/serverless (e.g., Vercel), the filesystem is read-only except for /tmp
+  const tmp = process.env.TMPDIR || process.env.TEMP || process.env.TMP
+  const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL
+  if (isProd) {
+    return path.join(tmp || '/tmp', 'uploads')
+  }
   return path.join(process.cwd(), 'uploads')
 }
 
@@ -73,7 +79,7 @@ export async function GET(req) {
   const doc = await FileModel.findOne({ _id: id }).lean()
   if (!doc) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  const absPath = path.join(process.cwd(), doc.relPath)
+  const absPath = path.isAbsolute(doc.relPath) ? doc.relPath : path.join(process.cwd(), doc.relPath)
   try {
     const data = await fs.readFile(absPath)
     const headers = new Headers()
@@ -118,7 +124,8 @@ export async function POST(req) {
     const ts = Date.now()
     const uniqueName = `${ts}_${Math.random().toString(36).slice(2, 8)}_${origName}`
     const abs = path.join(targetFolder, uniqueName)
-    const relPath = path.relative(process.cwd(), abs)
+    const cwd = process.cwd()
+    const relPath = abs.startsWith(cwd) ? path.relative(cwd, abs) : abs
 
     const buf = Buffer.from(await f.arrayBuffer())
     await fs.writeFile(abs, buf)
