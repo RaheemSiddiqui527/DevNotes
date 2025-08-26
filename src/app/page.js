@@ -1,103 +1,259 @@
-import Image from "next/image";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [searchQuery, setSearchQuery] = useState('')
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const features = [
+    {
+      title: 'Searchable Cheat Sheets',
+      description: 'Quick access to Git, NPM, Next.js, React, Docker, MongoDB commands and snippets',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m-4 4l4 4-4 4" />
+        </svg>
+      ),
+      color: 'from-blue-400 to-purple-600'
+    },
+    {
+      title: 'Local Library',
+      description: 'Upload and store your PDFs, EPUBs, and text files securely in your browser',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      color: 'from-green-400 to-blue-600'
+    },
+    {
+      title: 'Copy to Clipboard',
+      description: 'One-click copying of code snippets and commands for instant use',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      ),
+      color: 'from-purple-400 to-pink-600'
+    },
+    {
+      title: 'Privacy First',
+      description: 'All data stays in your browser. No external servers, no tracking, no data collection',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      ),
+      color: 'from-orange-400 to-red-600'
+    }
+  ]
+
+  const quickCategories = [
+    { name: 'Git', count: '10+ commands', color: 'bg-red-500/20 text-red-300' },
+    { name: 'Docker', count: '8+ snippets', color: 'bg-blue-500/20 text-blue-300' },
+    { name: 'React', count: '15+ patterns', color: 'bg-cyan-500/20 text-cyan-300' },
+    { name: 'Next.js', count: '12+ examples', color: 'bg-gray-500/20 text-gray-300' },
+    { name: 'MongoDB', count: '6+ queries', color: 'bg-green-500/20 text-green-300' },
+    { name: 'Bash', count: '8+ commands', color: 'bg-yellow-500/20 text-yellow-300' }
+  ]
+
+  return (
+    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-40 bg-black/30 backdrop-blur-md border-b border-white/10 pt-[env(safe-area-inset-top)]">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              DevNotes
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/notes" className="text-gray-300 hover:text-white transition-colors">
+                Cheat Sheets
+              </Link>
+              <Link href="/library" className="text-gray-300 hover:text-white transition-colors">
+                Library
+              </Link>
+            </div>
+            <Link 
+              href="/auth"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors font-medium"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </nav>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 sm:px-6 pt-14 sm:pt-16 pb-10 sm:pb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            Developer Notes &
+            <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
+              Cheat Sheet
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Your go-to resource for quick references, code snippets, and a personal library. 
+            Everything stored locally for maximum privacy.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link 
+              href="/notes"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
+            >
+              Explore Cheat Sheets
+            </Link>
+            <button 
+              onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 border border-white/20 hover:border-purple-400/50 rounded-lg font-semibold text-lg transition-colors"
+            >
+              Learn More
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Quick Search Preview */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-16 max-w-2xl mx-auto"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="relative">
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Try searching: git push, docker run, useEffect..."
+              className="w-full px-6 py-4 text-lg rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:border-purple-400 placeholder-gray-400"
+            />
+            <svg className="w-6 h-6 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8" strokeWidth="2"></circle>
+              <path d="M21 21l-4.35-4.35" strokeWidth="2" strokeLinecap="round"></path>
+            </svg>
+          </div>
+          <p className="text-sm text-gray-400 mt-2">Search through 70+ developer commands and snippets</p>
+        </motion.div>
+      </section>
+
+      {/* Quick Categories */}
+      <section className="container mx-auto px-4 sm:px-6 pb-14 sm:pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <h2 className="text-3xl font-bold mb-4">Popular Categories</h2>
+          <p className="text-gray-300">Jump straight to what you need</p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {quickCategories.map((category, idx) => (
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              <Link href="/notes" className="block">
+                <div className={`${category.color} rounded-lg p-4 text-center hover:scale-105 transition-transform cursor-pointer`}>
+                  <div className="font-semibold text-lg">{category.name}</div>
+                  <div className="text-sm opacity-80">{category.count}</div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="container mx-auto px-4 sm:px-6 py-14 sm:py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Everything You Need</h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Built for developers who value efficiency, privacy, and having their tools readily accessible
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, idx) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15, duration: 0.6 }}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-purple-400/40 transition-colors"
+            >
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-r ${feature.color} mb-4`}>
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 sm:px-6 py-14 sm:py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-400/30 rounded-2xl p-8 md:p-12 text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to boost your productivity?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Join developers who save time with instant access to commands, snippets, and their personal library.
+          </p>
+          <Link 
+          href="/auth"
+          className="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
+          >
+          Start Using DevNotes
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black/40 py-12 border-t border-white/10">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="text-center md:text-left mb-4 md:mb-0">
+              <div className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                DevNotes
+              </div>
+              <p className="text-gray-400">Quick references for daily dev work</p>
+            </div>
+            <div className="flex space-x-6">
+              <Link href="/notes" className="text-gray-400 hover:text-white transition-colors">
+                Cheat Sheets
+              </Link>
+              <Link href="/library" className="text-gray-400 hover:text-white transition-colors">
+                Library
+              </Link>
+            </div>
+          </div>
+          <div className="text-center text-gray-400 text-sm mt-8">
+            Built with Next.js • All data stored locally in your browser
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
