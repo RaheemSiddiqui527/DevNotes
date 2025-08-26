@@ -1,3 +1,5 @@
+# robots.txt for DevNotes
+
 User-agent: *
 Allow: /
 

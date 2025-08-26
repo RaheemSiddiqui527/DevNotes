@@ -244,7 +244,7 @@ export default function AuthPage() {
             Updated regularly • Copy & use safely
           </p>
           <div className="flex gap-4 mt-2 md:mt-0">
-            <a href="https://github.com/siddiquiraheem527" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/RaheemSiddiqui527" target="_blank" rel="noopener noreferrer">
               <img 
                 src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
                 alt="GitHub" 
