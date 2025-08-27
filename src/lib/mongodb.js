@@ -22,4 +22,9 @@ if (process.env.NODE_ENV === "development") {
   clientPromise = client.connect()
 }
 
+export async function connectDB() {
+  const client = await clientPromise
+  return client.db(process.env.MONGODB_DB || "devnotes")
+}
+
 export default clientPromise
