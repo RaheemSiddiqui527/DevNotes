@@ -427,47 +427,55 @@ export default function AdminUsers() {
           </motion.div>
         )}
       </div>
-      <footer className="bg-black/50 py-8 border-t border-white/20">
-      <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        {/* Left: Branding */}
-        <div className="text-gray-300 font-medium">
-          DevNotes • Developer Cheat Sheets <br className="md:hidden" />
-          <span className="text-sm text-gray-400">by CodeWithRaheem</span>
-        </div>
+   <footer className="bg-black/50 py-8 border-t border-white/20">
+  <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    
+    {/* Left: Branding */}
+    <div className="text-gray-300 font-medium">
+      DevNotes • Developer Cheat Sheets <br className="md:hidden" />
+      <span className="text-sm text-gray-400">by CodeWithRaheem</span>
+    </div>
 
-        {/* Right: Social & Info */}
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            Updated regularly • Copy & use safely
-          </p>
-          <div className="flex gap-4 mt-2 md:mt-0">
-            <a href="https://github.com/siddiquiraheem527" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
-                alt="GitHub" 
-                className="w-5 h-5 filter invert hover:invert-0 transition"
-              />
-            </a>
-            <a href="https://twitter.com/codewithraheem" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" 
-                alt="Twitter" 
-                className="w-5 h-5 filter invert hover:invert-0 transition"
-              />
-            </a>
-            <a href="https://www.linkedin.com/in/codewithraheem" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" 
-                alt="LinkedIn" 
-                className="w-5 h-5 filter invert hover:invert-0 transition"
-              />
-            </a>
-          </div>
-        </div>
-
+    {/* Right: Social & Info */}
+    <div className="flex flex-col md:flex-row items-center gap-4">
+      <p className="text-gray-400 text-sm">
+        Updated regularly • Copy & use safely
+      </p>
+      <div className="flex gap-4 mt-2 md:mt-0">
+        <a href="https://github.com/RaheemSiddiqui527" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
+            alt="GitHub" 
+            className="w-5 h-5 filter invert hover:invert-0 transition"
+          />
+        </a>
+        <a href="https://twitter.com/codewithraheem" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" 
+            alt="Twitter" 
+            className="w-5 h-5 filter invert hover:invert-0 transition"
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/codewithraheem" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" 
+            alt="LinkedIn" 
+            className="w-5 h-5 filter invert hover:invert-0 transition"
+          />
+        </a>
+        <a href="https://www.instagram.com/codewithraheem" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" 
+            alt="Instagram" 
+            className="w-5 h-5 filter invert hover:invert-0 transition"
+          />
+        </a>
       </div>
-    </footer>
+    </div>
+
+  </div>
+</footer>
+
     </div>
   )
 }

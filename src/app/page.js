@@ -50,12 +50,12 @@ export default function Home() {
   ]
 
   const quickCategories = [
-    { name: 'Git', count: '10+ commands', color: 'bg-red-500/20 text-red-300' },
-    { name: 'Docker', count: '8+ snippets', color: 'bg-blue-500/20 text-blue-300' },
-    { name: 'React', count: '15+ patterns', color: 'bg-cyan-500/20 text-cyan-300' },
+    { name: 'Git', count: '46+ commands', color: 'bg-red-500/20 text-red-300' },
+    { name: 'Docker', count: '47+ snippets', color: 'bg-blue-500/20 text-blue-300' },
+    { name: 'React', count: '28+ patterns', color: 'bg-cyan-500/20 text-cyan-300' },
     { name: 'Next.js', count: '12+ examples', color: 'bg-gray-500/20 text-gray-300' },
-    { name: 'MongoDB', count: '6+ queries', color: 'bg-green-500/20 text-green-300' },
-    { name: 'Bash', count: '8+ commands', color: 'bg-yellow-500/20 text-yellow-300' }
+    { name: 'MongoDB', count: '41+ queries', color: 'bg-green-500/20 text-green-300' },
+    { name: 'Bash', count: '49+ commands', color: 'bg-yellow-500/20 text-yellow-300' }
   ]
 
   const socialLinks = [

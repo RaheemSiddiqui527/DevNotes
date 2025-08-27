@@ -1,0 +1,1764 @@
+[
+  {
+  "title": "Git Essentials",
+  "items": [
+    { "label": "Set username", "code": "git config --global user.name \"Your Name\"", "desc": "Set global Git username." },
+    { "label": "Set email", "code": "git config --global user.email \"you@example.com\"", "desc": "Set global Git email." },
+    { "label": "List config", "code": "git config --list", "desc": "View all Git configurations." },
+
+    { "label": "Init repo", "code": "git init", "desc": "Create a new Git repository." },
+    { "label": "Clone repo", "code": "git clone <url>", "desc": "Clone remote repository." },
+    { "label": "Check status", "code": "git status", "desc": "Show working directory status." },
+    { "label": "Add file", "code": "git add <file>", "desc": "Stage a specific file." },
+    { "label": "Add all", "code": "git add .", "desc": "Stage all changes." },
+    { "label": "Commit", "code": "git commit -m \"message\"", "desc": "Commit staged changes." },
+    { "label": "Amend commit", "code": "git commit --amend", "desc": "Edit last commit." },
+
+    { "label": "List branches", "code": "git branch", "desc": "List all branches." },
+    { "label": "New branch", "code": "git branch feature-x", "desc": "Create new branch." },
+    { "label": "Switch branch", "code": "git checkout feature-x", "desc": "Switch to a branch." },
+    { "label": "New + switch", "code": "git checkout -b feature-x", "desc": "Create and switch to branch." },
+    { "label": "Switch (modern)", "code": "git switch feature-x", "desc": "Switch branch (new command)." },
+    { "label": "Merge branch", "code": "git merge feature-x", "desc": "Merge branch into current branch." },
+    { "label": "Rebase", "code": "git rebase main", "desc": "Reapply commits on top of another branch." },
+
+    { "label": "Add remote", "code": "git remote add origin <url>", "desc": "Link remote repository." },
+    { "label": "Show remotes", "code": "git remote -v", "desc": "View remote repos." },
+    { "label": "Fetch remote", "code": "git fetch origin", "desc": "Download changes without merging." },
+    { "label": "Pull remote", "code": "git pull origin main", "desc": "Fetch and merge from remote branch." },
+    { "label": "Push branch", "code": "git push -u origin main", "desc": "Push commits and set upstream." },
+
+    { "label": "Commit log", "code": "git log --oneline --graph", "desc": "Compact commit history with graph." },
+    { "label": "Show commit", "code": "git show <commit>", "desc": "Show details of a commit." },
+    { "label": "Diff unstaged", "code": "git diff", "desc": "See unstaged changes." },
+    { "label": "Diff staged", "code": "git diff --staged", "desc": "See staged changes." },
+    { "label": "Blame file", "code": "git blame <file>", "desc": "Show who changed each line." },
+
+    { "label": "Discard changes", "code": "git restore <file>", "desc": "Restore file to last commit." },
+    { "label": "Unstage file", "code": "git restore --staged <file>", "desc": "Remove file from staging area." },
+    { "label": "Soft reset", "code": "git reset --soft HEAD~1", "desc": "Undo commit, keep changes staged." },
+    { "label": "Mixed reset", "code": "git reset HEAD~1", "desc": "Undo commit, keep changes unstaged." },
+    { "label": "Hard reset", "code": "git reset --hard HEAD~1", "desc": "Undo commit and discard changes." },
+    { "label": "Revert commit", "code": "git revert <commit>", "desc": "Make new commit that undoes given commit." },
+
+    { "label": "Stash save", "code": "git stash", "desc": "Save uncommitted changes temporarily." },
+    { "label": "Stash list", "code": "git stash list", "desc": "Show saved stashes." },
+    { "label": "Stash apply", "code": "git stash apply", "desc": "Apply latest stash." },
+    { "label": "Stash pop", "code": "git stash pop", "desc": "Apply + drop latest stash." },
+
+    { "label": "Create tag", "code": "git tag v1.0.0", "desc": "Create lightweight tag." },
+    { "label": "Annotated tag", "code": "git tag -a v1.0.0 -m \"Release\"", "desc": "Create annotated tag." },
+    { "label": "Push tag", "code": "git push origin v1.0.0", "desc": "Push tag to remote." },
+    { "label": "All tags", "code": "git push origin --tags", "desc": "Push all tags to remote." },
+
+    { "label": "Cherry pick", "code": "git cherry-pick <commit>", "desc": "Apply commit from another branch." },
+    { "label": "Reflog", "code": "git reflog", "desc": "Show history of HEAD moves." },
+    { "label": "Bisect", "code": "git bisect start", "desc": "Binary search to find buggy commit." },
+    { "label": "Submodule add", "code": "git submodule add <url>", "desc": "Add a submodule." },
+    { "label": "Submodule update", "code": "git submodule update --init --recursive", "desc": "Clone & init submodules." }
+  ]
+},
+  {
+  "title": "NPM / Yarn",
+  "items": [
+    { "label": "Init project (npm)", "code": "npm init -y", "desc": "Create a package.json with defaults." },
+    { "label": "Init project (yarn)", "code": "yarn init -y", "desc": "Create a package.json with Yarn." },
+
+    { "label": "Install dep (npm)", "code": "npm install <pkg>", "desc": "Install a package dependency." },
+    { "label": "Install dep (yarn)", "code": "yarn add <pkg>", "desc": "Install a package dependency with Yarn." },
+
+    { "label": "Install dev dep (npm)", "code": "npm install -D <pkg>", "desc": "Install a dev dependency." },
+    { "label": "Install dev dep (yarn)", "code": "yarn add -D <pkg>", "desc": "Install a dev dependency with Yarn." },
+
+    { "label": "Remove dep (npm)", "code": "npm uninstall <pkg>", "desc": "Remove a package dependency." },
+    { "label": "Remove dep (yarn)", "code": "yarn remove <pkg>", "desc": "Remove a package dependency with Yarn." },
+
+    { "label": "Update dep (npm)", "code": "npm update <pkg>", "desc": "Update a package to latest allowed version." },
+    { "label": "Update dep (yarn)", "code": "yarn upgrade <pkg>", "desc": "Upgrade a package in Yarn." },
+
+    { "label": "Update all (npm)", "code": "npm outdated && npm update", "desc": "Check and update outdated packages." },
+    { "label": "Update all (yarn)", "code": "yarn upgrade --latest", "desc": "Upgrade all deps to latest." },
+
+    { "label": "Install global (npm)", "code": "npm install -g <pkg>", "desc": "Install a package globally." },
+    { "label": "Install global (yarn)", "code": "yarn global add <pkg>", "desc": "Install a package globally with Yarn." },
+
+    { "label": "Remove global (npm)", "code": "npm uninstall -g <pkg>", "desc": "Uninstall a global package." },
+    { "label": "Remove global (yarn)", "code": "yarn global remove <pkg>", "desc": "Remove a global Yarn package." },
+
+    { "label": "Run script (npm)", "code": "npm run <script>", "desc": "Run a script from package.json." },
+    { "label": "Run script (yarn)", "code": "yarn <script>", "desc": "Run a script (shorter syntax)." },
+
+    { "label": "List deps (npm)", "code": "npm list --depth=0", "desc": "Show installed top-level packages." },
+    { "label": "List deps (yarn)", "code": "yarn list --depth=0", "desc": "Show installed packages in Yarn." },
+
+    { "label": "Install all deps (npm)", "code": "npm install", "desc": "Install all dependencies from package.json." },
+    { "label": "Install all deps (yarn)", "code": "yarn install", "desc": "Install all dependencies from package.json." },
+
+    { "label": "Clean cache (npm)", "code": "npm cache clean --force", "desc": "Clear npm cache." },
+    { "label": "Clean cache (yarn)", "code": "yarn cache clean", "desc": "Clear Yarn cache." },
+
+    { "label": "Audit security (npm)", "code": "npm audit", "desc": "Run a security audit on dependencies." },
+    { "label": "Audit security (yarn)", "code": "yarn audit", "desc": "Run a security audit with Yarn." },
+
+    { "label": "Generate lockfile (npm)", "code": "npm install", "desc": "Generates package-lock.json." },
+    { "label": "Generate lockfile (yarn)", "code": "yarn install", "desc": "Generates yarn.lock file." }
+  ]
+},
+  {
+  "title": "Next.js Data Fetching",
+  "items": [
+    {
+      "label": "getStaticProps",
+      "code": "export async function getStaticProps() {\n  return { props: { /* data */ } }\n}",
+      "desc": "Fetch data at build time (Pages Router)."
+    },
+    {
+      "label": "getServerSideProps",
+      "code": "export async function getServerSideProps(ctx) {\n  return { props: { /* data */ } }\n}",
+      "desc": "Fetch data on every request (Pages Router)."
+    },
+    {
+      "label": "getStaticPaths",
+      "code": "export async function getStaticPaths() {\n  return { paths: [], fallback: false }\n}",
+      "desc": "Define dynamic static routes (Pages Router)."
+    },
+    {
+      "label": "Client-side fetch (useEffect)",
+      "code": "import { useEffect, useState } from \"react\"\n\nexport default function Page() {\n  const [data, setData] = useState(null)\n  useEffect(() => {\n    fetch(\"/api/data\").then(res => res.json()).then(setData)\n  }, [])\n  return <pre>{JSON.stringify(data)}</pre>\n}",
+      "desc": "Fetch data on client-side (CSR)."
+    },
+    {
+      "label": "Async server component",
+      "code": "export default async function Page() {\n  const data = await getData()\n  return <pre>{JSON.stringify(data)}</pre>\n}",
+      "desc": "Fetch directly inside a server component (App Router)."
+    },
+    {
+      "label": "Fetch with cache",
+      "code": "const data = await fetch(\"https://api.com/data\", { cache: \"force-cache\" }).then(r => r.json())",
+      "desc": "Static fetch (default) — cached at build time."
+    },
+    {
+      "label": "Fetch no cache",
+      "code": "const data = await fetch(\"https://api.com/data\", { cache: \"no-store\" }).then(r => r.json())",
+      "desc": "Always fetch fresh data (like getServerSideProps)."
+    },
+    {
+      "label": "ISR (Revalidate)",
+      "code": "const data = await fetch(\"https://api.com/data\", { next: { revalidate: 60 } }).then(r => r.json())",
+      "desc": "Incremental Static Regeneration with 60s revalidation."
+    },
+    {
+      "label": "Route handler (GET)",
+      "code": "export async function GET(req) {\n  return Response.json({ hello: \"world\" })\n}",
+      "desc": "API endpoint in `app/api/route.js` (App Router)."
+    },
+    {
+      "label": "Route handler (POST)",
+      "code": "export async function POST(req) {\n  const body = await req.json()\n  return Response.json({ received: body })\n}",
+      "desc": "POST API endpoint in `app/api/route.js`."
+    },
+    {
+      "label": "Dynamic route params",
+      "code": "export default function Page({ params }) {\n  return <div>ID: {params.id}</div>\n}",
+      "desc": "Access `[id]` from dynamic route params (App Router)."
+    },
+    {
+      "label": "Search params",
+      "code": "export default function Page({ searchParams }) {\n  return <div>Query: {searchParams.q}</div>\n}",
+      "desc": "Read query params in App Router."
+    }
+  ]
+},
+  {
+  "title": "React Patterns",
+  "items": [
+    {
+      "label": "State update from prev",
+      "code": "setCount(prev => prev + 1)",
+      "desc": "Safe state update using previous value."
+    },
+    {
+      "label": "Effect with cleanup",
+      "code": "useEffect(() => {\n  const id = setInterval(doWork, 1000)\n  return () => clearInterval(id)\n}, [])",
+      "desc": "Cleanup side-effects to avoid leaks."
+    },
+    {
+      "label": "Lazy init state",
+      "code": "const [value] = useState(() => computeExpensive())",
+      "desc": "Initialize state only once using a function."
+    },
+    {
+      "label": "Memoize expensive calc",
+      "code": "const value = useMemo(() => heavy(data), [data])",
+      "desc": "Avoid recomputation on every render."
+    },
+    {
+      "label": "Memoize callback",
+      "code": "const handler = useCallback(() => doSomething(id), [id])",
+      "desc": "Keep stable function reference across renders."
+    },
+    {
+      "label": "React.memo",
+      "code": "export default React.memo(MyComponent)",
+      "desc": "Prevent re-render if props are unchanged."
+    },
+    {
+      "label": "Derived state",
+      "code": "const total = useMemo(() => items.reduce((a,b)=>a+b,0), [items])",
+      "desc": "Compute values from state instead of storing redundantly."
+    },
+    {
+      "label": "Reducer",
+      "code": "const [state, dispatch] = useReducer(reducer, init)",
+      "desc": "State logic in a reducer function (alternative to useState)."
+    },
+    {
+      "label": "Context provider",
+      "code": "const Ctx = createContext()\n<Ctx.Provider value={value}><App /></Ctx.Provider>",
+      "desc": "Provide global state via Context."
+    },
+    {
+      "label": "useContext",
+      "code": "const value = useContext(Ctx)",
+      "desc": "Consume context values inside a component."
+    },
+    {
+      "label": "Compound components",
+      "code": "<Modal><Modal.Header/><Modal.Body/><Modal.Footer/></Modal>",
+      "desc": "Composition pattern for reusable UI."
+    },
+    {
+      "label": "Conditional render",
+      "code": "{isLoggedIn ? <Dashboard /> : <Login />}",
+      "desc": "Render different components based on condition."
+    },
+    {
+      "label": "Short-circuit render",
+      "code": "{items.length > 0 && <List items={items} />}",
+      "desc": "Render only if condition is truthy."
+    },
+    {
+      "label": "Render list",
+      "code": "{todos.map(t => <Todo key={t.id} {...t} />)}",
+      "desc": "Render collections with a key."
+    },
+    {
+      "label": "Custom hook",
+      "code": "function useToggle(init=false){\n  const [on,setOn]=useState(init)\n  const toggle=()=>setOn(o=>!o)\n  return [on,toggle]\n}",
+      "desc": "Encapsulate reusable logic into hooks."
+    },
+    {
+      "label": "Hook composition",
+      "code": "function useUser(){\n  const {id}=useAuth()\n  return useQuery([\"user\",id],()=>fetchUser(id))\n}",
+      "desc": "Combine hooks to build abstractions."
+    },
+    {
+      "label": "Render props",
+      "code": "<DataProvider render={data => <Chart data={data}/>} />",
+      "desc": "Pass a function as a child for flexible rendering."
+    },
+    {
+      "label": "Controlled component",
+      "code": "<input value={value} onChange={e=>setValue(e.target.value)} />",
+      "desc": "Form element controlled by React state."
+    },
+    {
+      "label": "Uncontrolled component",
+      "code": "const ref=useRef()\n<input ref={ref} defaultValue=\"hi\" />",
+      "desc": "Form element stores its own state, accessed via ref."
+    },
+    {
+      "label": "Forward ref",
+      "code": "const MyInput = forwardRef((props, ref) => <input ref={ref} {...props} />)",
+      "desc": "Forward refs to DOM elements in custom components."
+    },
+    {
+      "label": "Portals",
+      "code": "createPortal(<Modal />, document.body)",
+      "desc": "Render children into a different part of the DOM."
+    },
+    {
+      "label": "Error boundary",
+      "code": "class ErrorBoundary extends React.Component {...}",
+      "desc": "Catch errors in component tree (only class components)."
+    },
+    {
+      "label": "Suspense",
+      "code": "<Suspense fallback={<Loading/>}><Profile/></Suspense>",
+      "desc": "Show fallback while async components load."
+    },
+    {
+      "label": "Code splitting",
+      "code": "const LazyComp = React.lazy(() => import(\"./Comp\"))",
+      "desc": "Lazy-load components for performance."
+    },
+    {
+      "label": "Prop drilling solution",
+      "code": "// Instead of passing props deeply, use Context or custom hooks",
+      "desc": "Avoid passing props through many levels."
+    },
+    {
+      "label": "Higher Order Component",
+      "code": "function withLogger(Component){\n  return props => {\n    console.log(props)\n    return <Component {...props} />\n  }\n}",
+      "desc": "Function that takes a component and returns an enhanced component."
+    },
+    {
+      "label": "Fragment",
+      "code": "<> <Header /> <Content /> </>",
+      "desc": "Group children without adding extra DOM nodes."
+    },
+    {
+      "label": "Keyed animation list",
+      "code": "{items.map(item => <motion.div key={item.id}>{item.text}</motion.div>)}",
+      "desc": "Use keys for stable animations in lists."
+    }
+  ]
+},
+  {
+  "title": "Bash / Shell",
+  "items": [
+    { "label": "Current dir", "code": "pwd", "desc": "Print working directory." },
+    { "label": "List files", "code": "ls -la", "desc": "Long list including hidden files." },
+    { "label": "Change dir", "code": "cd path/", "desc": "Move into a directory." },
+    { "label": "Back dir", "code": "cd -", "desc": "Go back to previous directory." },
+    { "label": "Home dir", "code": "cd ~", "desc": "Go to home directory." },
+    { "label": "Make dir", "code": "mkdir newdir", "desc": "Create a directory." },
+    { "label": "Remove dir", "code": "rmdir emptydir", "desc": "Remove empty directory." },
+    { "label": "Remove recursively", "code": "rm -rf folder/", "desc": "Force delete directory recursively." },
+    { "label": "Copy file", "code": "cp file.txt backup.txt", "desc": "Copy a file." },
+    { "label": "Copy dir", "code": "cp -r src/ dest/", "desc": "Copy a directory recursively." },
+    { "label": "Move/Rename", "code": "mv old.txt new.txt", "desc": "Move or rename a file." },
+    { "label": "Touch", "code": "touch file.txt", "desc": "Create an empty file or update timestamp." },
+    { "label": "Show file", "code": "cat file.txt", "desc": "Print file contents." },
+    { "label": "Head", "code": "head -n 10 file.txt", "desc": "Show first 10 lines." },
+    { "label": "Tail", "code": "tail -n 10 file.txt", "desc": "Show last 10 lines." },
+    { "label": "Follow logs", "code": "tail -f app.log", "desc": "Stream log updates." },
+    { "label": "Less", "code": "less file.txt", "desc": "View file with paging." },
+    { "label": "Find by name", "code": "find . -name \"*.js\"", "desc": "Find files by pattern." },
+    { "label": "Search in files", "code": "grep -R \"pattern\" .", "desc": "Recursive text search in files." },
+    { "label": "Case-insensitive grep", "code": "grep -i \"pattern\" file.txt", "desc": "Search ignoring case." },
+    { "label": "Count matches", "code": "grep -c \"pattern\" file.txt", "desc": "Count occurrences." },
+    { "label": "Change mode", "code": "chmod 755 script.sh", "desc": "Set file permissions." },
+    { "label": "Change owner", "code": "chown user:group file.txt", "desc": "Change file owner/group." },
+    { "label": "Executable", "code": "chmod +x script.sh", "desc": "Make script executable." },
+    { "label": "Archive", "code": "tar -czf archive.tgz folder/", "desc": "Create compressed tar archive." },
+    { "label": "Extract tar", "code": "tar -xzf archive.tgz", "desc": "Extract tar archive." },
+    { "label": "Zip", "code": "zip archive.zip file1 file2", "desc": "Create zip archive." },
+    { "label": "Unzip", "code": "unzip archive.zip", "desc": "Extract zip archive." },
+    { "label": "List processes", "code": "ps aux", "desc": "Show all running processes." },
+    { "label": "Search process", "code": "ps aux | grep node", "desc": "Find process by name." },
+    { "label": "Kill by PID", "code": "kill -9 <pid>", "desc": "Force kill process by PID." },
+    { "label": "Background job", "code": "command &", "desc": "Run command in background." },
+    { "label": "Jobs", "code": "jobs", "desc": "List background jobs." },
+    { "label": "Foreground job", "code": "fg %1", "desc": "Bring job 1 to foreground." },
+    { "label": "Ping host", "code": "ping -c 4 google.com", "desc": "Ping host 4 times." },
+    { "label": "Curl GET", "code": "curl https://api.com", "desc": "Fetch API response." },
+    { "label": "Curl POST", "code": "curl -X POST -d \"a=1&b=2\" https://api.com", "desc": "Send POST request." },
+    { "label": "Download file", "code": "wget https://file.com/file.zip", "desc": "Download file from internet." },
+    { "label": "Check ports", "code": "netstat -tulnp", "desc": "List listening ports." },
+    { "label": "Disk usage", "code": "df -h", "desc": "Show mounted disks usage." },
+    { "label": "Dir size", "code": "du -sh folder/", "desc": "Check folder size." },
+    { "label": "Free memory", "code": "free -h", "desc": "Show memory usage." },
+    { "label": "Uptime", "code": "uptime", "desc": "Show system uptime." },
+    { "label": "Whoami", "code": "whoami", "desc": "Show current user." },
+    { "label": "Env vars", "code": "printenv", "desc": "List environment variables." },
+    { "label": "For loop", "code": "for f in *.txt; do echo $f; done", "desc": "Loop through files." },
+    { "label": "If condition", "code": "if [ -f file.txt ]; then echo exists; fi", "desc": "Check if file exists." },
+    { "label": "Variable", "code": "NAME=\"DevNotes\"\necho $NAME", "desc": "Define and print a variable." },
+    { "label": "Read input", "code": "read -p \"Name: \" NAME", "desc": "Prompt user input into variable." }
+  ]
+},
+  {
+  "title": "Docker",
+  "items": [
+    { "label": "Build image", "code": "docker build -t myapp:latest .", "desc": "Build an image from Dockerfile." },
+    { "label": "List images", "code": "docker images", "desc": "Show all local images." },
+    { "label": "Tag image", "code": "docker tag myapp:latest myrepo/myapp:v1", "desc": "Tag an image for repo/version." },
+    { "label": "Remove image", "code": "docker rmi <image>", "desc": "Delete an image." },
+    { "label": "Inspect image", "code": "docker inspect <image>", "desc": "View detailed info of an image." },
+    { "label": "Save image", "code": "docker save -o myapp.tar myapp:latest", "desc": "Save image to tar file." },
+    { "label": "Load image", "code": "docker load -i myapp.tar", "desc": "Load image from tar file." },
+    { "label": "Push image", "code": "docker push myrepo/myapp:v1", "desc": "Upload image to Docker registry." },
+    { "label": "Pull image", "code": "docker pull node:18", "desc": "Download image from Docker Hub." },
+
+    { "label": "Run container", "code": "docker run --rm -p 3000:3000 myapp:latest", "desc": "Run container mapping port 3000." },
+    { "label": "Run detached", "code": "docker run -d --name myapp myapp:latest", "desc": "Run in background with name." },
+    { "label": "Run with volume", "code": "docker run -v $(pwd):/app myapp", "desc": "Mount host directory to container." },
+    { "label": "Run with env", "code": "docker run -e NODE_ENV=production myapp", "desc": "Pass environment variable." },
+    { "label": "Run interactive", "code": "docker run -it ubuntu bash", "desc": "Run interactive terminal." },
+
+    { "label": "List containers", "code": "docker ps -a", "desc": "Show running and stopped containers." },
+    { "label": "Stop container", "code": "docker stop <id>", "desc": "Stop a running container." },
+    { "label": "Start container", "code": "docker start <id>", "desc": "Start a stopped container." },
+    { "label": "Restart container", "code": "docker restart <id>", "desc": "Restart a container." },
+    { "label": "Remove container", "code": "docker rm <id>", "desc": "Delete a stopped container." },
+    { "label": "Inspect container", "code": "docker inspect <id>", "desc": "Detailed container info." },
+    { "label": "Container stats", "code": "docker stats", "desc": "Live CPU/memory/network usage." },
+    { "label": "Container processes", "code": "docker top <id>", "desc": "Show processes inside a container." },
+
+    { "label": "Logs", "code": "docker logs -f <id>", "desc": "Follow container logs." },
+    { "label": "Exec shell", "code": "docker exec -it <id> sh", "desc": "Open shell inside container." },
+    { "label": "Copy to container", "code": "docker cp file.txt <id>:/app/", "desc": "Copy file into container." },
+    { "label": "Copy from container", "code": "docker cp <id>:/app/file.txt ./", "desc": "Copy file out of container." },
+    { "label": "Export container", "code": "docker export <id> > container.tar", "desc": "Export container filesystem." },
+    { "label": "Import container", "code": "docker import container.tar myimage:imported", "desc": "Import as image." },
+
+    { "label": "List volumes", "code": "docker volume ls", "desc": "Show all volumes." },
+    { "label": "Create volume", "code": "docker volume create myvol", "desc": "Make a new volume." },
+    { "label": "Remove volume", "code": "docker volume rm <name>", "desc": "Delete a volume." },
+    { "label": "Prune volumes", "code": "docker volume prune", "desc": "Delete all unused volumes." },
+
+    { "label": "List networks", "code": "docker network ls", "desc": "Show all networks." },
+    { "label": "Create network", "code": "docker network create mynet", "desc": "Make a new network." },
+    { "label": "Remove network", "code": "docker network rm <name>", "desc": "Delete a network." },
+    { "label": "Connect container to net", "code": "docker network connect mynet <id>", "desc": "Attach container to network." },
+    { "label": "Disconnect network", "code": "docker network disconnect mynet <id>", "desc": "Detach container from network." },
+
+    { "label": "System prune", "code": "docker system prune -af", "desc": "Remove unused containers, images, networks." },
+    { "label": "Clean volumes", "code": "docker volume prune", "desc": "Delete unused volumes." },
+    { "label": "Disk usage", "code": "docker system df", "desc": "Show disk usage by Docker." },
+
+    { "label": "Compose Up", "code": "docker-compose up -d", "desc": "Start services in docker-compose.yml." },
+    { "label": "Compose Down", "code": "docker-compose down", "desc": "Stop and remove services." },
+    { "label": "Compose Rebuild", "code": "docker-compose up -d --build", "desc": "Rebuild images & restart services." },
+    { "label": "Compose Logs", "code": "docker-compose logs -f", "desc": "Stream logs from all services." },
+    { "label": "Compose Exec", "code": "docker-compose exec web sh", "desc": "Run command in a service container." },
+    { "label": "Compose Scale", "code": "docker-compose up -d --scale web=3", "desc": "Run multiple instances of a service." },
+    { "label": "Compose Config", "code": "docker-compose config", "desc": "Validate and view full compose config." }
+  ]
+}
+,
+{
+  "title": "MongoDB",
+  "items": [
+    { "label": "Connect Atlas", "code": "mongodb+srv://user:pass@cluster/db?retryWrites=true&w=majority", "desc": "MongoDB Atlas connection string." },
+    { "label": "Connect local shell", "code": "mongosh \"mongodb://localhost:27017\"", "desc": "Connect to local MongoDB instance." },
+
+    { "label": "Show databases", "code": "show dbs", "desc": "List all databases." },
+    { "label": "Use database", "code": "use mydb", "desc": "Switch/create a database." },
+    { "label": "Show collections", "code": "show collections", "desc": "List collections in current DB." },
+
+    { "label": "Insert one", "code": "db.users.insertOne({ name: \"Alice\", age: 25 })", "desc": "Insert a single document." },
+    { "label": "Insert many", "code": "db.users.insertMany([{ name: \"Bob\" }, { name: \"Charlie\" }])", "desc": "Insert multiple documents." },
+
+    { "label": "Find all", "code": "db.users.find()", "desc": "Query all documents." },
+    { "label": "Find with filter", "code": "db.users.find({ active: true })", "desc": "Query documents matching condition." },
+    { "label": "Find one", "code": "db.users.findOne({ email: \"a@b.com\" })", "desc": "Get a single document." },
+    { "label": "Projection", "code": "db.users.find({}, { name: 1, email: 1 })", "desc": "Return only selected fields." },
+
+    { "label": "Update one", "code": "db.users.updateOne({ name: \"Alice\" }, { $set: { age: 30 } })", "desc": "Update first matching document." },
+    { "label": "Update many", "code": "db.users.updateMany({ active: false }, { $set: { active: true } })", "desc": "Update multiple documents." },
+    { "label": "Replace", "code": "db.users.replaceOne({ name: \"Alice\" }, { name: \"Alice\", age: 26 })", "desc": "Replace entire document." },
+
+    { "label": "Delete one", "code": "db.users.deleteOne({ name: \"Alice\" })", "desc": "Delete first matching document." },
+    { "label": "Delete many", "code": "db.users.deleteMany({ active: false })", "desc": "Delete multiple documents." },
+
+    { "label": "Comparison", "code": "db.users.find({ age: { $gt: 18 } })", "desc": "Find users older than 18." },
+    { "label": "Logical", "code": "db.users.find({ $or: [ { role: \"admin\" }, { role: \"editor\" } ] })", "desc": "Use OR conditions." },
+    { "label": "Regex search", "code": "db.users.find({ name: /al/i })", "desc": "Case-insensitive regex match." },
+    { "label": "Array contains", "code": "db.posts.find({ tags: \"js\" })", "desc": "Match documents with a specific array value." },
+    { "label": "Array operator", "code": "db.posts.find({ tags: { $in: [\"js\",\"react\"] } })", "desc": "Match if array contains any of given values." },
+    { "label": "Exists", "code": "db.users.find({ phone: { $exists: true } })", "desc": "Find docs where field exists." },
+    { "label": "Type check", "code": "db.users.find({ age: { $type: \"int\" } })", "desc": "Find docs with specific BSON type." },
+
+    { "label": "Create index", "code": "db.users.createIndex({ email: 1 })", "desc": "Index on email field (ascending)." },
+    { "label": "Unique index", "code": "db.users.createIndex({ email: 1 }, { unique: true })", "desc": "Ensure unique values for email." },
+    { "label": "Compound index", "code": "db.users.createIndex({ lastName: 1, firstName: 1 })", "desc": "Multi-field index." },
+    { "label": "List indexes", "code": "db.users.getIndexes()", "desc": "Show all indexes on collection." },
+    { "label": "Drop index", "code": "db.users.dropIndex(\"email_1\")", "desc": "Remove specific index." },
+
+    { "label": "Count docs", "code": "db.users.countDocuments({ active: true })", "desc": "Count matching documents." },
+    { "label": "Distinct values", "code": "db.users.distinct(\"country\")", "desc": "Get unique field values." },
+
+    { "label": "Aggregation pipeline", "code": "db.orders.aggregate([\n  { $match: { status: \"active\" } },\n  { $group: { _id: \"$customerId\", total: { $sum: \"$amount\" } } }\n])", "desc": "Group and aggregate documents." },
+    { "label": "Sort & limit", "code": "db.users.find().sort({ age: -1 }).limit(5)", "desc": "Sort results and limit output." },
+    { "label": "Skip & limit", "code": "db.users.find().skip(10).limit(5)", "desc": "Pagination with skip/limit." },
+
+    { "label": "Drop collection", "code": "db.users.drop()", "desc": "Delete entire collection." },
+    { "label": "Drop database", "code": "db.dropDatabase()", "desc": "Delete current database." },
+
+    { "label": "Stats", "code": "db.stats()", "desc": "Show database stats." },
+    { "label": "Collection stats", "code": "db.users.stats()", "desc": "Show collection stats." },
+
+    { "label": "Backup database", "code": "mongodump --db=mydb --out=/backup", "desc": "Backup a database." },
+    { "label": "Restore database", "code": "mongorestore --db=mydb /backup/mydb", "desc": "Restore database from backup." },
+    { "label": "Export collection", "code": "mongoexport --db=mydb --collection=users --out=users.json", "desc": "Export collection to JSON/CSV." },
+    { "label": "Import collection", "code": "mongoimport --db=mydb --collection=users --file=users.json --jsonArray", "desc": "Import data from JSON/CSV." }
+  ]
+}
+,
+  {
+    "title": "HTTP Status Codes",
+    "items": [
+      { "label": "200 OK", "code": "200", "desc": "Request succeeded." },
+      { "label": "201 Created", "code": "201", "desc": "Resource successfully created." },
+      { "label": "202 Accepted", "code": "202", "desc": "Request accepted for processing (async)." },
+      { "label": "204 No Content", "code": "204", "desc": "Success with no response body." },
+      { "label": "301 Moved Permanently", "code": "301", "desc": "Resource moved to a new permanent URI." },
+      { "label": "302 Found", "code": "302", "desc": "Temporary redirect." },
+      { "label": "303 See Other", "code": "303", "desc": "Redirect to another URI using GET." },
+      { "label": "304 Not Modified", "code": "304", "desc": "Resource not modified (cached response allowed)." },
+      { "label": "307 Temporary Redirect", "code": "307", "desc": "Redirect, method preserved." },
+      { "label": "308 Permanent Redirect", "code": "308", "desc": "Permanent redirect, method preserved." },
+      { "label": "400 Bad Request", "code": "400", "desc": "Malformed syntax / invalid request." },
+      { "label": "401 Unauthorized", "code": "401", "desc": "Authentication required or failed." },
+      { "label": "403 Forbidden", "code": "403", "desc": "Server understood but refuses request." },
+      { "label": "404 Not Found", "code": "404", "desc": "Resource not found." },
+      { "label": "405 Method Not Allowed", "code": "405", "desc": "HTTP method not supported for resource." },
+      { "label": "408 Request Timeout", "code": "408", "desc": "Client did not send request in time." },
+      { "label": "409 Conflict", "code": "409", "desc": "Request conflicts with resource state." },
+      { "label": "410 Gone", "code": "410", "desc": "Resource permanently removed." },
+      { "label": "418 I’m a Teapot", "code": "418", "desc": "Easter egg from RFC 2324 (HTCPCP)." },
+      { "label": "429 Too Many Requests", "code": "429", "desc": "Rate limit exceeded." },
+      { "label": "500 Internal Server Error", "code": "500", "desc": "Unexpected server error." },
+      { "label": "501 Not Implemented", "code": "501", "desc": "Server does not support request method." },
+      { "label": "502 Bad Gateway", "code": "502", "desc": "Invalid response from upstream server." },
+      { "label": "503 Service Unavailable", "code": "503", "desc": "Server temporarily overloaded or down." },
+      { "label": "504 Gateway Timeout", "code": "504", "desc": "Upstream server failed to respond in time." },
+      {
+        "label": "505 HTTP Version Not Supported",
+        "code": "505",
+        "desc": "Server does not support request HTTP version."
+      }
+    ]
+  },
+  {
+  "title": "Regex Quickies",
+  "items": [
+    { "label": "Digits only", "code": "^\\d+$", "desc": "Match one or more digits." },
+    { "label": "Letters only", "code": "^[A-Za-z]+$", "desc": "Match only alphabets (no digits, no symbols)." },
+    { "label": "Alphanumeric", "code": "^[A-Za-z0-9]+$", "desc": "Match letters and numbers only." },
+    { "label": "Whitespace", "code": "\\s+", "desc": "Match one or more whitespace characters." },
+    { "label": "Non-whitespace", "code": "\\S+", "desc": "Match one or more non-space characters." },
+    { "label": "Word characters", "code": "\\w+", "desc": "Match word characters (letters, digits, underscore)." },
+    { "label": "Non-word characters", "code": "\\W+", "desc": "Match anything except letters, digits, underscore." },
+    { "label": "Any char (dot)", "code": ".", "desc": "Match any single character (except newline)." },
+    { "label": "Start of string", "code": "^pattern", "desc": "Match only if at start of string." },
+    { "label": "End of string", "code": "pattern$", "desc": "Match only if at end of string." },
+
+    { "label": "Email", "code": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "desc": "Basic email format." },
+    { "label": "Username", "code": "^[a-zA-Z0-9._-]{3,16}$", "desc": "3–16 chars, letters, numbers, underscore, dot, dash." },
+    { "label": "Password (strong)", "code": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", "desc": "Min 8 chars, 1 upper, 1 lower, 1 number, 1 special." },
+    { "label": "Phone (US)", "code": "^\\d{3}[- ]?\\d{3}[- ]?\\d{4}$", "desc": "US phone number formats." },
+    { "label": "International Phone", "code": "^\\+?[0-9]{1,4}?[-.\\s]?\\(?[0-9]{1,3}?\\)?[-.\\s]?[0-9]{3,4}[-.\\s]?[0-9]{3,4}$", "desc": "Match international phone numbers." },
+
+    { "label": "IPv4", "code": "^(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$", "desc": "Match IPv4 address." },
+    { "label": "IPv6", "code": "^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", "desc": "Match IPv6 address." },
+    { "label": "MAC Address", "code": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", "desc": "Match MAC address." },
+    { "label": "URL", "code": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_+.~#?&\\/=]*)", "desc": "HTTP/HTTPS URL." },
+
+    { "label": "Hex Color", "code": "^#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", "desc": "Hex color (#fff or #ffffff)." },
+    { "label": "File extension", "code": "^.*\\.(jpg|png|gif|webp)$", "desc": "Match common image file extensions." },
+    { "label": "HTML Tag", "code": "<(\"[^\"]*\"|'[^']*'|[^'\">])*>", "desc": "Match a simple HTML tag." },
+    { "label": "No special chars", "code": "^[A-Za-z0-9 ]*$", "desc": "Allow only letters, numbers, and spaces." },
+
+    { "label": "Date (YYYY-MM-DD)", "code": "^\\d{4}-\\d{2}-\\d{2}$", "desc": "Simple ISO date format." },
+    { "label": "Time (HH:MM 24h)", "code": "^([01]\\d|2[0-3]):([0-5]\\d)$", "desc": "24-hour time format." },
+    { "label": "Date (MM/DD/YYYY)", "code": "^(0[1-9]|1[0-2])[\\/](0[1-9]|[12][0-9]|3[01])[\\/](\\d{4})$", "desc": "US date format." },
+    { "label": "Postal Code (US ZIP)", "code": "^\\d{5}(-\\d{4})?$", "desc": "5-digit or ZIP+4 format." },
+
+    { "label": "Credit Card", "code": "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})$", "desc": "Visa, MasterCard, Amex, Discover." },
+    { "label": "UUID v4", "code": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$", "desc": "Match UUID version 4." },
+
+    { "label": "HTML Comments", "code": "<!--[\\s\\S]*?-->", "desc": "Match HTML comments." },
+    { "label": "JSON Key", "code": "\"[a-zA-Z0-9_]+\"\\s*:", "desc": "Match a simple JSON key." },
+    { "label": "JavaScript Variable", "code": "\\b(var|let|const)\\s+[a-zA-Z_$][a-zA-Z0-9_$]*", "desc": "Match JS variable declaration." },
+    { "label": "CSS Property", "code": "[a-z-]+\\s*:\\s*[^;]+;", "desc": "Match CSS property/value pairs." },
+
+    { "label": "Lookahead (positive)", "code": "\\d(?=px)", "desc": "Match digit only if followed by 'px'." },
+    { "label": "Lookahead (negative)", "code": "foo(?!bar)", "desc": "Match 'foo' not followed by 'bar'." },
+    { "label": "Lookbehind (positive)", "code": "(?<=\\$)\\d+", "desc": "Match number preceded by $." },
+    { "label": "Lookbehind (negative)", "code": "(?<!USD)\\d+", "desc": "Match number not preceded by USD." }
+  ]
+},
+  {
+  "title": "JavaScript",
+  "items": [
+    { "label": "Declare variables", "code": "const x = 1; let y = 2; var z = 3;", "desc": "Block vs function scope." },
+    { "label": "Types", "code": "typeof 123 // 'number'\ntypeof 'hi' // 'string'\ntypeof true // 'boolean'\nArray.isArray([]) // true", "desc": "Check data types." },
+    { "label": "Operators", "code": "== vs ===, != vs !==, &&, ||, ??, ?", "desc": "Equality, logical, nullish." },
+    { "label": "Template strings", "code": "const msg = `Hi ${name}!`", "desc": "String interpolation." },
+
+    { "label": "Arrow function", "code": "const add = (a,b)=>a+b;", "desc": "Concise function syntax." },
+    { "label": "Default params", "code": "function greet(n='Guest'){return 'Hi '+n}", "desc": "Default arguments." },
+    { "label": "Rest params", "code": "function sum(...nums){return nums.reduce((a,b)=>a+b)}", "desc": "Gather args array." },
+    { "label": "Spread", "code": "const arr2=[...arr1,4,5]", "desc": "Expand arrays/objects." },
+    { "label": "Destructuring", "code": "const {id,email}=user; const [a,b]=[1,2]", "desc": "Extract props/elements." },
+
+    { "label": "Object shorthand", "code": "const user={name,age}", "desc": "Shorthand properties." },
+    { "label": "Optional chaining", "code": "user?.profile?.email ?? 'N/A'", "desc": "Safe access + fallback." },
+
+    { "label": "Closure", "code": "function outer(){let c=0;return()=>++c}", "desc": "Function remembers scope." },
+    { "label": "This keyword", "code": "obj.method=function(){return this}", "desc": "`this` depends on call site." },
+    { "label": "Bind/Call/Apply", "code": "fn.call(ctx,a); fn.apply(ctx,[a]); fn.bind(ctx)", "desc": "Set `this` manually." },
+
+    { "label": "Prototype", "code": "obj.__proto__", "desc": "Objects inherit via prototype." },
+    { "label": "Class", "code": "class User{constructor(n){this.n=n}}", "desc": "ES6 class syntax." },
+    { "label": "Extends", "code": "class Admin extends User{}", "desc": "Inheritance in classes." },
+    { "label": "Static", "code": "class X{static hi(){return 'hi'}}", "desc": "Static methods." },
+    { "label": "Getter/Setter", "code": "get name(){...} set name(v){...}", "desc": "Property accessors." },
+
+    { "label": "Symbol", "code": "const id=Symbol('id')", "desc": "Unique hidden keys." },
+    { "label": "Iterator", "code": "for(const v of arr){...}", "desc": "Iterable protocol." },
+    { "label": "Generator", "code": "function* gen(){yield 1;yield 2}", "desc": "Pause/resume functions." },
+
+    { "label": "Map/Set", "code": "new Map([['a',1]]); new Set([1,2])", "desc": "Key-value & unique values." },
+    { "label": "WeakMap/WeakSet", "code": "new WeakMap(); new WeakSet()", "desc": "GC-safe collections." },
+
+    { "label": "String methods", "code": "'hi'.toUpperCase(); 'x,y'.split(',')", "desc": "Common string utils." },
+    { "label": "Number methods", "code": "Number.isNaN(NaN); (42).toFixed(2)", "desc": "Number utilities." },
+    { "label": "Date", "code": "new Date().toISOString()", "desc": "Work with dates." },
+    { "label": "Intl", "code": "new Intl.DateTimeFormat('en').format(new Date())", "desc": "Internationalization." },
+
+    { "label": "Error", "code": "try{ risky() }catch(e){console.error(e)}", "desc": "Error handling." },
+    { "label": "Custom Error", "code": "class MyErr extends Error{}", "desc": "Custom error classes." },
+
+    { "label": "Promise", "code": "new Promise((res,rej)=>res('ok'))", "desc": "Async computation." },
+    { "label": "Async/Await", "code": "const d=await fetch(url).then(r=>r.json())", "desc": "Simplify async code." },
+    { "label": "Promise.all", "code": "await Promise.all([p1,p2])", "desc": "Parallel promises." },
+    { "label": "Promise.race", "code": "await Promise.race([p1,p2])", "desc": "First settled wins." },
+    { "label": "Promise.allSettled", "code": "await Promise.allSettled([p1,p2])", "desc": "Wait all settled." },
+    { "label": "Event loop", "code": "setTimeout(()=>console.log('tick'))", "desc": "JS concurrency model." },
+    { "label": "AbortController", "code": "const c=new AbortController(); fetch(url,{signal:c.signal})", "desc": "Cancel fetch." },
+
+    { "label": "JSON", "code": "JSON.parse(str); JSON.stringify(obj)", "desc": "Data conversion." },
+    { "label": "LocalStorage", "code": "localStorage.setItem('k','v')", "desc": "Persistent storage." },
+    { "label": "SessionStorage", "code": "sessionStorage.getItem('k')", "desc": "Session-only storage." },
+    { "label": "Clipboard", "code": "await navigator.clipboard.writeText('hi')", "desc": "Copy to clipboard." },
+    { "label": "Notification API", "code": "new Notification('Hi')", "desc": "Show desktop notification." },
+    { "label": "WebSocket", "code": "new WebSocket('ws://')", "desc": "Real-time connection." },
+    { "label": "Worker", "code": "new Worker('worker.js')", "desc": "Run background tasks." },
+
+    { "label": "Select element", "code": "document.querySelector('#id')", "desc": "Find DOM node." },
+    { "label": "Event listener", "code": "el.addEventListener('click',fn)", "desc": "Attach handler." },
+    { "label": "Modify DOM", "code": "el.textContent='Hi'", "desc": "Change content." },
+    { "label": "Create element", "code": "document.createElement('div')", "desc": "New DOM node." },
+
+    { "label": "Import/Export", "code": "export default x; import x from './x.js'", "desc": "Modules." },
+    { "label": "Named export", "code": "export const a=1; import {a} from './x.js'", "desc": "Import by name." },
+    { "label": "Dynamic import", "code": "const mod=await import('./x.js')", "desc": "Load at runtime." },
+
+    { "label": "Nullish coalescing", "code": "a ?? 'default'", "desc": "Fallback only if null/undefined." },
+    { "label": "BigInt", "code": "const big=123n", "desc": "Large integers." },
+    { "label": "Private fields", "code": "class X{#p=1; getP(){return this.#p}}", "desc": "Encapsulation in classes." },
+    { "label": "Top-level await", "code": "const d=await fetch('/api')", "desc": "Await outside functions." }
+  ]
+},
+  {
+  "title": "TypeScript",
+  "items": [
+    { "label": "Type alias", "code": "type User = { id: number; name: string }", "desc": "Custom type." },
+    { "label": "Interface", "code": "interface Point { x: number; y: number }", "desc": "Shape for objects." },
+    { "label": "Extending interfaces", "code": "interface A { x: number }\ninterface B extends A { y: number }", "desc": "Interface inheritance." },
+
+    { "label": "Union", "code": "let id: string | number", "desc": "Variable with multiple types." },
+    { "label": "Intersection", "code": "type A = {x:number}; type B = {y:number}; type C = A & B;", "desc": "Combine types." },
+    { "label": "Literal types", "code": "let status: \"success\" | \"error\"", "desc": "Restrict to fixed values." },
+    { "label": "Tuple", "code": "let pair: [string, number] = [\"age\", 30]", "desc": "Fixed length array." },
+    { "label": "Readonly", "code": "type ReadonlyUser = Readonly<User>", "desc": "Make props immutable." },
+
+    { "label": "Function type", "code": "type Fn = (a: number, b: number) => number", "desc": "Function signature." },
+    { "label": "Arrow func", "code": "const add = (a: number, b: number): number => a + b", "desc": "Arrow function with types." },
+    { "label": "Optional param", "code": "function log(msg?: string){ console.log(msg) }", "desc": "Optional arguments." },
+    { "label": "Default param", "code": "function greet(name = \"Guest\"){ return \"Hi \" + name }", "desc": "Default values." },
+    { "label": "Rest param", "code": "function sum(...nums: number[]){ return nums.reduce((a,b)=>a+b,0) }", "desc": "Variable args." },
+    { "label": "Overloads", "code": "function len(x: string): number;\nfunction len(x: any[]): number;\nfunction len(x: any) { return x.length }", "desc": "Multiple call signatures." },
+
+    { "label": "Generic function", "code": "function wrap<T>(value: T): T { return value }", "desc": "Basic generic." },
+    { "label": "Generic constraint", "code": "function logLen<T extends { length: number }>(x: T){ console.log(x.length) }", "desc": "Restrict type param." },
+    { "label": "Generic interface", "code": "interface Box<T> { value: T }", "desc": "Generic type containers." },
+    { "label": "Generic class", "code": "class Store<T> { constructor(public item:T){} }", "desc": "Reusable classes." },
+
+    { "label": "Class basic", "code": "class User { constructor(public id:number, public name:string){} }", "desc": "Shorthand for fields." },
+    { "label": "Inheritance", "code": "class Admin extends User { role=\"admin\" }", "desc": "Subclass with extends." },
+    { "label": "Abstract", "code": "abstract class Shape { abstract area(): number }", "desc": "Base class with abstract methods." },
+    { "label": "Implements", "code": "class Dog implements Animal { bark(){ return \"woof\" } }", "desc": "Class enforces interface." },
+    { "label": "Readonly prop", "code": "class Config { readonly url=\"...\" }", "desc": "Immutable property." },
+    { "label": "Private field", "code": "class Counter { #count=0; inc(){ this.#count++ } }", "desc": "True private field." },
+
+    { "label": "Type narrowing", "code": "if (typeof id === \"string\") { /* ... */ }", "desc": "Refine union." },
+    { "label": "Custom type guard", "code": "function isString(x: unknown): x is string { return typeof x === 'string' }", "desc": "User-defined narrowing." },
+
+    { "label": "Keyof", "code": "type Keys = keyof User", "desc": "Union of keys of a type." },
+    { "label": "Indexed access", "code": "type IdType = User[\"id\"]", "desc": "Type of a property." },
+    { "label": "Mapped type", "code": "type PartialUser = { [K in keyof User]?: User[K] }", "desc": "Transform properties." },
+    { "label": "Conditional type", "code": "type IsString<T> = T extends string ? true : false", "desc": "Type logic." },
+    { "label": "Infer keyword", "code": "type Return<T> = T extends (...args:any)=>infer R ? R : never", "desc": "Extract return type." },
+
+    { "label": "Utility types", "code": "Partial<T>, Required<T>, Pick<T,K>, Omit<T,K>, Record<K,T>, Exclude<T,U>, Extract<T,U>", "desc": "Built-in helpers." },
+
+    { "label": "Import/Export", "code": "export function foo(){}\nimport { foo } from \"./lib\"", "desc": "ES modules with TS." },
+    { "label": "Default export", "code": "export default class Service {}", "desc": "Single default export." },
+
+    { "label": "Numeric enum", "code": "enum Direction { Up=1, Down, Left, Right }", "desc": "Auto-incremented numbers." },
+    { "label": "String enum", "code": "enum Role { Admin=\"admin\", User=\"user\" }", "desc": "Fixed string values." },
+    { "label": "Const enum", "code": "const enum Flag { Yes, No }", "desc": "Removed at compile time." },
+
+    { "label": "Class decorator", "code": "function logClass(constructor: Function) { console.log(constructor.name) }", "desc": "Applied to class." },
+    { "label": "Property decorator", "code": "function readonly(target:any, key:string){ Object.defineProperty(target,key,{writable:false}) }", "desc": "Applied to fields." },
+    { "label": "Method decorator", "code": "function log(target:any, key:string, desc:PropertyDescriptor){...}", "desc": "Applied to methods." },
+
+    { "label": "Namespaces", "code": "namespace Utils { export function hi(){ return \"hi\" } }", "desc": "Legacy scoping (avoid in modern TS)." },
+    { "label": "Type assertion", "code": "let el = document.getElementById(\"id\") as HTMLDivElement", "desc": "Tell compiler specific type." },
+    { "label": "Non-null assertion", "code": "let len = value!.length", "desc": "Skip null/undefined check." },
+
+    { "label": "Unknown vs any", "code": "let x: unknown; if (typeof x===\"string\") x.toUpperCase()", "desc": "Safer than any." },
+    { "label": "Never type", "code": "function fail(msg:string): never { throw new Error(msg) }", "desc": "Functions that don’t return." },
+    { "label": "Void type", "code": "function log(msg:string): void { console.log(msg) }", "desc": "No return value." },
+
+    { "label": "TS Config basics", "code": "{ \"compilerOptions\": { \"strict\": true, \"target\": \"esnext\", \"module\": \"commonjs\" } }", "desc": "Basic tsconfig.json." },
+    { "label": "ts-node", "code": "npx ts-node index.ts", "desc": "Run TS directly." },
+    { "label": "tsc", "code": "npx tsc --noEmit", "desc": "Check types without output." }
+  ]
+}
+,
+  {
+    "title": "Python",
+    "items": [
+      { "label": "Print", "code": "print(\"Hello, World!\")", "desc": "Output text." },
+      { "label": "Comments", "code": "# single line\n\"\"\" multi-line \"\" \"", "desc": "Comment syntax." },
+      { "label": "Variables", "code": "x = 10\ny = \"hi\"", "desc": "Dynamic typing." },
+      { "label": "f-string", "code": "name = \"Bob\"\nprint(f\"Hi {name}\")", "desc": "String interpolation." },
+      { "label": "Type hints", "code": "def add(a: int, b: int) -> int:\n    return a+b", "desc": "Optional typing." },
+      { "label": "List", "code": "nums = [1,2,3]", "desc": "Ordered collection." },
+      { "label": "Tuple", "code": "point = (10, 20)", "desc": "Immutable sequence." },
+      { "label": "Set", "code": "{1,2,3}", "desc": "Unique unordered collection." },
+      { "label": "Dict", "code": "{\"a\":1, \"b\":2}", "desc": "Key-value mapping." },
+      { "label": "List comp", "code": "[x*2 for x in range(5)]", "desc": "Comprehension shorthand." },
+      { "label": "Dict comp", "code": "{x:x**2 for x in range(5)}", "desc": "Dictionary comprehension." },
+      { "label": "Function", "code": "def add(a,b): return a+b", "desc": "Define function." },
+      {
+        "label": "Default param",
+        "code": "def greet(name=\"Guest\"): return f\"Hi {name}\"",
+        "desc": "Function with defaults."
+      },
+      { "label": "Args & kwargs", "code": "def fn(*args, **kwargs): pass", "desc": "Variable arguments." },
+      { "label": "Lambda", "code": "square = lambda x: x*x", "desc": "Anonymous function." },
+      {
+        "label": "Decorator",
+        "code": "def deco(fn):\n  def wrap(): print(\"hi\"); fn()\n  return wrap",
+        "desc": "Function wrapper."
+      },
+      { "label": "Generator", "code": "def gen():\n  yield 1\n  yield 2", "desc": "Lazy sequence with yield." },
+      { "label": "If/else", "code": "if x>0: print(\"pos\")\nelse: print(\"neg\")", "desc": "Conditional." },
+      { "label": "For loop", "code": "for i in range(5): print(i)", "desc": "Iteration." },
+      { "label": "While loop", "code": "while n>0: n-=1", "desc": "Loop until false." },
+      {
+        "label": "Match",
+        "code": "match status:\n case 200: print(\"ok\")\n case _: print(\"err\")",
+        "desc": "Structural pattern matching (3.10+)."
+      },
+      { "label": "Class", "code": "class User:\n def __init__(self,name): self.name=name", "desc": "Basic class." },
+      { "label": "Inheritance", "code": "class Admin(User): pass", "desc": "Subclassing." },
+      {
+        "label": "Static method",
+        "code": "class Math:\n @staticmethod\n def add(a,b): return a+b",
+        "desc": "Method without self."
+      },
+      {
+        "label": "Class method",
+        "code": "class C:\n @classmethod\n def make(cls): return cls()",
+        "desc": "Bound to class not instance."
+      },
+      {
+        "label": "Property",
+        "code": "class Person:\n @property\n def age(self): return 42",
+        "desc": "Computed attribute."
+      },
+      {
+        "label": "Dataclass",
+        "code": "from dataclasses import dataclass\n@dataclass\nclass Point: x:int; y:int",
+        "desc": "Auto-generated init/eq/repr."
+      },
+      {
+        "label": "Try/except",
+        "code": "try: 1/0\nexcept ZeroDivisionError: print(\"err\")",
+        "desc": "Catch exception."
+      },
+      { "label": "Raise", "code": "raise ValueError(\"bad\")", "desc": "Throw exception." },
+      { "label": "Finally", "code": "try: f=open(\"x\")\nfinally: f.close()", "desc": "Cleanup block." },
+      { "label": "Import", "code": "import math\nfrom os import path", "desc": "Import libraries." },
+      {
+        "label": "Virtual env",
+        "code": "python -m venv .venv && source .venv/bin/activate",
+        "desc": "Isolated environment."
+      },
+      { "label": "Pip install", "code": "pip install requests", "desc": "Install package." },
+      { "label": "Requirements", "code": "pip freeze > requirements.txt", "desc": "Save dependencies." },
+      { "label": "Read file", "code": "with open(\"file.txt\") as f:\n data=f.read()", "desc": "Read safely." },
+      {
+        "label": "Write file",
+        "code": "with open(\"out.txt\",\"w\") as f:\n f.write(\"hello\")",
+        "desc": "Write to file."
+      },
+      { "label": "CSV", "code": "import csv\nwith open(\"f.csv\") as f:\n csv.reader(f)", "desc": "Read CSV." },
+      { "label": "JSON", "code": "import json\njson.loads('{\"a\":1}')", "desc": "Work with JSON." },
+      {
+        "label": "Enumerate",
+        "code": "for i,val in enumerate([\"a\",\"b\"]): print(i,val)",
+        "desc": "Index + value loop."
+      },
+      { "label": "Zip", "code": "for a,b in zip([1,2],[3,4]): print(a,b)", "desc": "Combine iterables." },
+      {
+        "label": "Map/filter",
+        "code": "list(map(str,[1,2]))\nlist(filter(bool,[0,1,2]))",
+        "desc": "Functional helpers."
+      },
+      { "label": "Any/all", "code": "any([0,1])\nall([1,1])", "desc": "Boolean reductions." },
+      { "label": "Async func", "code": "async def main(): await asyncio.sleep(1)", "desc": "Define coroutine." },
+      { "label": "Run async", "code": "import asyncio\nasyncio.run(main())", "desc": "Run event loop." },
+      { "label": "Union types", "code": "from typing import Union\nx: Union[int,str] = 5", "desc": "Multiple types." },
+      { "label": "Optional", "code": "from typing import Optional\nx: Optional[int] = None", "desc": "May be None." },
+      {
+        "label": "Generic",
+        "code": "from typing import TypeVar, Generic\nT = TypeVar(\"T\")\nclass Box(Generic[T]): ...",
+        "desc": "Generic classes."
+      }
+    ]
+  },
+  {
+    "title": "Rust",
+    "items": [
+      { "label": "Hello", "code": "fn main() {\n    println!(\"Hello\");\n}", "desc": "Basic program." },
+      {
+        "label": "Variables",
+        "code": "let x = 5;\nlet mut y = 10;\ny += 1;",
+        "desc": "Immutable and mutable variables."
+      },
+      { "label": "Constants", "code": "const PI: f64 = 3.1415;", "desc": "Compile-time constant." },
+      {
+        "label": "If/else",
+        "code": "if x > 0 {\n    println!(\"pos\");\n} else {\n    println!(\"neg\");\n}",
+        "desc": "Conditional branch."
+      },
+      { "label": "Loop", "code": "for i in 0..5 {\n    println!(\"{}\", i);\n}", "desc": "Range-based for loop." },
+      { "label": "While loop", "code": "let mut n = 0;\nwhile n < 5 {\n    n += 1;\n}", "desc": "While loop." },
+      { "label": "Vec", "code": "let mut v = vec![1, 2, 3];\nv.push(4);", "desc": "Growable vector." },
+      { "label": "Array", "code": "let a = [1,2,3];", "desc": "Fixed-size array." },
+      { "label": "Tuple", "code": "let t = (1, \"hello\");", "desc": "Fixed-size heterogeneous collection." },
+      {
+        "label": "HashMap",
+        "code": "use std::collections::HashMap;\nlet mut map = HashMap::new();\nmap.insert(\"a\", 1);",
+        "desc": "Key-value collection."
+      },
+      { "label": "Function", "code": "fn add(a: i32, b: i32) -> i32 { a + b }", "desc": "Function with return type." },
+      { "label": "Multiple return", "code": "fn swap(a:i32,b:i32)->(i32,i32){(b,a)}", "desc": "Return tuple." },
+      { "label": "Closure", "code": "let square = |x:i32| x*x;\nlet y = square(5);", "desc": "Anonymous function." },
+      {
+        "label": "Ownership",
+        "code": "let s = String::from(\"hello\");\nlet s2 = s; // s moved",
+        "desc": "Move semantics."
+      },
+      {
+        "label": "Borrow",
+        "code": "fn len(s: &String) -> usize { s.len() }\nlet l = len(&s);",
+        "desc": "Pass by reference."
+      },
+      {
+        "label": "Mutable borrow",
+        "code": "fn add_one(s: &mut i32) { *s += 1 }\nlet mut n=5;\nadd_one(&mut n);",
+        "desc": "Modify via mutable reference."
+      },
+      { "label": "Result", "code": "fn do_it() -> Result<(), Box<dyn Error>> { Ok(()) }", "desc": "Error handling." },
+      { "label": "Option", "code": "let maybe: Option<i32> = Some(5);", "desc": "Optional value." },
+      {
+        "label": "Option match",
+        "code": "match maybe {\n  Some(x) => x,\n  None => 0\n}",
+        "desc": "Pattern match optional."
+      },
+      {
+        "label": "unwrap / expect",
+        "code": "let x = maybe.unwrap_or(0);\nlet y = maybe.expect(\"Must have value\");",
+        "desc": "Handle Option safely."
+      },
+      {
+        "label": "Struct",
+        "code": "struct User { id: i32, name: String }\nlet u = User { id:1, name:\"Alice\".to_string() };",
+        "desc": "Define struct and instance."
+      },
+      {
+        "label": "Tuple struct",
+        "code": "struct Color(i32,i32,i32);\nlet c = Color(255,0,0);",
+        "desc": "Struct with unnamed fields."
+      },
+      {
+        "label": "Enum",
+        "code": "enum Direction { Up, Down, Left, Right }\nlet dir = Direction::Up;",
+        "desc": "Define enum."
+      },
+      { "label": "Enum with data", "code": "enum Shape { Circle(f64), Rect(f64,f64) }", "desc": "Enum carrying data." },
+      { "label": "Trait", "code": "trait Speak { fn speak(&self); }", "desc": "Define trait." },
+      {
+        "label": "Implement trait",
+        "code": "impl Speak for User {\n  fn speak(&self){ println!(\"{}\", self.name) }\n}",
+        "desc": "Implement trait for struct."
+      },
+      { "label": "Generic function", "code": "fn wrap<T>(x:T)->T { x }", "desc": "Generic type parameter." },
+      { "label": "Generic struct", "code": "struct Box<T> { value: T }", "desc": "Generic struct." },
+      { "label": "Thread", "code": "use std::thread;\nthread::spawn(|| println!(\"Hi\"));", "desc": "Spawn thread." },
+      {
+        "label": "Channel",
+        "code": "use std::sync::mpsc;\nlet (tx, rx) = mpsc::channel();\ntx.send(42).unwrap();\nlet val = rx.recv().unwrap();",
+        "desc": "Send/receive between threads."
+      },
+      {
+        "label": "Module",
+        "code": "mod utils { pub fn greet(){ println!(\"Hi\") } }\nutils::greet();",
+        "desc": "Define module and call."
+      },
+      { "label": "Crate", "code": "use serde::Serialize;", "desc": "External package (add to Cargo.toml)." },
+      {
+        "label": "Read file",
+        "code": "use std::fs;\nlet data = fs::read_to_string(\"file.txt\")?;",
+        "desc": "Read file as string."
+      },
+      { "label": "Write file", "code": "fs::write(\"out.txt\",\"hello\")?;", "desc": "Write string to file." }
+    ]
+  },
+  {
+    "title": "SQL",
+    "items": [
+      {
+        "label": "Create table",
+        "code": "CREATE TABLE users (\n  id SERIAL PRIMARY KEY,\n  email TEXT UNIQUE NOT NULL,\n  name TEXT,\n  active BOOLEAN DEFAULT true\n);",
+        "desc": "Create a table with constraints."
+      },
+      { "label": "Drop table", "code": "DROP TABLE IF EXISTS users;", "desc": "Remove table if exists." },
+      {
+        "label": "Alter table",
+        "code": "ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT NOW();",
+        "desc": "Modify table schema."
+      },
+      {
+        "label": "Create index",
+        "code": "CREATE INDEX idx_users_email ON users(email);",
+        "desc": "Speed up queries on column."
+      },
+      {
+        "label": "Insert",
+        "code": "INSERT INTO users (email, active, name) VALUES ('a@b.com', true, 'Alice');",
+        "desc": "Add a row."
+      },
+      {
+        "label": "Update",
+        "code": "UPDATE users SET active = false WHERE email = 'a@b.com';",
+        "desc": "Modify existing rows."
+      },
+      { "label": "Delete", "code": "DELETE FROM users WHERE active = false;", "desc": "Remove rows." },
+      {
+        "label": "Select",
+        "code": "SELECT id, email, name FROM users WHERE active = true ORDER BY id DESC LIMIT 10;",
+        "desc": "Retrieve filtered and sorted rows."
+      },
+      { "label": "Select all", "code": "SELECT * FROM users;", "desc": "Get all columns." },
+      { "label": "Distinct", "code": "SELECT DISTINCT active FROM users;", "desc": "Get unique values." },
+      {
+        "label": "Where clause",
+        "code": "SELECT * FROM users WHERE name LIKE 'A%';",
+        "desc": "Filter rows using condition."
+      },
+      {
+        "label": "Join",
+        "code": "SELECT u.id, u.name, o.amount FROM users u INNER JOIN orders o ON u.id = o.user_id;",
+        "desc": "Combine tables using JOIN."
+      },
+      {
+        "label": "Left join",
+        "code": "SELECT u.id, o.amount FROM users u LEFT JOIN orders o ON u.id = o.user_id;",
+        "desc": "Include all left table rows."
+      },
+      { "label": "Count", "code": "SELECT COUNT(*) FROM users WHERE active = true;", "desc": "Count matching rows." },
+      { "label": "Sum", "code": "SELECT SUM(amount) FROM orders;", "desc": "Sum column values." },
+      { "label": "Avg", "code": "SELECT AVG(amount) FROM orders;", "desc": "Average value." },
+      {
+        "label": "Group by",
+        "code": "SELECT active, COUNT(*) FROM users GROUP BY active;",
+        "desc": "Aggregate per group."
+      },
+      {
+        "label": "Having",
+        "code": "SELECT active, COUNT(*) FROM users GROUP BY active HAVING COUNT(*) > 5;",
+        "desc": "Filter aggregated results."
+      },
+      { "label": "Begin transaction", "code": "BEGIN;", "desc": "Start a transaction." },
+      { "label": "Commit", "code": "COMMIT;", "desc": "Save transaction changes." },
+      { "label": "Rollback", "code": "ROLLBACK;", "desc": "Undo transaction changes." },
+      {
+        "label": "Create view",
+        "code": "CREATE VIEW active_users AS SELECT * FROM users WHERE active = true;",
+        "desc": "Virtual table for query reuse."
+      },
+      { "label": "Drop view", "code": "DROP VIEW IF EXISTS active_users;", "desc": "Remove view if exists." },
+      {
+        "label": "Limit / Offset",
+        "code": "SELECT * FROM users ORDER BY id LIMIT 10 OFFSET 20;",
+        "desc": "Pagination."
+      }
+    ]
+  },
+  {
+    "title": "Web & Frontend",
+    "items": [
+      {
+        "label": "TypeScript basics",
+        "code": "type User = { id: number; name: string }\ninterface Point { x: number; y: number }\nfunction id<T>(x: T): T { return x }",
+        "desc": "Types, interfaces, generics."
+      },
+      {
+        "label": "Arrow functions",
+        "code": "const add = (a: number, b: number) => a + b;",
+        "desc": "Concise function syntax."
+      },
+      {
+        "label": "Optional chaining",
+        "code": "const email = user?.profile?.email ?? \"N/A\";",
+        "desc": "Safe property access."
+      },
+      {
+        "label": "Array map/filter/reduce",
+        "code": "[1,2,3].map(n => n*2).filter(n => n>2).reduce((a,b)=>a+b,0);",
+        "desc": "Common array operations."
+      },
+      {
+        "label": "HTML5 semantics",
+        "code": "<header>...</header>\n<nav>...</nav>\n<main>\n  <section>...</section>\n  <article>...</article>\n</main>\n<footer>...</footer>",
+        "desc": "Use semantic tags for structure & accessibility."
+      },
+      {
+        "label": "Forms",
+        "code": "<form>\n  <input type=\"text\" name=\"name\" required />\n  <button type=\"submit\">Submit</button>\n</form>",
+        "desc": "Form with validation."
+      },
+      { "label": "Meta / SEO", "code": "<meta name=\"description\" content=\"Dev notes\" />", "desc": "SEO metadata." },
+      {
+        "label": "CSS Grid",
+        "code": ".grid-container{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}",
+        "desc": "Create responsive grid layout."
+      },
+      {
+        "label": "CSS Flexbox",
+        "code": ".flex-row{display:flex;align-items:center;justify-content:space-between;}",
+        "desc": "Align and distribute items."
+      },
+      {
+        "label": "Responsive media query",
+        "code": "@media (max-width: 768px) { .container { grid-template-columns: 1fr; } }",
+        "desc": "Adapt layout for smaller screens."
+      },
+      {
+        "label": "Tailwind quickies",
+        "code": "Flex center: flex items-center justify-center\nGrid: grid grid-cols-12 gap-4\nBtn: px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white",
+        "desc": "Common utility patterns."
+      },
+      {
+        "label": "React component",
+        "code": "function Hello(){ return <h1>Hello</h1>; }",
+        "desc": "Functional component."
+      },
+      {
+        "label": "React state",
+        "code": "const [count,setCount] = useState(0);",
+        "desc": "Use state in function component."
+      },
+      {
+        "label": "React effect",
+        "code": "useEffect(() => { console.log(\"mounted\") }, []);",
+        "desc": "Run side effect on mount."
+      },
+      {
+        "label": "Next.js page",
+        "code": "export default function Home(){ return <div>Home</div> }",
+        "desc": "Basic Next.js page."
+      },
+      {
+        "label": "Next.js getStaticProps",
+        "code": "export async function getStaticProps(){ return { props: { data: [] } } }",
+        "desc": "Fetch data at build time."
+      },
+      {
+        "label": "Event listener",
+        "code": "document.getElementById(\"btn\")?.addEventListener(\"click\", e => { console.log(\"clicked\"); });",
+        "desc": "Attach click event."
+      },
+      { "label": "DOM query", "code": "const el = document.querySelector(\".class\");", "desc": "Select element." },
+      {
+        "label": "Create element",
+        "code": "const div = document.createElement(\"div\"); div.textContent = \"Hello\"; document.body.appendChild(div);",
+        "desc": "Dynamically create elements."
+      },
+      {
+        "label": "LocalStorage",
+        "code": "localStorage.setItem(\"key\",\"value\"); const val = localStorage.getItem(\"key\");",
+        "desc": "Browser persistent storage."
+      },
+      {
+        "label": "SessionStorage",
+        "code": "sessionStorage.setItem(\"key\",\"value\");",
+        "desc": "Temporary browser storage."
+      },
+      { "label": "Cookies", "code": "document.cookie = \"name=John; path=/; max-age=3600\";", "desc": "Set cookie." }
+    ]
+  },
+  {
+    "title": "Backend & APIs",
+    "items": [
+      {
+        "label": "Go HTTP",
+        "code": "package main\nimport (\n  \"fmt\"\n  \"net/http\"\n)\nfunc main() {\n  http.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request){\n    fmt.Fprintln(w, \"ok\")\n  })\n  http.ListenAndServe(\":8080\", nil)\n}",
+        "desc": "Minimal net/http server."
+      },
+      {
+        "label": "Go JSON API",
+        "code": "http.HandleFunc(\"/api\", func(w http.ResponseWriter, r *http.Request){\n  w.Header().Set(\"Content-Type\",\"application/json\")\n  fmt.Fprintln(w, `{\"status\":\"ok\"}`)\n})",
+        "desc": "Return JSON response."
+      },
+      { "label": "Go query params", "code": "id := r.URL.Query().Get(\"id\")", "desc": "Read GET parameters." },
+      {
+        "label": "Rust axum",
+        "code": "use axum::{routing::get, Router};\n#[tokio::main]\nasync fn main(){\n  let app = Router::new().route(\"/\", get(|| async { \"ok\" }));\n  axum::Server::bind(&\"0.0.0.0:3000\".parse().unwrap()).serve(app.into_make_service()).await.unwrap();\n}",
+        "desc": "Tiny async web server."
+      },
+      {
+        "label": "Rust JSON response",
+        "code": "use axum::Json;\nasync fn handler() -> Json<serde_json::Value> {\n  Json(serde_json::json!({\"status\":\"ok\"}))\n}",
+        "desc": "Return JSON from handler."
+      },
+      {
+        "label": "Express basic",
+        "code": "const express = require(\"express\");\nconst app = express();\napp.get(\"/\", (req,res)=>res.send(\"ok\"));\napp.listen(3000);",
+        "desc": "Minimal Express server."
+      },
+      {
+        "label": "Express JSON",
+        "code": "app.get(\"/api\", (req,res)=>res.json({status:\"ok\"}));",
+        "desc": "Return JSON from endpoint."
+      },
+      {
+        "label": "PHP JSON",
+        "code": "<?php\nheader(\"Content-Type: application/json\");\necho json_encode([\"status\" => \"ok\"]);",
+        "desc": "Return JSON response."
+      },
+      { "label": "PHP GET param", "code": "<?php\n$id = $_GET[\"id\"] ?? null;", "desc": "Read query parameter." },
+      { "label": "Ruby Sinatra", "code": "require \"sinatra\"\nget(\"/\") { \"ok\" }", "desc": "Tiny web route." },
+      {
+        "label": "Sinatra JSON",
+        "code": "get(\"/api\") { content_type :json; {status:\"ok\"}.to_json }",
+        "desc": "Return JSON from route."
+      },
+      {
+        "label": "Flask basic",
+        "code": "from flask import Flask\napp = Flask(__name__)\n@app.route(\"/\")\ndef home(): return \"ok\"\napp.run(port=5000)",
+        "desc": "Minimal Flask server."
+      },
+      {
+        "label": "Flask JSON",
+        "code": "from flask import jsonify\n@app.route(\"/api\")\ndef api(): return jsonify(status=\"ok\")",
+        "desc": "Return JSON response."
+      },
+      {
+        "label": "FastAPI basic",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get(\"/\")\ndef read_root(): return {\"status\":\"ok\"}",
+        "desc": "FastAPI JSON response."
+      },
+      {
+        "label": "Read query param",
+        "code": "value := r.URL.Query().Get(\"id\") // Go\nreq.query.id // JS\nrequest.args.get(\"id\") // Python",
+        "desc": "Read GET parameters in different languages."
+      },
+      {
+        "label": "Read POST JSON",
+        "code": "var data map[string]interface{}\njson.NewDecoder(r.Body).Decode(&data) // Go\nreq.body // JS\nrequest.json() // Python",
+        "desc": "Read POST JSON body."
+      },
+      {
+        "label": "CORS header",
+        "code": "w.Header().Set(\"Access-Control-Allow-Origin\", \"*\") // Go\nres.setHeader(\"Access-Control-Allow-Origin\",\"*\") // JS",
+        "desc": "Allow cross-origin requests."
+      }
+    ]
+  },
+
+  {
+    "title": "Mobile",
+    "items": [
+      {
+        "label": "Kotlin function",
+        "code": "fun greet(name: String): String = \"Hello, $name\"",
+        "desc": "Kotlin expression function."
+      },
+      {
+        "label": "Kotlin main",
+        "code": "fun main() {\n  println(\"Hello World\")\n}",
+        "desc": "Basic Kotlin entry point."
+      },
+      {
+        "label": "Kotlin class",
+        "code": "class Person(val name: String, var age: Int)",
+        "desc": "Define a class with properties."
+      },
+      {
+        "label": "Kotlin data class",
+        "code": "data class User(val id: Int, val name: String)",
+        "desc": "Immutable value object."
+      },
+      {
+        "label": "Kotlin list operations",
+        "code": "val nums = listOf(1,2,3).map{ it*2 }.filter{ it>2 }",
+        "desc": "Functional operations on collections."
+      },
+      { "label": "Swift basic", "code": "import Foundation\nprint(\"Hello World\")", "desc": "Simple Swift program." },
+      {
+        "label": "SwiftUI View",
+        "code": "import SwiftUI\nstruct ContentView: View {\n  var body: some View {\n    Text(\"Hello\").padding()\n  }\n}",
+        "desc": "Minimal SwiftUI component."
+      },
+      {
+        "label": "Swift struct",
+        "code": "struct User { let id: Int; var name: String }",
+        "desc": "Define struct with properties."
+      },
+      {
+        "label": "Swift optional",
+        "code": "var name: String? = nil\nprint(name ?? \"N/A\")",
+        "desc": "Handle optional values safely."
+      },
+      {
+        "label": "SwiftUI Button",
+        "code": "Button(\"Click Me\") {\n  print(\"Pressed\")\n}",
+        "desc": "Interactive UI element."
+      },
+      {
+        "label": "Flutter widget",
+        "code": "class Hello extends StatelessWidget {\n  @override\n  Widget build(BuildContext ctx) => Text(\"Hello\");\n}",
+        "desc": "StatelessWidget example."
+      },
+      {
+        "label": "Flutter StatefulWidget",
+        "code": "class Counter extends StatefulWidget {\n  @override\n  _CounterState createState() => _CounterState();\n}\nclass _CounterState extends State<Counter> {\n  int count = 0;\n  @override\n  Widget build(BuildContext ctx) => ElevatedButton(\n    onPressed: () => setState(() => count++),\n    child: Text(\"Count: $count\"),\n  );\n}",
+        "desc": "Interactive stateful widget."
+      },
+      {
+        "label": "Flutter Scaffold",
+        "code": "Scaffold(appBar: AppBar(title: Text(\"App\")), body: Center(child: Text(\"Hello\")))",
+        "desc": "Basic page layout."
+      },
+      {
+        "label": "Flutter ListView",
+        "code": "ListView.builder(itemCount: items.length, itemBuilder: (_,i)=>Text(items[i]))",
+        "desc": "Dynamic scrollable list."
+      },
+      {
+        "label": "Flutter routing",
+        "code": "Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));",
+        "desc": "Navigate between pages."
+      }
+    ]
+  },
+
+  {
+    "title": "Data & Machine Learning",
+    "items": [
+      {
+        "label": "R dplyr filter/group/summarise",
+        "code": "library(dplyr)\nmtcars %>% filter(mpg > 20) %>% group_by(cyl) %>% summarise(avg = mean(mpg))",
+        "desc": "Filter, group, summarise."
+      },
+      { "label": "R mutate", "code": "mtcars %>% mutate(mpg2 = mpg*2)", "desc": "Add new column." },
+      {
+        "label": "R ggplot",
+        "code": "library(ggplot2)\nggplot(mtcars, aes(x=mpg, y=hp)) + geom_point()",
+        "desc": "Scatter plot."
+      },
+      {
+        "label": "Julia basics",
+        "code": "f(x) = x^2\nxs = [1,2,3]\nys = f.(xs)",
+        "desc": "Function and broadcasting."
+      },
+      {
+        "label": "Julia DataFrame",
+        "code": "using DataFrames\ndf = DataFrame(A=1:3, B=4:6)",
+        "desc": "Create a dataframe."
+      },
+      { "label": "Julia plot", "code": "using Plots\nplot([1,2,3],[4,5,6], label=\"line\")", "desc": "Basic plot." },
+      {
+        "label": "MATLAB plot",
+        "code": "x = 0:0.1:10; y = sin(x);\nplot(x,y); grid on; title(\"Sine\");",
+        "desc": "Plot in MATLAB/Octave."
+      },
+      { "label": "MATLAB matrix", "code": "A = [1 2; 3 4]; B = A*2;", "desc": "Matrix operations." },
+      { "label": "MATLAB for loop", "code": "for i=1:5\n disp(i)\nend", "desc": "Iterate with for loop." },
+      {
+        "label": "NumPy array",
+        "code": "import numpy as np\narr = np.array([1,2,3])\narr2 = arr*2",
+        "desc": "Vectorized operations."
+      },
+      {
+        "label": "Pandas DataFrame",
+        "code": "import pandas as pd\ndf = pd.DataFrame({\"A\":[1,2,3],\"B\":[4,5,6]})",
+        "desc": "Tabular data."
+      },
+      { "label": "Pandas filter/groupby", "code": "df[df.A>1].groupby(\"B\").sum()", "desc": "Filter and aggregate." },
+      {
+        "label": "Matplotlib plot",
+        "code": "import matplotlib.pyplot as plt\nplt.plot([1,2,3],[4,5,6]); plt.show()",
+        "desc": "Basic Python plot."
+      },
+      {
+        "label": "Seaborn scatter",
+        "code": "import seaborn as sns\nsns.scatterplot(data=df, x=\"A\", y=\"B\")",
+        "desc": "Enhanced visualization."
+      },
+      {
+        "label": "Scikit-learn train/test split",
+        "code": "from sklearn.model_selection import train_test_split\nX_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)",
+        "desc": "Split dataset."
+      },
+      {
+        "label": "Scikit-learn model fit",
+        "code": "from sklearn.linear_model import LinearRegression\nmodel = LinearRegression().fit(X_train,y_train)",
+        "desc": "Train model."
+      },
+      { "label": "Scikit-learn predict", "code": "y_pred = model.predict(X_test)", "desc": "Make predictions." },
+      {
+        "label": "TensorFlow basic",
+        "code": "import tensorflow as tf\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(1)])\nmodel.compile(optimizer=\"adam\", loss=\"mse\")",
+        "desc": "Build simple neural network."
+      },
+      { "label": "PyTorch tensor", "code": "import torch\nt = torch.tensor([1.0,2.0,3.0])", "desc": "Basic tensor." }
+    ]
+  },
+
+  {
+    "title": "Systems & Scripting",
+    "items": [
+      {
+        "label": "Bash find/grep",
+        "code": "find . -type f -name \"*.js\" -print0 | xargs -0 grep -n \"pattern\"",
+        "desc": "Search text in files."
+      },
+      { "label": "List files", "code": "ls -la", "desc": "List files with details, including hidden." },
+      {
+        "label": "Copy / Move / Remove",
+        "code": "cp src dest\nmv old new\nrm -rf folder/",
+        "desc": "File operations."
+      },
+      {
+        "label": "Pipe and redirect",
+        "code": "cat file | grep \"pattern\" > output.txt",
+        "desc": "Combine commands and redirect output."
+      },
+      {
+        "label": "Permissions",
+        "code": "chmod +x script.sh\nchown user:group file",
+        "desc": "Change file permissions/ownership."
+      },
+      {
+        "label": "C Hello",
+        "code": "#include <stdio.h>\nint main(void){ printf(\"Hello\\n\"); return 0; }",
+        "desc": "Smallest C program."
+      },
+      { "label": "C compile/run", "code": "gcc main.c -o main\n./main", "desc": "Compile and execute C program." },
+      { "label": "C pointers", "code": "int x = 10;\nint *p = &x;\nprintf(\"%d\", *p);", "desc": "Pointer usage." },
+      {
+        "label": "C++ vector",
+        "code": "#include <vector>\n#include <algorithm>\nint main(){ std::vector<int> v{1,2,3}; std::for_each(v.begin(), v.end(), [](int &x){ x*=2; }); }",
+        "desc": "STL and lambda."
+      },
+      { "label": "C++ class", "code": "class Person { public: std::string name; int age; };", "desc": "Define class." },
+      {
+        "label": "C++ smart pointer",
+        "code": "std::unique_ptr<int> p = std::make_unique<int>(5);",
+        "desc": "Manage memory automatically."
+      },
+      {
+        "label": "x86-64 asm exit",
+        "code": "global _start\n_start:\n  mov rax, 60 ; exit\n  xor rdi, rdi\n  syscall",
+        "desc": "Linux exit syscall."
+      },
+      {
+        "label": "x86-64 asm write",
+        "code": "mov rax, 1 ; sys_write\nmov rdi, 1 ; stdout\nmov rsi, msg\nmov rdx, len\nsyscall",
+        "desc": "Write string to stdout."
+      },
+      { "label": "Python script", "code": "print(\"Hello World\")", "desc": "Basic Python script." },
+      { "label": "Python args", "code": "import sys\nprint(sys.argv)", "desc": "Command-line arguments." },
+      {
+        "label": "Python file IO",
+        "code": "with open(\"file.txt\") as f:\n  data = f.read()",
+        "desc": "Read file content."
+      },
+      { "label": "Cron job", "code": "0 0 * * * /path/to/script.sh", "desc": "Schedule script daily at midnight." },
+      { "label": "Environment variables", "code": "export PATH=$PATH:/my/bin", "desc": "Set env variable in shell." },
+      { "label": "SSH", "code": "ssh user@host", "desc": "Remote login." },
+      {
+        "label": "Tar / Zip",
+        "code": "tar -czf archive.tgz folder/\nzip -r archive.zip folder/",
+        "desc": "Compress files."
+      }
+    ]
+  },
+
+  {
+    "title": "DevOps / Infra",
+    "items": [
+      {
+        "label": "K8s Deployment (YAML)",
+        "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: app\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: app\n  template:\n    metadata:\n      labels:\n        app: app\n    spec:\n      containers:\n        - name: app\n          image: nginx:alpine\n          ports:\n            - containerPort: 80",
+        "desc": "Kubernetes basic deploy."
+      },
+      {
+        "label": "K8s Service",
+        "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: app-service\nspec:\n  type: ClusterIP\n  selector:\n    app: app\n  ports:\n    - port: 80\n      targetPort: 80",
+        "desc": "Expose pods internally."
+      },
+      {
+        "label": "K8s Ingress",
+        "code": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: app-ingress\nspec:\n  rules:\n    - host: example.com\n      http:\n        paths:\n        - path: /\n          pathType: Prefix\n          backend:\n            service:\n              name: app-service\n              port:\n                number: 80",
+        "desc": "External HTTP routing."
+      },
+      {
+        "label": "Terraform HCL",
+        "code": "terraform { required_version = \">= 1.5.0\" }\nprovider \"aws\" { region = \"us-east-1\" }\nresource \"aws_s3_bucket\" \"b\" { bucket = \"example-bucket\" }",
+        "desc": "HCL example resource."
+      },
+      {
+        "label": "Terraform output",
+        "code": "output \"bucket_name\" {\n  value = aws_s3_bucket.b.id\n}",
+        "desc": "Define output values."
+      },
+      {
+        "label": "Terraform variables",
+        "code": "variable \"region\" { type = string default = \"us-east-1\" }",
+        "desc": "Parameterize deployments."
+      },
+      {
+        "label": "Ansible play",
+        "code": "- hosts: web\n  become: true\n  tasks:\n    - name: Install nginx\n      apt: { name: nginx, state: present, update_cache: yes }\n    - name: Start nginx\n      service: { name: nginx, state: started, enabled: yes }",
+        "desc": "Playbook tasks."
+      },
+      {
+        "label": "Ansible inventory",
+        "code": "[web]\nserver1.example.com\nserver2.example.com",
+        "desc": "Define hosts."
+      },
+      { "label": "Ansible variable", "code": "vars:\n  app_port: 8080", "desc": "Use variables in playbooks." },
+      {
+        "label": "Docker build/run",
+        "code": "docker build -t myapp:latest .\ndocker run --rm -p 3000:3000 myapp:latest",
+        "desc": "Build and run container."
+      },
+      {
+        "label": "Docker compose",
+        "code": "version: \"3\"\nservices:\n  web:\n    image: nginx:alpine\n    ports:\n      - \"80:80\"",
+        "desc": "Define multi-container setup."
+      },
+      {
+        "label": "GitHub Actions basic",
+        "code": "name: CI\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: echo \"Build step\"",
+        "desc": "Simple CI pipeline."
+      },
+      {
+        "label": "GitLab CI",
+        "code": "stages:\n  - build\nbuild_job:\n  stage: build\n  script:\n    - echo \"Building\"",
+        "desc": "GitLab pipeline."
+      },
+      { "label": "AWS CLI S3", "code": "aws s3 cp file.txt s3://my-bucket/", "desc": "Upload file to S3." },
+      {
+        "label": "AWS EC2 start",
+        "code": "aws ec2 start-instances --instance-ids i-1234567890abcdef0",
+        "desc": "Start EC2 instance."
+      }
+    ]
+  },
+
+  {
+    "title": "Security / Blockchain",
+    "items": [
+      {
+        "label": "Solidity storage",
+        "code": "pragma solidity ^0.8.0;\ncontract Storage {\n  uint256 public value;\n  function set(uint256 v) public { value = v; }\n}",
+        "desc": "Simple state variable."
+      },
+      {
+        "label": "Solidity constructor",
+        "code": "pragma solidity ^0.8.0;\ncontract MyContract {\n  uint256 public value;\n  constructor(uint256 _val) { value = _val; }\n}",
+        "desc": "Initialize state on deployment."
+      },
+      {
+        "label": "Solidity mapping",
+        "code": "mapping(address => uint256) public balances;",
+        "desc": "Key-value storage for addresses."
+      },
+      {
+        "label": "Solidity function modifiers",
+        "code": "modifier onlyOwner() {\n  require(msg.sender == owner);\n  _;\n}",
+        "desc": "Access control pattern."
+      },
+      {
+        "label": "Solidity events",
+        "code": "event ValueChanged(uint256 newValue);\nfunction set(uint256 v) public {\n  value = v;\n  emit ValueChanged(v);\n}",
+        "desc": "Log changes on-chain."
+      },
+      {
+        "label": "Move module",
+        "code": "module 0x1::hello {\n  public fun hi(): u64 { 42 }\n}",
+        "desc": "Tiny Move example."
+      },
+      { "label": "Move resource", "code": "struct Coin has store { value: u64 }", "desc": "Define resource type." },
+      {
+        "label": "Move function with parameters",
+        "code": "public fun deposit(account: &signer, amount: u64) { /* ... */ }",
+        "desc": "Secure function with signer."
+      },
+      {
+        "label": "Ethereum address",
+        "code": "0x1234567890abcdef1234567890abcdef12345678",
+        "desc": "20-byte hex address."
+      },
+      {
+        "label": "Ethereum transaction",
+        "code": "eth.sendTransaction({from: addr, to: addr2, value: 1 ether})",
+        "desc": "Send ETH on-chain."
+      },
+      {
+        "label": "Smart contract ABI",
+        "code": "[{\"inputs\":[],\"name\":\"myFunc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+        "desc": "Contract interface for apps."
+      },
+      {
+        "label": "Reentrancy guard (Solidity)",
+        "code": "modifier nonReentrant() {\n  require(!locked, \"Locked\");\n  locked = true;\n  _;\n  locked = false;\n}",
+        "desc": "Prevent reentrancy attacks."
+      },
+      {
+        "label": "Safe math",
+        "code": "using SafeMath for uint256;\nuint256 c = a.add(b);",
+        "desc": "Avoid overflow/underflow."
+      },
+      {
+        "label": "Access control",
+        "code": "contract Ownable { address public owner; modifier onlyOwner { require(msg.sender == owner); _; } }",
+        "desc": "Restrict functions to owner."
+      },
+      {
+        "label": "Generate keypair",
+        "code": "const wallet = ethers.Wallet.createRandom()",
+        "desc": "Create Ethereum wallet."
+      },
+      {
+        "label": "Sign message",
+        "code": "const sig = await wallet.signMessage(\"Hello\")",
+        "desc": "Sign off-chain data."
+      },
+      {
+        "label": "Verify signature",
+        "code": "ethers.utils.verifyMessage(\"Hello\", sig)",
+        "desc": "Recover signer address."
+      }
+    ]
+  },
+  {
+    "title": "Java",
+    "items": [
+      { "label": "Hello World", "code": "public class Hello {\n  public static void main(String[] args) {\n    System.out.println(\"Hello World\");\n  }\n}", "desc": "Basic Java program." },
+      { "label": "Variables", "code": "int x = 10;\nString name = \"Java\";\nfinal double PI = 3.14159;", "desc": "Variable declarations with types." },
+      { "label": "Array", "code": "int[] numbers = {1, 2, 3, 4, 5};\nString[] names = new String[3];", "desc": "Array declaration and initialization." },
+      { "label": "ArrayList", "code": "import java.util.ArrayList;\nArrayList<String> list = new ArrayList<>();\nlist.add(\"item\");\nlist.get(0);", "desc": "Dynamic array with generics." },
+      { "label": "HashMap", "code": "import java.util.HashMap;\nHashMap<String, Integer> map = new HashMap<>();\nmap.put(\"key\", 42);\nint value = map.get(\"key\");", "desc": "Key-value mapping." },
+      { "label": "For loop", "code": "for (int i = 0; i < 10; i++) {\n  System.out.println(i);\n}", "desc": "Traditional for loop." },
+      { "label": "Enhanced for", "code": "for (String item : list) {\n  System.out.println(item);\n}", "desc": "For-each loop over collections." },
+      { "label": "Method", "code": "public static int add(int a, int b) {\n  return a + b;\n}", "desc": "Method with parameters and return type." },
+      { "label": "Class", "code": "public class Person {\n  private String name;\n  private int age;\n  \n  public Person(String name, int age) {\n    this.name = name;\n    this.age = age;\n  }\n  \n  public String getName() { return name; }\n}", "desc": "Class with constructor and getter." },
+      { "label": "Inheritance", "code": "public class Student extends Person {\n  private String school;\n  \n  public Student(String name, int age, String school) {\n    super(name, age);\n    this.school = school;\n  }\n}", "desc": "Class inheritance with super." },
+      { "label": "Interface", "code": "public interface Drawable {\n  void draw();\n  default void print() { System.out.println(\"Drawing\"); }\n}", "desc": "Interface with abstract and default methods." },
+      { "label": "Exception handling", "code": "try {\n  int result = 10 / 0;\n} catch (ArithmeticException e) {\n  System.err.println(\"Error: \" + e.getMessage());\n} finally {\n  System.out.println(\"Cleanup\");\n}", "desc": "Try-catch-finally block." },
+      { "label": "Lambda", "code": "List<String> names = Arrays.asList(\"Alice\", \"Bob\");\nnames.forEach(name -> System.out.println(name));", "desc": "Lambda expression with forEach." },
+      { "label": "Stream API", "code": "List<Integer> evens = numbers.stream()\n  .filter(n -> n % 2 == 0)\n  .collect(Collectors.toList());", "desc": "Functional programming with streams." },
+      { "label": "Optional", "code": "Optional<String> optional = Optional.ofNullable(getValue());\noptional.ifPresent(System.out::println);\nString result = optional.orElse(\"default\");", "desc": "Handle nullable values safely." }
+    ]
+  },
+  {
+    "title": "C# ",
+    "items": [
+      { "label": "Hello World", "code": "using System;\n\nclass Program {\n  static void Main() {\n    Console.WriteLine(\"Hello World\");\n  }\n}", "desc": "Basic C# program." },
+      { "label": "Variables", "code": "int x = 10;\nstring name = \"C#\";\nvar auto = \"inferred type\";\nconst double PI = 3.14159;", "desc": "Variable declarations and type inference." },
+      { "label": "Array & List", "code": "int[] numbers = {1, 2, 3};\nList<string> names = new List<string> {\"Alice\", \"Bob\"};\nnames.Add(\"Charlie\");", "desc": "Arrays and generic collections." },
+      { "label": "Dictionary", "code": "Dictionary<string, int> ages = new Dictionary<string, int>\n{\n  [\"Alice\"] = 25,\n  [\"Bob\"] = 30\n};", "desc": "Key-value collection with initializer." },
+      { "label": "Method", "code": "public static int Add(int a, int b) => a + b;\n\npublic static void Greet(string name = \"World\") {\n  Console.WriteLine($\"Hello {name}\");\n}", "desc": "Methods with expression body and default parameters." },
+      { "label": "Class", "code": "public class Person {\n  public string Name { get; set; }\n  public int Age { get; private set; }\n  \n  public Person(string name, int age) {\n    Name = name;\n    Age = age;\n  }\n}", "desc": "Class with auto-properties and constructor." },
+      { "label": "Interface", "code": "public interface IDrawable {\n  void Draw();\n}\n\npublic class Circle : IDrawable {\n  public void Draw() => Console.WriteLine(\"Drawing circle\");\n}", "desc": "Interface implementation." },
+      { "label": "LINQ", "code": "var evens = numbers.Where(n => n % 2 == 0).ToList();\nvar names = people.Select(p => p.Name).OrderBy(n => n);", "desc": "Language Integrated Query for collections." },
+      { "label": "Async/Await", "code": "public async Task<string> GetDataAsync() {\n  using var client = new HttpClient();\n  return await client.GetStringAsync(\"https://api.com\");\n}", "desc": "Asynchronous programming." },
+      { "label": "Exception handling", "code": "try {\n  var result = Divide(10, 0);\n} catch (DivideByZeroException ex) {\n  Console.WriteLine($\"Error: {ex.Message}\");\n} finally {\n  Console.WriteLine(\"Cleanup\");\n}", "desc": "Try-catch-finally with specific exceptions." },
+      { "label": "Nullable types", "code": "int? nullable = null;\nif (nullable.HasValue) {\n  Console.WriteLine(nullable.Value);\n}\nstring? name = null;", "desc": "Nullable value and reference types." },
+      { "label": "Pattern matching", "code": "var result = value switch {\n  0 => \"zero\",\n  > 0 => \"positive\",\n  < 0 => \"negative\"\n};", "desc": "Switch expressions with patterns." },
+      { "label": "Record", "code": "public record Person(string Name, int Age);\n\nvar person = new Person(\"Alice\", 25);\nvar older = person with { Age = 26 };", "desc": "Immutable record types with with-expressions." },
+      { "label": "Using statement", "code": "using var file = new FileStream(\"data.txt\", FileMode.Open);\n// file automatically disposed", "desc": "Automatic resource disposal." },
+      { "label": "Extension method", "code": "public static class StringExtensions {\n  public static bool IsEmpty(this string str) => string.IsNullOrEmpty(str);\n}\n\nstring text = \"\";\nbool empty = text.IsEmpty();", "desc": "Extend existing types with new methods." }
+    ]
+  },
+  {
+    "title": "PHP",
+    "items": [
+      { "label": "Hello World", "code": "<?php\necho \"Hello World\";\n?>", "desc": "Basic PHP script." },
+      { "label": "Variables", "code": "$name = \"PHP\";\n$age = 25;\n$pi = 3.14159;\ndefine('CONSTANT', 'value');", "desc": "Variables and constants." },
+      { "label": "Arrays", "code": "$fruits = [\"apple\", \"banana\", \"orange\"];\n$person = [\n  \"name\" => \"Alice\",\n  \"age\" => 30\n];", "desc": "Indexed and associative arrays." },
+      { "label": "Functions", "code": "function greet($name = \"World\") {\n  return \"Hello \" . $name;\n}\n\n$add = function($a, $b) { return $a + $b; };", "desc": "Functions and anonymous functions." },
+      { "label": "Classes", "code": "class Person {\n  private $name;\n  public $age;\n  \n  public function __construct($name, $age) {\n    $this->name = $name;\n    $this->age = $age;\n  }\n  \n  public function getName() {\n    return $this->name;\n  }\n}", "desc": "Class with constructor and methods." },
+      { "label": "Inheritance", "code": "class Student extends Person {\n  private $school;\n  \n  public function __construct($name, $age, $school) {\n    parent::__construct($name, $age);\n    $this->school = $school;\n  }\n}", "desc": "Class inheritance." },
+      { "label": "Loops", "code": "for ($i = 0; $i < 10; $i++) {\n  echo $i;\n}\n\nforeach ($fruits as $fruit) {\n  echo $fruit;\n}\n\nforeach ($person as $key => $value) {\n  echo \"$key: $value\";\n}", "desc": "For and foreach loops." },
+      { "label": "Conditionals", "code": "if ($age >= 18) {\n  echo \"Adult\";\n} elseif ($age >= 13) {\n  echo \"Teen\";\n} else {\n  echo \"Child\";\n}", "desc": "If-elseif-else statements." },
+      { "label": "Include/Require", "code": "include 'header.php';\nrequire_once 'config.php';", "desc": "Include external files." },
+      { "label": "Superglobals", "code": "$name = $_GET['name'];\n$email = $_POST['email'];\n$_SESSION['user_id'] = 123;\necho $_SERVER['HTTP_HOST'];", "desc": "Access global variables." },
+      { "label": "Database (PDO)", "code": "$pdo = new PDO('mysql:host=localhost;dbname=test', $user, $pass);\n$stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');\n$stmt->execute([$id]);\n$user = $stmt->fetch();", "desc": "Database operations with PDO." },
+      { "label": "JSON", "code": "$array = ['name' => 'Alice', 'age' => 30];\n$json = json_encode($array);\n$decoded = json_decode($json, true);", "desc": "JSON encoding and decoding." },
+      { "label": "File operations", "code": "$content = file_get_contents('file.txt');\nfile_put_contents('output.txt', $data);\n$lines = file('data.txt', FILE_IGNORE_NEW_LINES);", "desc": "Read and write files." },
+      { "label": "Exception handling", "code": "try {\n  $result = riskyOperation();\n} catch (Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n} finally {\n  cleanup();\n}", "desc": "Try-catch-finally blocks." },
+      { "label": "Namespaces", "code": "namespace MyApp\\Models;\n\nclass User {\n  // class code\n}\n\n// Usage\nuse MyApp\\Models\\User;\n$user = new User();", "desc": "Organize code with namespaces." }
+    ]
+  },
+  {
+    "title": "Ruby",
+    "items": [
+      { "label": "Hello World", "code": "puts \"Hello World\"", "desc": "Basic output in Ruby." },
+      { "label": "Variables", "code": "name = \"Ruby\"\nage = 25\nPI = 3.14159  # constant\n@instance_var = \"instance\"\n@@class_var = \"class\"", "desc": "Variables and constants." },
+      { "label": "Arrays", "code": "fruits = [\"apple\", \"banana\", \"orange\"]\nfruits << \"grape\"  # append\nfruits.push(\"kiwi\")\nfirst = fruits[0]", "desc": "Array operations." },
+      { "label": "Hashes", "code": "person = { name: \"Alice\", age: 30 }\n# or\nperson = { \"name\" => \"Alice\", \"age\" => 30 }\nname = person[:name]", "desc": "Hash (dictionary) usage." },
+      { "label": "Methods", "code": "def greet(name = \"World\")\n  \"Hello #{name}\"\nend\n\ndef add(a, b)\n  a + b  # implicit return\nend", "desc": "Method definition with default parameters." },
+      { "label": "Classes", "code": "class Person\n  attr_accessor :name, :age\n  \n  def initialize(name, age)\n    @name = name\n    @age = age\n  end\n  \n  def greet\n    \"Hi, I'm #{@name}\"\n  end\nend", "desc": "Class with attr_accessor and constructor." },
+      { "label": "Inheritance", "code": "class Student < Person\n  attr_accessor :school\n  \n  def initialize(name, age, school)\n    super(name, age)\n    @school = school\n  end\nend", "desc": "Class inheritance with super." },
+      { "label": "Blocks", "code": "[1, 2, 3].each { |n| puts n }\n\n[1, 2, 3].each do |n|\n  puts n * 2\nend", "desc": "Blocks with each iterator." },
+      { "label": "Iterators", "code": "numbers = [1, 2, 3, 4, 5]\nevens = numbers.select { |n| n.even? }\ndoubled = numbers.map { |n| n * 2 }\nsum = numbers.reduce(0) { |acc, n| acc + n }", "desc": "Common iterator methods." },
+      { "label": "String interpolation", "code": "name = \"Alice\"\nage = 30\nmessage = \"Hello #{name}, you are #{age} years old\"", "desc": "Embed expressions in strings." },
+      { "label": "Symbols", "code": "status = :active\nhash = { status: :pending, priority: :high }\ncase status\nwhen :active\n  \"Running\"\nwhen :pending\n  \"Waiting\"\nend", "desc": "Symbols as lightweight strings." },
+      { "label": "Conditionals", "code": "if age >= 18\n  \"Adult\"\nelsif age >= 13\n  \"Teen\"\nelse\n  \"Child\"\nend\n\n# One-liner\nstatus = age >= 18 ? \"Adult\" : \"Minor\"", "desc": "If statements and ternary operator." },
+      { "label": "Case statement", "code": "case grade\nwhen 'A'\n  \"Excellent\"\nwhen 'B', 'C'\n  \"Good\"\nwhen 'D'..'F'\n  \"Needs improvement\"\nelse\n  \"Invalid grade\"\nend", "desc": "Pattern matching with case." },
+      { "label": "Exception handling", "code": "begin\n  result = risky_operation\nrescue StandardError => e\n  puts \"Error: #{e.message}\"\nensure\n  cleanup\nend", "desc": "Begin-rescue-ensure blocks." },
+      { "label": "Modules", "code": "module Greetings\n  def say_hello\n    \"Hello from module\"\n  end\nend\n\nclass Person\n  include Greetings\nend", "desc": "Mixins with modules." }
+    ]
+  },
+  {
+    "title": "Scala",
+    "items": [
+      { "label": "Hello World", "code": "object HelloWorld {\n  def main(args: Array[String]): Unit = {\n    println(\"Hello World\")\n  }\n}", "desc": "Basic Scala program." },
+      { "label": "Variables", "code": "val immutable = \"cannot change\"\nvar mutable = \"can change\"\nlazy val computed = expensiveOperation()", "desc": "Immutable, mutable, and lazy values." },
+      { "label": "Functions", "code": "def add(a: Int, b: Int): Int = a + b\n\nval multiply = (a: Int, b: Int) => a * b\n\ndef greet(name: String = \"World\"): String = s\"Hello $name\"", "desc": "Function definitions and lambda expressions." },
+      { "label": "Case classes", "code": "case class Person(name: String, age: Int)\n\nval alice = Person(\"Alice\", 30)\nval older = alice.copy(age = 31)", "desc": "Immutable data structures." },
+      { "label": "Pattern matching", "code": "def describe(x: Any): String = x match {\n  case 1 => \"one\"\n  case \"hello\" => \"greeting\"\n  case Person(name, _) => s\"Person named $name\"\n  case _ => \"something else\"\n}", "desc": "Pattern matching with case expressions." },
+      { "label": "Collections", "code": "val list = List(1, 2, 3)\nval doubled = list.map(_ * 2)\nval evens = list.filter(_ % 2 == 0)\nval sum = list.reduce(_ + _)", "desc": "Immutable collections and operations." },
+      { "label": "Option", "code": "val maybeValue: Option[String] = Some(\"hello\")\nval result = maybeValue match {\n  case Some(value) => value.toUpperCase\n  case None => \"default\"\n}\nval length = maybeValue.map(_.length).getOrElse(0)", "desc": "Handle optional values safely." },
+      { "label": "For comprehensions", "code": "val numbers = List(1, 2, 3)\nval letters = List('a', 'b')\nval combinations = for {\n  n <- numbers\n  l <- letters\n} yield s\"$n$l\"", "desc": "Syntactic sugar for map/flatMap/filter." },
+      { "label": "Classes", "code": "class Counter(private var count: Int = 0) {\n  def increment(): Unit = count += 1\n  def current: Int = count\n}\n\nval counter = new Counter()\ncounter.increment()", "desc": "Class with private state and methods." },
+      { "label": "Traits", "code": "trait Drawable {\n  def draw(): String\n}\n\ntrait Colored {\n  def color: String = \"black\"\n}\n\nclass Circle extends Drawable with Colored {\n  def draw(): String = s\"Drawing a $color circle\"\n}", "desc": "Mixins with traits." },
+      { "label": "Higher-order functions", "code": "def applyTwice[A](f: A => A)(x: A): A = f(f(x))\n\nval increment = (x: Int) => x + 1\nval result = applyTwice(increment)(5)  // 7", "desc": "Functions that take or return functions." },
+      { "label": "Implicits", "code": "implicit class StringOps(s: String) {\n  def isPalindrome: Boolean = s == s.reverse\n}\n\nval result = \"racecar\".isPalindrome  // true", "desc": "Extend existing types with implicit classes." },
+      { "label": "Future", "code": "import scala.concurrent.Future\nimport scala.concurrent.ExecutionContext.Implicits.global\n\nval future = Future {\n  Thread.sleep(1000)\n  \"Hello from future\"\n}\n\nfuture.foreach(println)", "desc": "Asynchronous programming with Futures." },
+      { "label": "Try", "code": "import scala.util.{Try, Success, Failure}\n\nval result = Try {\n  \"10\".toInt\n}\n\nresult match {\n  case Success(value) => println(s\"Got $value\")\n  case Failure(exception) => println(s\"Failed: $exception\")\n}", "desc": "Exception handling with Try." },
+      { "label": "Type parameters", "code": "class Box[T](value: T) {\n  def get: T = value\n  def map[U](f: T => U): Box[U] = new Box(f(value))\n}\n\nval intBox = new Box(42)\nval stringBox = intBox.map(_.toString)", "desc": "Generic types and methods." }
+    ]
+  },
+  {
+    "title": "Dart",
+    "items": [
+      { "label": "Hello World", "code": "void main() {\n  print('Hello World');\n}", "desc": "Basic Dart program." },
+      { "label": "Variables", "code": "var name = 'Dart';  // inferred type\nString title = 'Developer';\nint age = 25;\ndouble pi = 3.14159;\nbool isActive = true;\nfinal constant = 'cannot change';\nconst compileTime = 42;", "desc": "Variable declarations and types." },
+      { "label": "Functions", "code": "String greet(String name, {String title = 'World'}) {\n  return 'Hello $title $name';\n}\n\n// Arrow function\nint add(int a, int b) => a + b;\n\n// Optional parameters\nvoid log(String message, [String? level]) {\n  print('$level: $message');\n}", "desc": "Function definitions with named and optional parameters." },
+      { "label": "Lists", "code": "List<String> fruits = ['apple', 'banana', 'orange'];\nfruits.add('grape');\nvar numbers = <int>[1, 2, 3];\nvar doubled = numbers.map((n) => n * 2).toList();", "desc": "List operations and transformations." },
+      { "label": "Maps", "code": "Map<String, int> ages = {\n  'Alice': 30,\n  'Bob': 25,\n};\nages['Charlie'] = 35;\nvar keys = ages.keys.toList();", "desc": "Map (dictionary) usage." },
+      { "label": "Classes", "code": "class Person {\n  String name;\n  int age;\n  \n  Person(this.name, this.age);\n  \n  // Named constructor\n  Person.guest() : name = 'Guest', age = 0;\n  \n  void greet() {\n    print('Hi, I\\'m $name');\n  }\n}", "desc": "Class with constructors and methods." },
+      { "label": "Inheritance", "code": "class Student extends Person {\n  String school;\n  \n  Student(String name, int age, this.school) : super(name, age);\n  \n  @override\n  void greet() {\n    super.greet();\n    print('I study at $school');\n  }\n}", "desc": "Class inheritance with method overriding." },
+      { "label": "Mixins", "code": "mixin Flyable {\n  void fly() {\n    print('Flying!');\n  }\n}\n\nclass Bird with Flyable {\n  String name;\n  Bird(this.name);\n}", "desc": "Code reuse with mixins." },
+      { "label": "Async/Await", "code": "Future<String> fetchData() async {\n  await Future.delayed(Duration(seconds: 1));\n  return 'Data loaded';\n}\n\nvoid main() async {\n  var data = await fetchData();\n  print(data);\n}", "desc": "Asynchronous programming." },
+      { "label": "Streams", "code": "Stream<int> countStream() async* {\n  for (int i = 1; i <= 5; i++) {\n    await Future.delayed(Duration(seconds: 1));\n    yield i;\n  }\n}\n\nvoid main() async {\n  await for (int value in countStream()) {\n    print(value);\n  }\n}", "desc": "Asynchronous data streams." },
+      { "label": "Null safety", "code": "String? nullable = null;\nString nonNull = 'Hello';\n\n// Null-aware operators\nint? length = nullable?.length;\nString result = nullable ?? 'default';\nnonNull ??= 'fallback';", "desc": "Handle nullable types safely." },
+      { "label": "Extension methods", "code": "extension StringExtensions on String {\n  bool get isEmail => contains('@');\n  String capitalize() => '${this[0].toUpperCase()}${substring(1)}';\n}\n\nvoid main() {\n  print('hello'.capitalize());  // Hello\n  print('user@example.com'.isEmail);  // true\n}", "desc": "Extend existing classes with new functionality." },
+      { "label": "Generics", "code": "class Box<T> {\n  T value;\n  Box(this.value);\n  \n  T getValue() => value;\n}\n\nBox<int> intBox = Box(42);\nBox<String> stringBox = Box('hello');", "desc": "Generic types for type safety." },
+      { "label": "Exception handling", "code": "try {\n  var result = int.parse('not a number');\n} on FormatException catch (e) {\n  print('Format error: ${e.message}');\n} catch (e) {\n  print('Unknown error: $e');\n} finally {\n  print('Cleanup');\n}", "desc": "Try-catch-finally with specific exceptions." },
+      { "label": "Enums", "code": "enum Status { pending, approved, rejected }\n\nvoid handleStatus(Status status) {\n  switch (status) {\n    case Status.pending:\n      print('Waiting...');\n      break;\n    case Status.approved:\n      print('Success!');\n      break;\n    case Status.rejected:\n      print('Denied');\n      break;\n  }\n}", "desc": "Enumerated types with switch statements." }
+    ]
+  },
+{
+    "title": "Go",
+    "items": [
+      { "label": "Hello World", "code": "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}", "desc": "Basic Go program." },
+      { "label": "Variables", "code": "var name string = \"Go\"\nage := 25\nconst PI = 3.14159", "desc": "Variable declarations and constants." },
+      { "label": "Function", "code": "func add(a, b int) int {\n    return a + b\n}", "desc": "Function with parameters and return type." },
+      { "label": "Multiple returns", "code": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}", "desc": "Function returning multiple values." },
+      { "label": "Struct", "code": "type Person struct {\n    Name string\n    Age  int\n}\np := Person{Name: \"Alice\", Age: 30}", "desc": "Define and initialize struct." },
+      { "label": "Method", "code": "func (p Person) Greet() string {\n    return \"Hello, \" + p.Name\n}", "desc": "Method on struct." },
+      { "label": "Pointer", "code": "func (p *Person) SetAge(age int) {\n    p.Age = age\n}", "desc": "Pointer receiver method." },
+      { "label": "Interface", "code": "type Writer interface {\n    Write([]byte) (int, error)\n}", "desc": "Define interface." },
+      { "label": "Slice", "code": "nums := []int{1, 2, 3}\nnums = append(nums, 4)", "desc": "Dynamic array operations." },
+      { "label": "Map", "code": "m := make(map[string]int)\nm[\"key\"] = 42\nvalue, ok := m[\"key\"]", "desc": "Hash map operations." },
+      { "label": "For loop", "code": "for i := 0; i < 10; i++ {\n    fmt.Println(i)\n}\nfor key, value := range m {\n    fmt.Println(key, value)\n}", "desc": "Loop variations." },
+      { "label": "If statement", "code": "if x > 0 {\n    fmt.Println(\"positive\")\n} else if x < 0 {\n    fmt.Println(\"negative\")\n} else {\n    fmt.Println(\"zero\")\n}", "desc": "Conditional statements." },
+      { "label": "Switch", "code": "switch day {\ncase \"Monday\":\n    fmt.Println(\"Start of work week\")\ndefault:\n    fmt.Println(\"Other day\")\n}", "desc": "Switch statement." },
+      { "label": "Goroutine", "code": "go func() {\n    fmt.Println(\"Running in goroutine\")\n}()", "desc": "Concurrent execution." },
+      { "label": "Channel", "code": "ch := make(chan int)\ngo func() { ch <- 42 }()\nvalue := <-ch", "desc": "Communication between goroutines." },
+      { "label": "Error handling", "code": "if err != nil {\n    log.Fatal(err)\n}", "desc": "Standard error handling pattern." },
+      { "label": "JSON marshal", "code": "import \"encoding/json\"\ndata, err := json.Marshal(person)", "desc": "Convert struct to JSON." },
+      { "label": "JSON unmarshal", "code": "var person Person\nerr := json.Unmarshal(data, &person)", "desc": "Parse JSON into struct." },
+      { "label": "HTTP server", "code": "http.HandleFunc(\"/\", handler)\nlog.Fatal(http.ListenAndServe(\":8080\", nil))", "desc": "Basic HTTP server." },
+      { "label": "HTTP client", "code": "resp, err := http.Get(\"https://api.example.com\")\ndefer resp.Body.Close()", "desc": "Make HTTP request." }
+    ]
+  },
+{
+  "title": "Flutter",
+  "items": [
+    { "label": "Create project", "code": "flutter create my_app", "desc": "Naya Flutter project banata hai." },
+    { "label": "Run app", "code": "flutter run", "desc": "App ko connected device/emulator par chalata hai." },
+    { "label": "Run on specific device", "code": "flutter run -d emulator-5554", "desc": "App ko specific device ID par run karta hai." },
+    { "label": "List devices", "code": "flutter devices", "desc": "Available connected devices list karta hai." },
+    { "label": "Build APK", "code": "flutter build apk --release", "desc": "Release mode me Android APK generate karta hai." },
+    { "label": "Build iOS", "code": "flutter build ios", "desc": "Release mode me iOS build create karta hai (macOS required)." },
+    { "label": "Check environment", "code": "flutter doctor", "desc": "System configuration aur dependencies check karta hai." },
+    { "label": "Upgrade Flutter", "code": "flutter upgrade", "desc": "Flutter SDK ko latest version me upgrade karta hai." },
+    { "label": "Clean project", "code": "flutter clean", "desc": "Build files delete karke project fresh state me lata hai." },
+    { "label": "Run tests", "code": "flutter test", "desc": "Flutter unit aur widget tests run karta hai." },
+    
+    { "label": "Scaffold", "code": "Scaffold(appBar: AppBar(title: Text('App')), body: Center(child: Text('Hello')))", "desc": "App ka basic structure provide karta hai with AppBar, Drawer, FAB etc." },
+    { "label": "Container", "code": "Container(padding: EdgeInsets.all(16), color: Colors.blue)", "desc": "Box widget jo styling, padding aur background color support karta hai." },
+    { "label": "Row", "code": "Row(children: [Text('A'), Text('B')])", "desc": "Widgets ko horizontal line me arrange karta hai." },
+    { "label": "Column", "code": "Column(children: [Text('A'), Text('B')])", "desc": "Widgets ko vertical line me arrange karta hai." },
+    { "label": "Stack", "code": "Stack(children: [Text('Back'), Positioned(child: Text('Front'))])", "desc": "Widgets ko ek dusre ke upar stack karta hai." },
+    { "label": "ListView", "code": "ListView(children: [Text('Item1'), Text('Item2')])", "desc": "Scrollable vertical list banata hai." },
+    { "label": "GridView", "code": "GridView.count(crossAxisCount: 2, children: [...])", "desc": "Scrollable grid layout banata hai." },
+    { "label": "Expanded", "code": "Expanded(child: Container(color: Colors.red))", "desc": "Available extra space occupy karta hai within Row/Column." },
+    { "label": "SizedBox", "code": "SizedBox(height: 20)", "desc": "Fixed height/width space provide karta hai." },
+
+    { "label": "TextField", "code": "TextField(controller: myController)", "desc": "User input ke liye editable text box." },
+    { "label": "Form", "code": "Form(child: Column(children:[TextFormField(), ElevatedButton(onPressed: save)]))", "desc": "Group of input fields jisme validation support hota hai." },
+    { "label": "DropdownButton", "code": "DropdownButton(items: [...], onChanged: (v) {})", "desc": "Dropdown selection field." },
+    { "label": "Checkbox", "code": "Checkbox(value: true, onChanged: (v) {})", "desc": "True/false toggle input widget." },
+    { "label": "Radio", "code": "Radio(value: 1, groupValue: selected, onChanged: (v) {})", "desc": "Group me ek option select karne ke liye radio button." },
+    { "label": "Switch", "code": "Switch(value: true, onChanged: (v) {})", "desc": "On/Off toggle widget." },
+    { "label": "Slider", "code": "Slider(value: 0.5, onChanged: (v) {})", "desc": "Numeric range select karne ke liye slider." },
+
+    { "label": "Push", "code": "Navigator.push(context, MaterialPageRoute(builder: (_) => NewPage()))", "desc": "Naya page stack me add karta hai." },
+    { "label": "Pop", "code": "Navigator.pop(context)", "desc": "Current page ko stack se remove karke pichle page par jata hai." },
+    { "label": "PushReplacement", "code": "Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Home()))", "desc": "Current page replace karke naya page show karta hai." },
+    { "label": "Named Routes", "code": "Navigator.pushNamed(context, '/about')", "desc": "Predefined route name se navigation karta hai." },
+    { "label": "Navigator 2.0", "code": "Router(...)", "desc": "Declarative routing system for advanced navigation." },
+
+    { "label": "setState", "code": "setState(() { counter++; });", "desc": "Widget tree ko rebuild karta hai jab data change hota hai." },
+    { "label": "InheritedWidget", "code": "class MyInherited extends InheritedWidget { ... }", "desc": "Widget tree ke through data propagate karne ka tarika." },
+    { "label": "Provider", "code": "ChangeNotifierProvider(create: (_) => Counter())", "desc": "State management ke liye widely used package." },
+    { "label": "Riverpod", "code": "final counterProvider = StateProvider((ref) => 0);", "desc": "Modern, safer state management package." },
+    { "label": "Bloc", "code": "BlocProvider(create: (_) => CounterBloc())", "desc": "Business logic ko separate karne ke liye Bloc pattern." },
+
+    { "label": "http get", "code": "var res = await http.get(Uri.parse(url));", "desc": "GET request bhejta hai aur response lata hai." },
+    { "label": "http post", "code": "var res = await http.post(Uri.parse(url), body: {...});", "desc": "POST request data ke sath send karta hai." },
+    { "label": "Dio", "code": "var dio = Dio(); var res = await dio.get(url);", "desc": "Advanced networking library with interceptors and retries." },
+    { "label": "FutureBuilder", "code": "FutureBuilder(future: fetch(), builder: (c, s){...})", "desc": "Async data ke sath UI build karta hai." },
+
+    { "label": "SharedPreferences", "code": "prefs = await SharedPreferences.getInstance();\nprefs.setString('key','value');", "desc": "Key-value storage for small data." },
+    { "label": "Hive", "code": "var box = await Hive.openBox('myBox');\nbox.put('key','value');", "desc": "Fast local NoSQL storage." },
+    { "label": "SQLite (sqflite)", "code": "await db.insert('table', {'name': 'hi'});", "desc": "Relational database storage." },
+
+    { "label": "AnimatedContainer", "code": "AnimatedContainer(duration: Duration(seconds:1), color: Colors.red)", "desc": "Implicit animation for properties like size, color, padding." },
+    { "label": "Hero", "code": "Hero(tag: 'hero', child: Image.asset('a.png'))", "desc": "Page transitions ke beech shared element animation." },
+    { "label": "AnimationController", "code": "AnimationController(vsync: this, duration: Duration(seconds:1))", "desc": "Custom animations ke liye controller." },
+    { "label": "FadeTransition", "code": "FadeTransition(opacity: animation, child: child)", "desc": "Widget ke liye fade-in/out animation." }
+  ]
+}
+  ]
