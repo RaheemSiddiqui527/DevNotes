@@ -62,7 +62,7 @@ function NotesCheatSheet() {
       TypeScript: "🔷",
       Python: "🐍",
       Java: "☕",
-      "C#": "/c.shrap.svg",
+      "C#": "/C.shrap.png",
       PHP: "🐘",
       Ruby: "💎",
       Scala: "🔺",
@@ -87,7 +87,7 @@ function NotesCheatSheet() {
     }
 
     const icon = iconMap[title] || "📘"
-    if (icon.endsWith(".svg") || icon.startsWith("http")) {
+    if (icon.endsWith(".png") || icon.startsWith("http")) {
       return <img src={icon} alt={title} className="w-6 h-6 inline-block" />
     } else {
       return <span aria-hidden="true" className="text-xl">{icon}</span>
