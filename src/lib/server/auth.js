@@ -1,11 +1,13 @@
 import { connectDB } from "../mongodb.js"
 import bcrypt from "bcryptjs"
-import jwt from "jsonwebtoken"
+import { SignJWT, jwtVerify } from "jose"
 import { cookies } from "next/headers"
 
 const JWT_SECRET = process.env.JWT_SECRET
 const JWT_ISSUER = process.env.JWT_ISSUER
 const AUTH_COOKIE = process.env.AUTH_COOKIE
+
+const secretKey = new TextEncoder().encode(JWT_SECRET)
 
 export async function createUser({ name, email, password }) {
   const db = await connectDB()
@@ -64,7 +66,11 @@ export async function verifyUserPassword(email, password) {
 }
 
 export async function issueJwt(user) {
-  return jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { issuer: JWT_ISSUER, expiresIn: "7d" })
+  return await new SignJWT({ id: user.id, email: user.email })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuer(JWT_ISSUER)
+    .setExpirationTime("7d")
+    .sign(secretKey)
 }
 
 export function setAuthCookie(headers, token) {
@@ -82,10 +88,26 @@ export async function getUserFromRequest(req) {
   if (!token) return null
 
   try {
-    const payload = jwt.verify(token, JWT_SECRET)
+    const { payload } = await jwtVerify(token, secretKey)
     const user = await findUserByEmail(payload.email)
     return user ? { id: user.id, name: user.name, email: user.email } : null
   } catch {
     return null
+  }
+}
+
+export async function logEvent({ type, userId, email, metadata = {} }) {
+  try {
+    const db = await connectDB()
+    await db.collection("events").insertOne({
+      type,
+      userId,
+      email,
+      metadata,
+      timestamp: new Date(),
+    })
+  } catch (error) {
+    console.error("Failed to log event:", error)
+    // Don't throw - logging failures shouldn't break the main flow
   }
 }
