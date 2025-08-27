@@ -74,6 +74,11 @@ export default function Home() {
       src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg",
       alt: "LinkedIn",
     },
+    {
+      href: "https://www.instagram.com/codewithraheem",
+      src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg",
+      alt: "Instagram",
+    },
   ];
 
   return (
