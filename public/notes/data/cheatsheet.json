@@ -713,109 +713,58 @@
 }
 ,
   {
-    "title": "Python",
-    "items": [
-      { "label": "Print", "code": "print(\"Hello, World!\")", "desc": "Output text." },
-      { "label": "Comments", "code": "# single line\n\"\"\" multi-line \"\" \"", "desc": "Comment syntax." },
-      { "label": "Variables", "code": "x = 10\ny = \"hi\"", "desc": "Dynamic typing." },
-      { "label": "f-string", "code": "name = \"Bob\"\nprint(f\"Hi {name}\")", "desc": "String interpolation." },
-      { "label": "Type hints", "code": "def add(a: int, b: int) -> int:\n    return a+b", "desc": "Optional typing." },
-      { "label": "List", "code": "nums = [1,2,3]", "desc": "Ordered collection." },
-      { "label": "Tuple", "code": "point = (10, 20)", "desc": "Immutable sequence." },
-      { "label": "Set", "code": "{1,2,3}", "desc": "Unique unordered collection." },
-      { "label": "Dict", "code": "{\"a\":1, \"b\":2}", "desc": "Key-value mapping." },
-      { "label": "List comp", "code": "[x*2 for x in range(5)]", "desc": "Comprehension shorthand." },
-      { "label": "Dict comp", "code": "{x:x**2 for x in range(5)}", "desc": "Dictionary comprehension." },
-      { "label": "Function", "code": "def add(a,b): return a+b", "desc": "Define function." },
-      {
-        "label": "Default param",
-        "code": "def greet(name=\"Guest\"): return f\"Hi {name}\"",
-        "desc": "Function with defaults."
-      },
-      { "label": "Args & kwargs", "code": "def fn(*args, **kwargs): pass", "desc": "Variable arguments." },
-      { "label": "Lambda", "code": "square = lambda x: x*x", "desc": "Anonymous function." },
-      {
-        "label": "Decorator",
-        "code": "def deco(fn):\n  def wrap(): print(\"hi\"); fn()\n  return wrap",
-        "desc": "Function wrapper."
-      },
-      { "label": "Generator", "code": "def gen():\n  yield 1\n  yield 2", "desc": "Lazy sequence with yield." },
-      { "label": "If/else", "code": "if x>0: print(\"pos\")\nelse: print(\"neg\")", "desc": "Conditional." },
-      { "label": "For loop", "code": "for i in range(5): print(i)", "desc": "Iteration." },
-      { "label": "While loop", "code": "while n>0: n-=1", "desc": "Loop until false." },
-      {
-        "label": "Match",
-        "code": "match status:\n case 200: print(\"ok\")\n case _: print(\"err\")",
-        "desc": "Structural pattern matching (3.10+)."
-      },
-      { "label": "Class", "code": "class User:\n def __init__(self,name): self.name=name", "desc": "Basic class." },
-      { "label": "Inheritance", "code": "class Admin(User): pass", "desc": "Subclassing." },
-      {
-        "label": "Static method",
-        "code": "class Math:\n @staticmethod\n def add(a,b): return a+b",
-        "desc": "Method without self."
-      },
-      {
-        "label": "Class method",
-        "code": "class C:\n @classmethod\n def make(cls): return cls()",
-        "desc": "Bound to class not instance."
-      },
-      {
-        "label": "Property",
-        "code": "class Person:\n @property\n def age(self): return 42",
-        "desc": "Computed attribute."
-      },
-      {
-        "label": "Dataclass",
-        "code": "from dataclasses import dataclass\n@dataclass\nclass Point: x:int; y:int",
-        "desc": "Auto-generated init/eq/repr."
-      },
-      {
-        "label": "Try/except",
-        "code": "try: 1/0\nexcept ZeroDivisionError: print(\"err\")",
-        "desc": "Catch exception."
-      },
-      { "label": "Raise", "code": "raise ValueError(\"bad\")", "desc": "Throw exception." },
-      { "label": "Finally", "code": "try: f=open(\"x\")\nfinally: f.close()", "desc": "Cleanup block." },
-      { "label": "Import", "code": "import math\nfrom os import path", "desc": "Import libraries." },
-      {
-        "label": "Virtual env",
-        "code": "python -m venv .venv && source .venv/bin/activate",
-        "desc": "Isolated environment."
-      },
-      { "label": "Pip install", "code": "pip install requests", "desc": "Install package." },
-      { "label": "Requirements", "code": "pip freeze > requirements.txt", "desc": "Save dependencies." },
-      { "label": "Read file", "code": "with open(\"file.txt\") as f:\n data=f.read()", "desc": "Read safely." },
-      {
-        "label": "Write file",
-        "code": "with open(\"out.txt\",\"w\") as f:\n f.write(\"hello\")",
-        "desc": "Write to file."
-      },
-      { "label": "CSV", "code": "import csv\nwith open(\"f.csv\") as f:\n csv.reader(f)", "desc": "Read CSV." },
-      { "label": "JSON", "code": "import json\njson.loads('{\"a\":1}')", "desc": "Work with JSON." },
-      {
-        "label": "Enumerate",
-        "code": "for i,val in enumerate([\"a\",\"b\"]): print(i,val)",
-        "desc": "Index + value loop."
-      },
-      { "label": "Zip", "code": "for a,b in zip([1,2],[3,4]): print(a,b)", "desc": "Combine iterables." },
-      {
-        "label": "Map/filter",
-        "code": "list(map(str,[1,2]))\nlist(filter(bool,[0,1,2]))",
-        "desc": "Functional helpers."
-      },
-      { "label": "Any/all", "code": "any([0,1])\nall([1,1])", "desc": "Boolean reductions." },
-      { "label": "Async func", "code": "async def main(): await asyncio.sleep(1)", "desc": "Define coroutine." },
-      { "label": "Run async", "code": "import asyncio\nasyncio.run(main())", "desc": "Run event loop." },
-      { "label": "Union types", "code": "from typing import Union\nx: Union[int,str] = 5", "desc": "Multiple types." },
-      { "label": "Optional", "code": "from typing import Optional\nx: Optional[int] = None", "desc": "May be None." },
-      {
-        "label": "Generic",
-        "code": "from typing import TypeVar, Generic\nT = TypeVar(\"T\")\nclass Box(Generic[T]): ...",
-        "desc": "Generic classes."
-      }
-    ]
-  },
+  "title": "Python",
+  "items": [
+    { "label": "Print", "code": "print(\"Hello, World!\")", "desc": "Output text." },
+    { "label": "Comments", "code": "# single line\n\"\"\" multi-line \"\"\"", "desc": "Comment syntax." },
+    { "label": "Variables", "code": "x = 10\ny = \"hi\"", "desc": "Dynamic typing." },
+    { "label": "f-string", "code": "name = \"Bob\"\nprint(f\"Hi {name}\")", "desc": "String interpolation." },
+    { "label": "Type hints", "code": "def add(a: int, b: int) -> int:\n    return a+b", "desc": "Optional typing." },
+    { "label": "List", "code": "nums = [1,2,3]", "desc": "Ordered collection." },
+    { "label": "Tuple", "code": "point = (10, 20)", "desc": "Immutable sequence." },
+    { "label": "Set", "code": "{1,2,3}", "desc": "Unique unordered collection." },
+    { "label": "Dict", "code": "{\"a\":1, \"b\":2}", "desc": "Key-value mapping." },
+    { "label": "List comp", "code": "[x*2 for x in range(5)]", "desc": "Comprehension shorthand." },
+    { "label": "Dict comp", "code": "{x:x**2 for x in range(5)}", "desc": "Dictionary comprehension." },
+    { "label": "Function", "code": "def add(a,b): return a+b", "desc": "Define function." },
+    { "label": "Default param", "code": "def greet(name=\"Guest\"): return f\"Hi {name}\"", "desc": "Function with defaults." },
+    { "label": "Args & kwargs", "code": "def fn(*args, **kwargs): pass", "desc": "Variable arguments." },
+    { "label": "Lambda", "code": "square = lambda x: x*x", "desc": "Anonymous function." },
+    { "label": "Decorator", "code": "def deco(fn):\n  def wrap(): print(\"hi\"); fn()\n  return wrap", "desc": "Function wrapper." },
+    { "label": "Generator", "code": "def gen():\n  yield 1\n  yield 2", "desc": "Lazy sequence with yield." },
+    { "label": "If/else", "code": "if x>0: print(\"pos\")\nelse: print(\"neg\")", "desc": "Conditional." },
+    { "label": "For loop", "code": "for i in range(5): print(i)", "desc": "Iteration." },
+    { "label": "While loop", "code": "while n>0: n-=1", "desc": "Loop until false." },
+    { "label": "Match", "code": "match status:\n case 200: print(\"ok\")\n case _: print(\"err\")", "desc": "Structural pattern matching (3.10+)." },
+    { "label": "Class", "code": "class User:\n def __init__(self,name): self.name=name", "desc": "Basic class." },
+    { "label": "Inheritance", "code": "class Admin(User): pass", "desc": "Subclassing." },
+    { "label": "Static method", "code": "class Math:\n @staticmethod\n def add(a,b): return a+b", "desc": "Method without self." },
+    { "label": "Class method", "code": "class C:\n @classmethod\n def make(cls): return cls()", "desc": "Bound to class not instance." },
+    { "label": "Property", "code": "class Person:\n @property\n def age(self): return 42", "desc": "Computed attribute." },
+    { "label": "Dataclass", "code": "from dataclasses import dataclass\n@dataclass\nclass Point: x:int; y:int", "desc": "Auto-generated init/eq/repr." },
+    { "label": "Try/except", "code": "try: 1/0\nexcept ZeroDivisionError: print(\"err\")", "desc": "Catch exception." },
+    { "label": "Raise", "code": "raise ValueError(\"bad\")", "desc": "Throw exception." },
+    { "label": "Finally", "code": "try: f=open(\"x\")\nfinally: f.close()", "desc": "Cleanup block." },
+    { "label": "Import", "code": "import math\nfrom os import path", "desc": "Import libraries." },
+    { "label": "Virtual env", "code": "python -m venv .venv && source .venv/bin/activate", "desc": "Isolated environment." },
+    { "label": "Pip install", "code": "pip install requests", "desc": "Install package." },
+    { "label": "Requirements", "code": "pip freeze > requirements.txt", "desc": "Save dependencies." },
+    { "label": "Read file", "code": "with open(\"file.txt\") as f:\n data=f.read()", "desc": "Read safely." },
+    { "label": "Write file", "code": "with open(\"out.txt\",\"w\") as f:\n f.write(\"hello\")", "desc": "Write to file." },
+    { "label": "CSV", "code": "import csv\nwith open(\"f.csv\") as f:\n csv.reader(f)", "desc": "Read CSV." },
+    { "label": "JSON", "code": "import json\njson.loads('{\"a\":1}')", "desc": "Work with JSON." },
+    { "label": "Enumerate", "code": "for i,val in enumerate([\"a\",\"b\"]): print(i,val)", "desc": "Index + value loop." },
+    { "label": "Zip", "code": "for a,b in zip([1,2],[3,4]): print(a,b)", "desc": "Combine iterables." },
+    { "label": "Map/filter", "code": "list(map(str,[1,2]))\nlist(filter(bool,[0,1,2]))", "desc": "Functional helpers." },
+    { "label": "Any/all", "code": "any([0,1])\nall([1,1])", "desc": "Boolean reductions." },
+    { "label": "Async func", "code": "async def main(): await asyncio.sleep(1)", "desc": "Define coroutine." },
+    { "label": "Run async", "code": "import asyncio\nasyncio.run(main())", "desc": "Run event loop." },
+    { "label": "Union types", "code": "from typing import Union\nx: Union[int,str] = 5", "desc": "Multiple types." },
+    { "label": "Optional", "code": "from typing import Optional\nx: Optional[int] = None", "desc": "May be None." },
+    { "label": "Generic", "code": "from typing import TypeVar, Generic\nT = TypeVar(\"T\")\nclass Box(Generic[T]): ...", "desc": "Generic classes." }
+  ]
+}
+,
   {
     "title": "Rust",
     "items": [
@@ -916,786 +865,296 @@
     ]
   },
   {
-    "title": "SQL",
-    "items": [
-      {
-        "label": "Create table",
-        "code": "CREATE TABLE users (\n  id SERIAL PRIMARY KEY,\n  email TEXT UNIQUE NOT NULL,\n  name TEXT,\n  active BOOLEAN DEFAULT true\n);",
-        "desc": "Create a table with constraints."
-      },
-      { "label": "Drop table", "code": "DROP TABLE IF EXISTS users;", "desc": "Remove table if exists." },
-      {
-        "label": "Alter table",
-        "code": "ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT NOW();",
-        "desc": "Modify table schema."
-      },
-      {
-        "label": "Create index",
-        "code": "CREATE INDEX idx_users_email ON users(email);",
-        "desc": "Speed up queries on column."
-      },
-      {
-        "label": "Insert",
-        "code": "INSERT INTO users (email, active, name) VALUES ('a@b.com', true, 'Alice');",
-        "desc": "Add a row."
-      },
-      {
-        "label": "Update",
-        "code": "UPDATE users SET active = false WHERE email = 'a@b.com';",
-        "desc": "Modify existing rows."
-      },
-      { "label": "Delete", "code": "DELETE FROM users WHERE active = false;", "desc": "Remove rows." },
-      {
-        "label": "Select",
-        "code": "SELECT id, email, name FROM users WHERE active = true ORDER BY id DESC LIMIT 10;",
-        "desc": "Retrieve filtered and sorted rows."
-      },
-      { "label": "Select all", "code": "SELECT * FROM users;", "desc": "Get all columns." },
-      { "label": "Distinct", "code": "SELECT DISTINCT active FROM users;", "desc": "Get unique values." },
-      {
-        "label": "Where clause",
-        "code": "SELECT * FROM users WHERE name LIKE 'A%';",
-        "desc": "Filter rows using condition."
-      },
-      {
-        "label": "Join",
-        "code": "SELECT u.id, u.name, o.amount FROM users u INNER JOIN orders o ON u.id = o.user_id;",
-        "desc": "Combine tables using JOIN."
-      },
-      {
-        "label": "Left join",
-        "code": "SELECT u.id, o.amount FROM users u LEFT JOIN orders o ON u.id = o.user_id;",
-        "desc": "Include all left table rows."
-      },
-      { "label": "Count", "code": "SELECT COUNT(*) FROM users WHERE active = true;", "desc": "Count matching rows." },
-      { "label": "Sum", "code": "SELECT SUM(amount) FROM orders;", "desc": "Sum column values." },
-      { "label": "Avg", "code": "SELECT AVG(amount) FROM orders;", "desc": "Average value." },
-      {
-        "label": "Group by",
-        "code": "SELECT active, COUNT(*) FROM users GROUP BY active;",
-        "desc": "Aggregate per group."
-      },
-      {
-        "label": "Having",
-        "code": "SELECT active, COUNT(*) FROM users GROUP BY active HAVING COUNT(*) > 5;",
-        "desc": "Filter aggregated results."
-      },
-      { "label": "Begin transaction", "code": "BEGIN;", "desc": "Start a transaction." },
-      { "label": "Commit", "code": "COMMIT;", "desc": "Save transaction changes." },
-      { "label": "Rollback", "code": "ROLLBACK;", "desc": "Undo transaction changes." },
-      {
-        "label": "Create view",
-        "code": "CREATE VIEW active_users AS SELECT * FROM users WHERE active = true;",
-        "desc": "Virtual table for query reuse."
-      },
-      { "label": "Drop view", "code": "DROP VIEW IF EXISTS active_users;", "desc": "Remove view if exists." },
-      {
-        "label": "Limit / Offset",
-        "code": "SELECT * FROM users ORDER BY id LIMIT 10 OFFSET 20;",
-        "desc": "Pagination."
-      }
-    ]
-  },
+      "title": "SQL",
+      "items": [
+        { "label": "Create table", "code": "CREATE TABLE users (\n  id SERIAL PRIMARY KEY,\n  email TEXT UNIQUE NOT NULL,\n  name TEXT,\n  active BOOLEAN DEFAULT true\n);", "desc": "Create a table with constraints." },
+        { "label": "Drop table", "code": "DROP TABLE IF EXISTS users;", "desc": "Remove table if exists." },
+        { "label": "Alter table", "code": "ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT NOW();", "desc": "Modify table schema." },
+        { "label": "Create index", "code": "CREATE INDEX idx_users_email ON users(email);", "desc": "Speed up queries on column." },
+        { "label": "Insert", "code": "INSERT INTO users (email, active, name) VALUES ('a@b.com', true, 'Alice');", "desc": "Add a row." },
+        { "label": "Update", "code": "UPDATE users SET active = false WHERE email = 'a@b.com';", "desc": "Modify existing rows." },
+        { "label": "Delete", "code": "DELETE FROM users WHERE active = false;", "desc": "Remove rows." },
+        { "label": "Select", "code": "SELECT id, email, name FROM users WHERE active = true ORDER BY id DESC LIMIT 10;", "desc": "Retrieve filtered and sorted rows." },
+        { "label": "Select all", "code": "SELECT * FROM users;", "desc": "Get all columns." },
+        { "label": "Distinct", "code": "SELECT DISTINCT active FROM users;", "desc": "Get unique values." },
+        { "label": "Where clause", "code": "SELECT * FROM users WHERE name LIKE 'A%';", "desc": "Filter rows using condition." },
+        { "label": "Join", "code": "SELECT u.id, u.name, o.amount FROM users u INNER JOIN orders o ON u.id = o.user_id;", "desc": "Combine tables using JOIN." },
+        { "label": "Left join", "code": "SELECT u.id, o.amount FROM users u LEFT JOIN orders o ON u.id = o.user_id;", "desc": "Include all left table rows." },
+        { "label": "Count", "code": "SELECT COUNT(*) FROM users WHERE active = true;", "desc": "Count matching rows." },
+        { "label": "Sum", "code": "SELECT SUM(amount) FROM orders;", "desc": "Sum column values." },
+        { "label": "Avg", "code": "SELECT AVG(amount) FROM orders;", "desc": "Average value." },
+        { "label": "Group by", "code": "SELECT active, COUNT(*) FROM users GROUP BY active;", "desc": "Aggregate per group." },
+        { "label": "Having", "code": "SELECT active, COUNT(*) FROM users GROUP BY active HAVING COUNT(*) > 5;", "desc": "Filter aggregated results." },
+        { "label": "Begin transaction", "code": "BEGIN;", "desc": "Start a transaction." },
+        { "label": "Commit", "code": "COMMIT;", "desc": "Save transaction changes." },
+        { "label": "Rollback", "code": "ROLLBACK;", "desc": "Undo transaction changes." },
+        { "label": "Create view", "code": "CREATE VIEW active_users AS SELECT * FROM users WHERE active = true;", "desc": "Virtual table for query reuse." },
+        { "label": "Drop view", "code": "DROP VIEW IF EXISTS active_users;", "desc": "Remove view if exists." },
+        { "label": "Limit / Offset", "code": "SELECT * FROM users ORDER BY id LIMIT 10 OFFSET 20;", "desc": "Pagination." }
+      ]
+    },
+    {
+      "title": "Web & Frontend",
+      "items": [
+        { "label": "TypeScript basics", "code": "type User = { id: number; name: string }\ninterface Point { x: number; y: number }\nfunction id<T>(x: T): T { return x }", "desc": "Types, interfaces, generics." },
+        { "label": "Arrow functions", "code": "const add = (a: number, b: number) => a + b;", "desc": "Concise function syntax." },
+        { "label": "Optional chaining", "code": "const email = user?.profile?.email ?? \"N/A\";", "desc": "Safe property access." },
+        { "label": "Array map/filter/reduce", "code": "[1,2,3].map(n => n*2).filter(n => n>2).reduce((a,b)=>a+b,0);", "desc": "Common array operations." },
+        { "label": "HTML5 semantics", "code": "<header>...</header>\n<nav>...</nav>\n<main>\n  <section>...</section>\n  <article>...</article>\n</main>\n<footer>...</footer>", "desc": "Use semantic tags for structure & accessibility." },
+        { "label": "Forms", "code": "<form>\n  <input type=\"text\" name=\"name\" required />\n  <button type=\"submit\">Submit</button>\n</form>", "desc": "Form with validation." },
+        { "label": "Meta / SEO", "code": "<meta name=\"description\" content=\"Dev notes\" />", "desc": "SEO metadata." },
+        { "label": "CSS Grid", "code": ".grid-container{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}", "desc": "Create responsive grid layout." },
+        { "label": "CSS Flexbox", "code": ".flex-row{display:flex;align-items:center;justify-content:space-between;}", "desc": "Align and distribute items." },
+        { "label": "Responsive media query", "code": "@media (max-width: 768px) { .container { grid-template-columns: 1fr; } }", "desc": "Adapt layout for smaller screens." },
+        { "label": "Tailwind quickies", "code": "Flex center: flex items-center justify-center\nGrid: grid grid-cols-12 gap-4\nBtn: px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white", "desc": "Common utility patterns." },
+        { "label": "React component", "code": "function Hello(){ return <h1>Hello</h1>; }", "desc": "Functional component." },
+        { "label": "React state", "code": "const [count,setCount] = useState(0);", "desc": "Use state in function component." },
+        { "label": "React effect", "code": "useEffect(() => { console.log(\"mounted\") }, []);", "desc": "Run side effect on mount." },
+        { "label": "Next.js page", "code": "export default function Home(){ return <div>Home</div> }", "desc": "Basic Next.js page." },
+        { "label": "Next.js getStaticProps", "code": "export async function getStaticProps(){ return { props: { data: [] } } }", "desc": "Fetch data at build time." },
+        { "label": "Event listener", "code": "document.getElementById(\"btn\")?.addEventListener(\"click\", e => { console.log(\"clicked\"); });", "desc": "Attach click event." },
+        { "label": "DOM query", "code": "const el = document.querySelector(\".class\");", "desc": "Select element." },
+        { "label": "Create element", "code": "const div = document.createElement(\"div\"); div.textContent = \"Hello\"; document.body.appendChild(div);", "desc": "Dynamically create elements." },
+        { "label": "LocalStorage", "code": "localStorage.setItem(\"key\",\"value\"); const val = localStorage.getItem(\"key\");", "desc": "Browser persistent storage." },
+        { "label": "SessionStorage", "code": "sessionStorage.setItem(\"key\",\"value\");", "desc": "Temporary browser storage." },
+        { "label": "Cookies", "code": "document.cookie = \"name=John; path=/; max-age=3600\";", "desc": "Set cookie." }
+      ]
+    },
+    {
+      "title": "Backend & APIs",
+      "items": [
+        { "label": "Go HTTP", "code": "package main\nimport (\n  \"fmt\"\n  \"net/http\"\n)\nfunc main() {\n  http.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request){\n    fmt.Fprintln(w, \"ok\")\n  })\n  http.ListenAndServe(\":8080\", nil)\n}", "desc": "Minimal net/http server." },
+        { "label": "Go JSON API", "code": "http.HandleFunc(\"/api\", func(w http.ResponseWriter, r *http.Request){\n  w.Header().Set(\"Content-Type\",\"application/json\")\n  fmt.Fprintln(w, `{\"status\":\"ok\"}`)\n})", "desc": "Return JSON response." },
+        { "label": "Go query params", "code": "id := r.URL.Query().Get(\"id\")", "desc": "Read GET parameters." },
+        { "label": "Rust axum", "code": "use axum::{routing::get, Router};\n#[tokio::main]\nasync fn main(){\n  let app = Router::new().route(\"/\", get(|| async { \"ok\" }));\n  axum::Server::bind(&\"0.0.0.0:3000\".parse().unwrap()).serve(app.into_make_service()).await.unwrap();\n}", "desc": "Tiny async web server." },
+        { "label": "Rust JSON response", "code": "use axum::Json;\nasync fn handler() -> Json<serde_json::Value> {\n  Json(serde_json::json!({\"status\":\"ok\"}))\n}", "desc": "Return JSON from handler." },
+        { "label": "Express basic", "code": "const express = require(\"express\");\nconst app = express();\napp.get(\"/\", (req,res)=>res.send(\"ok\"));\napp.listen(3000);", "desc": "Minimal Express server." },
+        { "label": "Express JSON", "code": "app.get(\"/api\", (req,res)=>res.json({status:\"ok\"}));", "desc": "Return JSON from endpoint." },
+        { "label": "PHP JSON", "code": "<?php\nheader(\"Content-Type: application/json\");\necho json_encode([\"status\" => \"ok\"]);", "desc": "Return JSON response." },
+        { "label": "PHP GET param", "code": "<?php\n$id = $_GET[\"id\"] ?? null;", "desc": "Read query parameter." },
+        { "label": "Ruby Sinatra", "code": "require \"sinatra\"\nget(\"/\") { \"ok\" }", "desc": "Tiny web route." },
+        { "label": "Sinatra JSON", "code": "get(\"/api\") { content_type :json; {status:\"ok\"}.to_json }", "desc": "Return JSON from route." },
+        { "label": "Flask basic", "code": "from flask import Flask\napp = Flask(__name__)\n@app.route(\"/\")\ndef home(): return \"ok\"\napp.run(port=5000)", "desc": "Minimal Flask server." },
+        { "label": "Flask JSON", "code": "from flask import jsonify\n@app.route(\"/api\")\ndef api(): return jsonify(status=\"ok\")", "desc": "Return JSON response." },
+        { "label": "FastAPI basic", "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get(\"/\")\ndef read_root(): return {\"status\":\"ok\"}", "desc": "FastAPI JSON response." },
+        { "label": "Read query param", "code": "value := r.URL.Query().Get(\"id\") // Go\nreq.query.id // JS\nrequest.args.get(\"id\") // Python", "desc": "Read GET parameters in different languages." },
+        { "label": "Read POST JSON", "code": "var data map[string]interface{}\njson.NewDecoder(r.Body).Decode(&data) // Go\nreq.body // JS\nrequest.json() // Python", "desc": "Read POST JSON body." },
+        { "label": "CORS header", "code": "w.Header().Set(\"Access-Control-Allow-Origin\", \"*\") // Go\nres.setHeader(\"Access-Control-Allow-Origin\",\"*\") // JS", "desc": "Allow cross-origin requests." }
+      ]
+    },
+    {
+      "title": "Mobile",
+      "items": [
+        { "label": "Kotlin function", "code": "fun greet(name: String): String = \"Hello, $name\"", "desc": "Kotlin expression function." },
+        { "label": "Kotlin main", "code": "fun main() {\n  println(\"Hello World\")\n}", "desc": "Basic Kotlin entry point." },
+        { "label": "Kotlin class", "code": "class Person(val name: String, var age: Int)", "desc": "Define a class with properties." },
+        { "label": "Kotlin data class", "code": "data class User(val id: Int, val name: String)", "desc": "Immutable value object." },
+        { "label": "Kotlin list operations", "code": "val nums = listOf(1,2,3).map{ it*2 }.filter{ it>2 }", "desc": "Functional operations on collections." },
+        { "label": "Swift basic", "code": "import Foundation\nprint(\"Hello World\")", "desc": "Simple Swift program." },
+        { "label": "SwiftUI View", "code": "import SwiftUI\nstruct ContentView: View {\n  var body: some View {\n    Text(\"Hello\").padding()\n  }\n}", "desc": "Minimal SwiftUI component." },
+        { "label": "Swift struct", "code": "struct User { let id: Int; var name: String }", "desc": "Define struct with properties." },
+        { "label": "Swift optional", "code": "var name: String? = nil\nprint(name ?? \"N/A\")", "desc": "Handle optional values safely." },
+        { "label": "SwiftUI Button", "code": "Button(\"Click Me\") {\n  print(\"Pressed\")\n}", "desc": "Interactive UI element." },
+        { "label": "Flutter widget", "code": "class Hello extends StatelessWidget {\n  @override\n  Widget build(BuildContext ctx) => Text(\"Hello\");\n}", "desc": "StatelessWidget example." },
+        { "label": "Flutter StatefulWidget", "code": "class Counter extends StatefulWidget {\n  @override\n  _CounterState createState() => _CounterState();\n}\nclass _CounterState extends State<Counter> {\n  int count = 0;\n  @override\n  Widget build(BuildContext ctx) => ElevatedButton(\n    onPressed: () => setState(() => count++),\n    child: Text(\"Count: $count\"),\n  );\n}", "desc": "Interactive stateful widget." },
+        { "label": "Flutter Scaffold", "code": "Scaffold(appBar: AppBar(title: Text(\"App\")), body: Center(child: Text(\"Hello\")))", "desc": "Basic page layout." },
+        { "label": "Flutter ListView", "code": "ListView.builder(itemCount: items.length, itemBuilder: (_,i)=>Text(items[i]))", "desc": "Dynamic scrollable list." },
+        { "label": "Flutter routing", "code": "Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));", "desc": "Navigate between pages." }
+      ]
+    },
+    {
+      "title": "Data & Machine Learning",
+      "items": [
+        { "label": "R dplyr filter/group/summarise", "code": "library(dplyr)\nmtcars %>% filter(mpg > 20) %>% group_by(cyl) %>% summarise(avg = mean(mpg))", "desc": "Filter, group, summarise." },
+        { "label": "R mutate", "code": "mtcars %>% mutate(mpg2 = mpg*2)", "desc": "Add new column." },
+        { "label": "R ggplot", "code": "library(ggplot2)\nggplot(mtcars, aes(x=mpg, y=hp)) + geom_point()", "desc": "Scatter plot." },
+        { "label": "Julia basics", "code": "f(x) = x^2\nxs = [1,2,3]\nys = f.(xs)", "desc": "Function and broadcasting." },
+        { "label": "Julia DataFrame", "code": "using DataFrames\ndf = DataFrame(A=1:3, B=4:6)", "desc": "Create a dataframe." },
+        { "label": "Julia plot", "code": "using Plots\nplot([1,2,3],[4,5,6], label=\"line\")", "desc": "Basic plot." },
+        { "label": "MATLAB plot", "code": "x = 0:0.1:10; y = sin(x);\nplot(x,y); grid on; title(\"Sine\");", "desc": "Plot in MATLAB/Octave." },
+        { "label": "MATLAB matrix", "code": "A = [1 2; 3 4]; B = A*2;", "desc": "Matrix operations." },
+        { "label": "MATLAB for loop", "code": "for i=1:5\n disp(i)\nend", "desc": "Iterate with for loop." },
+        { "label": "NumPy array", "code": "import numpy as np\narr = np.array([1,2,3])\narr2 = arr*2", "desc": "Vectorized operations." },
+        { "label": "Pandas DataFrame", "code": "import pandas as pd\ndf = pd.DataFrame({\"A\":[1,2,3],\"B\":[4,5,6]})", "desc": "Tabular data." },
+        { "label": "Pandas filter/groupby", "code": "df[df.A>1].groupby(\"B\").sum()", "desc": "Filter and aggregate." },
+        { "label": "Matplotlib plot", "code": "import matplotlib.pyplot as plt\nplt.plot([1,2,3],[4,5,6]); plt.show()", "desc": "Basic Python plot." },
+        { "label": "Seaborn scatter", "code": "import seaborn as sns\nsns.scatterplot(data=df, x=\"A\", y=\"B\")", "desc": "Enhanced visualization." },
+        { "label": "Scikit-learn train/test split", "code": "from sklearn.model_selection import train_test_split\nX_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)", "desc": "Split dataset." },
+        { "label": "Scikit-learn model fit", "code": "from sklearn.linear_model import LinearRegression\nmodel = LinearRegression().fit(X_train,y_train)", "desc": "Train model." },
+        { "label": "Scikit-learn predict", "code": "y_pred = model.predict(X_test)", "desc": "Make predictions." },
+        { "label": "TensorFlow basic", "code": "import tensorflow as tf\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(1)])\nmodel.compile(optimizer=\"adam\", loss=\"mse\")", "desc": "Build simple neural network." },
+        { "label": "PyTorch tensor", "code": "import torch\nt = torch.tensor([1.0,2.0,3.0])", "desc": "Basic tensor." }
+      ]
+    },
+    {
+      "title": "Systems & Scripting",
+      "items": [
+        { "label": "Bash find/grep", "code": "find . -type f -name \"*.js\" -print0 | xargs -0 grep -n \"pattern\"", "desc": "Search text in files." },
+        { "label": "List files", "code": "ls -la", "desc": "List files with details, including hidden." },
+        { "label": "Copy / Move / Remove", "code": "cp src dest\nmv old new\nrm -rf folder/", "desc": "File operations." },
+        { "label": "Pipe and redirect", "code": "cat file | grep \"pattern\" > output.txt", "desc": "Combine commands and redirect output." },
+        { "label": "Permissions", "code": "chmod +x script.sh\nchown user:group file", "desc": "Change file permissions/ownership." },
+        { "label": "C Hello", "code": "#include <stdio.h>\nint main(void){ printf(\"Hello\\n\"); return 0; }", "desc": "Smallest C program." },
+        { "label": "C compile/run", "code": "gcc main.c -o main\n./main", "desc": "Compile and execute C program." },
+        { "label": "C pointers", "code": "int x = 10;\nint *p = &x;\nprintf(\"%d\", *p);", "desc": "Pointer usage." },
+        { "label": "C++ vector", "code": "#include <vector>\n#include <algorithm>\nint main(){ std::vector<int> v{1,2,3}; std::for_each(v.begin(), v.end(), [](int &x){ x*=2; }); }", "desc": "STL and lambda." },
+        { "label": "C++ class", "code": "class Person { public: std::string name; int age; };", "desc": "Define class." },
+        { "label": "C++ smart pointer", "code": "std::unique_ptr<int> p = std::make_unique<int>(5);", "desc": "Manage memory automatically." },
+        { "label": "x86-64 asm exit", "code": "global _start\n_start:\n  mov rax, 60 ; exit\n  xor rdi, rdi\n  syscall", "desc": "Linux exit syscall." },
+        { "label": "x86-64 asm write", "code": "mov rax, 1 ; sys_write\nmov rdi, 1 ; stdout\nmov rsi, msg\nmov rdx, len\nsyscall", "desc": "Write string to stdout." },
+        { "label": "Python script", "code": "print(\"Hello World\")", "desc": "Basic Python script." },
+        { "label": "Python args", "code": "import sys\nprint(sys.argv)", "desc": "Command-line arguments." },
+        { "label": "Python file IO", "code": "with open(\"file.txt\") as f:\n  data = f.read()", "desc": "Read file content." },
+        { "label": "Cron job", "code": "0 0 * * * /path/to/script.sh", "desc": "Schedule script daily at midnight." },
+        { "label": "Environment variables", "code": "export PATH=$PATH:/my/bin", "desc": "Set env variable in shell." },
+        { "label": "SSH", "code": "ssh user@host", "desc": "Remote login." },
+        { "label": "Tar / Zip", "code": "tar -czf archive.tgz folder/\nzip -r archive.zip folder/", "desc": "Compress files." }
+      ]
+    },
   {
-    "title": "Web & Frontend",
-    "items": [
-      {
-        "label": "TypeScript basics",
-        "code": "type User = { id: number; name: string }\ninterface Point { x: number; y: number }\nfunction id<T>(x: T): T { return x }",
-        "desc": "Types, interfaces, generics."
-      },
-      {
-        "label": "Arrow functions",
-        "code": "const add = (a: number, b: number) => a + b;",
-        "desc": "Concise function syntax."
-      },
-      {
-        "label": "Optional chaining",
-        "code": "const email = user?.profile?.email ?? \"N/A\";",
-        "desc": "Safe property access."
-      },
-      {
-        "label": "Array map/filter/reduce",
-        "code": "[1,2,3].map(n => n*2).filter(n => n>2).reduce((a,b)=>a+b,0);",
-        "desc": "Common array operations."
-      },
-      {
-        "label": "HTML5 semantics",
-        "code": "<header>...</header>\n<nav>...</nav>\n<main>\n  <section>...</section>\n  <article>...</article>\n</main>\n<footer>...</footer>",
-        "desc": "Use semantic tags for structure & accessibility."
-      },
-      {
-        "label": "Forms",
-        "code": "<form>\n  <input type=\"text\" name=\"name\" required />\n  <button type=\"submit\">Submit</button>\n</form>",
-        "desc": "Form with validation."
-      },
-      { "label": "Meta / SEO", "code": "<meta name=\"description\" content=\"Dev notes\" />", "desc": "SEO metadata." },
-      {
-        "label": "CSS Grid",
-        "code": ".grid-container{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}",
-        "desc": "Create responsive grid layout."
-      },
-      {
-        "label": "CSS Flexbox",
-        "code": ".flex-row{display:flex;align-items:center;justify-content:space-between;}",
-        "desc": "Align and distribute items."
-      },
-      {
-        "label": "Responsive media query",
-        "code": "@media (max-width: 768px) { .container { grid-template-columns: 1fr; } }",
-        "desc": "Adapt layout for smaller screens."
-      },
-      {
-        "label": "Tailwind quickies",
-        "code": "Flex center: flex items-center justify-center\nGrid: grid grid-cols-12 gap-4\nBtn: px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white",
-        "desc": "Common utility patterns."
-      },
-      {
-        "label": "React component",
-        "code": "function Hello(){ return <h1>Hello</h1>; }",
-        "desc": "Functional component."
-      },
-      {
-        "label": "React state",
-        "code": "const [count,setCount] = useState(0);",
-        "desc": "Use state in function component."
-      },
-      {
-        "label": "React effect",
-        "code": "useEffect(() => { console.log(\"mounted\") }, []);",
-        "desc": "Run side effect on mount."
-      },
-      {
-        "label": "Next.js page",
-        "code": "export default function Home(){ return <div>Home</div> }",
-        "desc": "Basic Next.js page."
-      },
-      {
-        "label": "Next.js getStaticProps",
-        "code": "export async function getStaticProps(){ return { props: { data: [] } } }",
-        "desc": "Fetch data at build time."
-      },
-      {
-        "label": "Event listener",
-        "code": "document.getElementById(\"btn\")?.addEventListener(\"click\", e => { console.log(\"clicked\"); });",
-        "desc": "Attach click event."
-      },
-      { "label": "DOM query", "code": "const el = document.querySelector(\".class\");", "desc": "Select element." },
-      {
-        "label": "Create element",
-        "code": "const div = document.createElement(\"div\"); div.textContent = \"Hello\"; document.body.appendChild(div);",
-        "desc": "Dynamically create elements."
-      },
-      {
-        "label": "LocalStorage",
-        "code": "localStorage.setItem(\"key\",\"value\"); const val = localStorage.getItem(\"key\");",
-        "desc": "Browser persistent storage."
-      },
-      {
-        "label": "SessionStorage",
-        "code": "sessionStorage.setItem(\"key\",\"value\");",
-        "desc": "Temporary browser storage."
-      },
-      { "label": "Cookies", "code": "document.cookie = \"name=John; path=/; max-age=3600\";", "desc": "Set cookie." }
-    ]
-  },
-  {
-    "title": "Backend & APIs",
-    "items": [
-      {
-        "label": "Go HTTP",
-        "code": "package main\nimport (\n  \"fmt\"\n  \"net/http\"\n)\nfunc main() {\n  http.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request){\n    fmt.Fprintln(w, \"ok\")\n  })\n  http.ListenAndServe(\":8080\", nil)\n}",
-        "desc": "Minimal net/http server."
-      },
-      {
-        "label": "Go JSON API",
-        "code": "http.HandleFunc(\"/api\", func(w http.ResponseWriter, r *http.Request){\n  w.Header().Set(\"Content-Type\",\"application/json\")\n  fmt.Fprintln(w, `{\"status\":\"ok\"}`)\n})",
-        "desc": "Return JSON response."
-      },
-      { "label": "Go query params", "code": "id := r.URL.Query().Get(\"id\")", "desc": "Read GET parameters." },
-      {
-        "label": "Rust axum",
-        "code": "use axum::{routing::get, Router};\n#[tokio::main]\nasync fn main(){\n  let app = Router::new().route(\"/\", get(|| async { \"ok\" }));\n  axum::Server::bind(&\"0.0.0.0:3000\".parse().unwrap()).serve(app.into_make_service()).await.unwrap();\n}",
-        "desc": "Tiny async web server."
-      },
-      {
-        "label": "Rust JSON response",
-        "code": "use axum::Json;\nasync fn handler() -> Json<serde_json::Value> {\n  Json(serde_json::json!({\"status\":\"ok\"}))\n}",
-        "desc": "Return JSON from handler."
-      },
-      {
-        "label": "Express basic",
-        "code": "const express = require(\"express\");\nconst app = express();\napp.get(\"/\", (req,res)=>res.send(\"ok\"));\napp.listen(3000);",
-        "desc": "Minimal Express server."
-      },
-      {
-        "label": "Express JSON",
-        "code": "app.get(\"/api\", (req,res)=>res.json({status:\"ok\"}));",
-        "desc": "Return JSON from endpoint."
-      },
-      {
-        "label": "PHP JSON",
-        "code": "<?php\nheader(\"Content-Type: application/json\");\necho json_encode([\"status\" => \"ok\"]);",
-        "desc": "Return JSON response."
-      },
-      { "label": "PHP GET param", "code": "<?php\n$id = $_GET[\"id\"] ?? null;", "desc": "Read query parameter." },
-      { "label": "Ruby Sinatra", "code": "require \"sinatra\"\nget(\"/\") { \"ok\" }", "desc": "Tiny web route." },
-      {
-        "label": "Sinatra JSON",
-        "code": "get(\"/api\") { content_type :json; {status:\"ok\"}.to_json }",
-        "desc": "Return JSON from route."
-      },
-      {
-        "label": "Flask basic",
-        "code": "from flask import Flask\napp = Flask(__name__)\n@app.route(\"/\")\ndef home(): return \"ok\"\napp.run(port=5000)",
-        "desc": "Minimal Flask server."
-      },
-      {
-        "label": "Flask JSON",
-        "code": "from flask import jsonify\n@app.route(\"/api\")\ndef api(): return jsonify(status=\"ok\")",
-        "desc": "Return JSON response."
-      },
-      {
-        "label": "FastAPI basic",
-        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get(\"/\")\ndef read_root(): return {\"status\":\"ok\"}",
-        "desc": "FastAPI JSON response."
-      },
-      {
-        "label": "Read query param",
-        "code": "value := r.URL.Query().Get(\"id\") // Go\nreq.query.id // JS\nrequest.args.get(\"id\") // Python",
-        "desc": "Read GET parameters in different languages."
-      },
-      {
-        "label": "Read POST JSON",
-        "code": "var data map[string]interface{}\njson.NewDecoder(r.Body).Decode(&data) // Go\nreq.body // JS\nrequest.json() // Python",
-        "desc": "Read POST JSON body."
-      },
-      {
-        "label": "CORS header",
-        "code": "w.Header().Set(\"Access-Control-Allow-Origin\", \"*\") // Go\nres.setHeader(\"Access-Control-Allow-Origin\",\"*\") // JS",
-        "desc": "Allow cross-origin requests."
-      }
-    ]
-  },
-
-  {
-    "title": "Mobile",
-    "items": [
-      {
-        "label": "Kotlin function",
-        "code": "fun greet(name: String): String = \"Hello, $name\"",
-        "desc": "Kotlin expression function."
-      },
-      {
-        "label": "Kotlin main",
-        "code": "fun main() {\n  println(\"Hello World\")\n}",
-        "desc": "Basic Kotlin entry point."
-      },
-      {
-        "label": "Kotlin class",
-        "code": "class Person(val name: String, var age: Int)",
-        "desc": "Define a class with properties."
-      },
-      {
-        "label": "Kotlin data class",
-        "code": "data class User(val id: Int, val name: String)",
-        "desc": "Immutable value object."
-      },
-      {
-        "label": "Kotlin list operations",
-        "code": "val nums = listOf(1,2,3).map{ it*2 }.filter{ it>2 }",
-        "desc": "Functional operations on collections."
-      },
-      { "label": "Swift basic", "code": "import Foundation\nprint(\"Hello World\")", "desc": "Simple Swift program." },
-      {
-        "label": "SwiftUI View",
-        "code": "import SwiftUI\nstruct ContentView: View {\n  var body: some View {\n    Text(\"Hello\").padding()\n  }\n}",
-        "desc": "Minimal SwiftUI component."
-      },
-      {
-        "label": "Swift struct",
-        "code": "struct User { let id: Int; var name: String }",
-        "desc": "Define struct with properties."
-      },
-      {
-        "label": "Swift optional",
-        "code": "var name: String? = nil\nprint(name ?? \"N/A\")",
-        "desc": "Handle optional values safely."
-      },
-      {
-        "label": "SwiftUI Button",
-        "code": "Button(\"Click Me\") {\n  print(\"Pressed\")\n}",
-        "desc": "Interactive UI element."
-      },
-      {
-        "label": "Flutter widget",
-        "code": "class Hello extends StatelessWidget {\n  @override\n  Widget build(BuildContext ctx) => Text(\"Hello\");\n}",
-        "desc": "StatelessWidget example."
-      },
-      {
-        "label": "Flutter StatefulWidget",
-        "code": "class Counter extends StatefulWidget {\n  @override\n  _CounterState createState() => _CounterState();\n}\nclass _CounterState extends State<Counter> {\n  int count = 0;\n  @override\n  Widget build(BuildContext ctx) => ElevatedButton(\n    onPressed: () => setState(() => count++),\n    child: Text(\"Count: $count\"),\n  );\n}",
-        "desc": "Interactive stateful widget."
-      },
-      {
-        "label": "Flutter Scaffold",
-        "code": "Scaffold(appBar: AppBar(title: Text(\"App\")), body: Center(child: Text(\"Hello\")))",
-        "desc": "Basic page layout."
-      },
-      {
-        "label": "Flutter ListView",
-        "code": "ListView.builder(itemCount: items.length, itemBuilder: (_,i)=>Text(items[i]))",
-        "desc": "Dynamic scrollable list."
-      },
-      {
-        "label": "Flutter routing",
-        "code": "Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));",
-        "desc": "Navigate between pages."
-      }
-    ]
-  },
-
-  {
-    "title": "Data & Machine Learning",
-    "items": [
-      {
-        "label": "R dplyr filter/group/summarise",
-        "code": "library(dplyr)\nmtcars %>% filter(mpg > 20) %>% group_by(cyl) %>% summarise(avg = mean(mpg))",
-        "desc": "Filter, group, summarise."
-      },
-      { "label": "R mutate", "code": "mtcars %>% mutate(mpg2 = mpg*2)", "desc": "Add new column." },
-      {
-        "label": "R ggplot",
-        "code": "library(ggplot2)\nggplot(mtcars, aes(x=mpg, y=hp)) + geom_point()",
-        "desc": "Scatter plot."
-      },
-      {
-        "label": "Julia basics",
-        "code": "f(x) = x^2\nxs = [1,2,3]\nys = f.(xs)",
-        "desc": "Function and broadcasting."
-      },
-      {
-        "label": "Julia DataFrame",
-        "code": "using DataFrames\ndf = DataFrame(A=1:3, B=4:6)",
-        "desc": "Create a dataframe."
-      },
-      { "label": "Julia plot", "code": "using Plots\nplot([1,2,3],[4,5,6], label=\"line\")", "desc": "Basic plot." },
-      {
-        "label": "MATLAB plot",
-        "code": "x = 0:0.1:10; y = sin(x);\nplot(x,y); grid on; title(\"Sine\");",
-        "desc": "Plot in MATLAB/Octave."
-      },
-      { "label": "MATLAB matrix", "code": "A = [1 2; 3 4]; B = A*2;", "desc": "Matrix operations." },
-      { "label": "MATLAB for loop", "code": "for i=1:5\n disp(i)\nend", "desc": "Iterate with for loop." },
-      {
-        "label": "NumPy array",
-        "code": "import numpy as np\narr = np.array([1,2,3])\narr2 = arr*2",
-        "desc": "Vectorized operations."
-      },
-      {
-        "label": "Pandas DataFrame",
-        "code": "import pandas as pd\ndf = pd.DataFrame({\"A\":[1,2,3],\"B\":[4,5,6]})",
-        "desc": "Tabular data."
-      },
-      { "label": "Pandas filter/groupby", "code": "df[df.A>1].groupby(\"B\").sum()", "desc": "Filter and aggregate." },
-      {
-        "label": "Matplotlib plot",
-        "code": "import matplotlib.pyplot as plt\nplt.plot([1,2,3],[4,5,6]); plt.show()",
-        "desc": "Basic Python plot."
-      },
-      {
-        "label": "Seaborn scatter",
-        "code": "import seaborn as sns\nsns.scatterplot(data=df, x=\"A\", y=\"B\")",
-        "desc": "Enhanced visualization."
-      },
-      {
-        "label": "Scikit-learn train/test split",
-        "code": "from sklearn.model_selection import train_test_split\nX_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)",
-        "desc": "Split dataset."
-      },
-      {
-        "label": "Scikit-learn model fit",
-        "code": "from sklearn.linear_model import LinearRegression\nmodel = LinearRegression().fit(X_train,y_train)",
-        "desc": "Train model."
-      },
-      { "label": "Scikit-learn predict", "code": "y_pred = model.predict(X_test)", "desc": "Make predictions." },
-      {
-        "label": "TensorFlow basic",
-        "code": "import tensorflow as tf\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(1)])\nmodel.compile(optimizer=\"adam\", loss=\"mse\")",
-        "desc": "Build simple neural network."
-      },
-      { "label": "PyTorch tensor", "code": "import torch\nt = torch.tensor([1.0,2.0,3.0])", "desc": "Basic tensor." }
-    ]
-  },
-
-  {
-    "title": "Systems & Scripting",
-    "items": [
-      {
-        "label": "Bash find/grep",
-        "code": "find . -type f -name \"*.js\" -print0 | xargs -0 grep -n \"pattern\"",
-        "desc": "Search text in files."
-      },
-      { "label": "List files", "code": "ls -la", "desc": "List files with details, including hidden." },
-      {
-        "label": "Copy / Move / Remove",
-        "code": "cp src dest\nmv old new\nrm -rf folder/",
-        "desc": "File operations."
-      },
-      {
-        "label": "Pipe and redirect",
-        "code": "cat file | grep \"pattern\" > output.txt",
-        "desc": "Combine commands and redirect output."
-      },
-      {
-        "label": "Permissions",
-        "code": "chmod +x script.sh\nchown user:group file",
-        "desc": "Change file permissions/ownership."
-      },
-      {
-        "label": "C Hello",
-        "code": "#include <stdio.h>\nint main(void){ printf(\"Hello\\n\"); return 0; }",
-        "desc": "Smallest C program."
-      },
-      { "label": "C compile/run", "code": "gcc main.c -o main\n./main", "desc": "Compile and execute C program." },
-      { "label": "C pointers", "code": "int x = 10;\nint *p = &x;\nprintf(\"%d\", *p);", "desc": "Pointer usage." },
-      {
-        "label": "C++ vector",
-        "code": "#include <vector>\n#include <algorithm>\nint main(){ std::vector<int> v{1,2,3}; std::for_each(v.begin(), v.end(), [](int &x){ x*=2; }); }",
-        "desc": "STL and lambda."
-      },
-      { "label": "C++ class", "code": "class Person { public: std::string name; int age; };", "desc": "Define class." },
-      {
-        "label": "C++ smart pointer",
-        "code": "std::unique_ptr<int> p = std::make_unique<int>(5);",
-        "desc": "Manage memory automatically."
-      },
-      {
-        "label": "x86-64 asm exit",
-        "code": "global _start\n_start:\n  mov rax, 60 ; exit\n  xor rdi, rdi\n  syscall",
-        "desc": "Linux exit syscall."
-      },
-      {
-        "label": "x86-64 asm write",
-        "code": "mov rax, 1 ; sys_write\nmov rdi, 1 ; stdout\nmov rsi, msg\nmov rdx, len\nsyscall",
-        "desc": "Write string to stdout."
-      },
-      { "label": "Python script", "code": "print(\"Hello World\")", "desc": "Basic Python script." },
-      { "label": "Python args", "code": "import sys\nprint(sys.argv)", "desc": "Command-line arguments." },
-      {
-        "label": "Python file IO",
-        "code": "with open(\"file.txt\") as f:\n  data = f.read()",
-        "desc": "Read file content."
-      },
-      { "label": "Cron job", "code": "0 0 * * * /path/to/script.sh", "desc": "Schedule script daily at midnight." },
-      { "label": "Environment variables", "code": "export PATH=$PATH:/my/bin", "desc": "Set env variable in shell." },
-      { "label": "SSH", "code": "ssh user@host", "desc": "Remote login." },
-      {
-        "label": "Tar / Zip",
-        "code": "tar -czf archive.tgz folder/\nzip -r archive.zip folder/",
-        "desc": "Compress files."
-      }
-    ]
-  },
-
-  {
-    "title": "DevOps / Infra",
-    "items": [
-      {
-        "label": "K8s Deployment (YAML)",
-        "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: app\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: app\n  template:\n    metadata:\n      labels:\n        app: app\n    spec:\n      containers:\n        - name: app\n          image: nginx:alpine\n          ports:\n            - containerPort: 80",
-        "desc": "Kubernetes basic deploy."
-      },
-      {
-        "label": "K8s Service",
-        "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: app-service\nspec:\n  type: ClusterIP\n  selector:\n    app: app\n  ports:\n    - port: 80\n      targetPort: 80",
-        "desc": "Expose pods internally."
-      },
-      {
-        "label": "K8s Ingress",
-        "code": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: app-ingress\nspec:\n  rules:\n    - host: example.com\n      http:\n        paths:\n        - path: /\n          pathType: Prefix\n          backend:\n            service:\n              name: app-service\n              port:\n                number: 80",
-        "desc": "External HTTP routing."
-      },
-      {
-        "label": "Terraform HCL",
-        "code": "terraform { required_version = \">= 1.5.0\" }\nprovider \"aws\" { region = \"us-east-1\" }\nresource \"aws_s3_bucket\" \"b\" { bucket = \"example-bucket\" }",
-        "desc": "HCL example resource."
-      },
-      {
-        "label": "Terraform output",
-        "code": "output \"bucket_name\" {\n  value = aws_s3_bucket.b.id\n}",
-        "desc": "Define output values."
-      },
-      {
-        "label": "Terraform variables",
-        "code": "variable \"region\" { type = string default = \"us-east-1\" }",
-        "desc": "Parameterize deployments."
-      },
-      {
-        "label": "Ansible play",
-        "code": "- hosts: web\n  become: true\n  tasks:\n    - name: Install nginx\n      apt: { name: nginx, state: present, update_cache: yes }\n    - name: Start nginx\n      service: { name: nginx, state: started, enabled: yes }",
-        "desc": "Playbook tasks."
-      },
-      {
-        "label": "Ansible inventory",
-        "code": "[web]\nserver1.example.com\nserver2.example.com",
-        "desc": "Define hosts."
-      },
-      { "label": "Ansible variable", "code": "vars:\n  app_port: 8080", "desc": "Use variables in playbooks." },
-      {
-        "label": "Docker build/run",
-        "code": "docker build -t myapp:latest .\ndocker run --rm -p 3000:3000 myapp:latest",
-        "desc": "Build and run container."
-      },
-      {
-        "label": "Docker compose",
-        "code": "version: \"3\"\nservices:\n  web:\n    image: nginx:alpine\n    ports:\n      - \"80:80\"",
-        "desc": "Define multi-container setup."
-      },
-      {
-        "label": "GitHub Actions basic",
-        "code": "name: CI\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: echo \"Build step\"",
-        "desc": "Simple CI pipeline."
-      },
-      {
-        "label": "GitLab CI",
-        "code": "stages:\n  - build\nbuild_job:\n  stage: build\n  script:\n    - echo \"Building\"",
-        "desc": "GitLab pipeline."
-      },
-      { "label": "AWS CLI S3", "code": "aws s3 cp file.txt s3://my-bucket/", "desc": "Upload file to S3." },
-      {
-        "label": "AWS EC2 start",
-        "code": "aws ec2 start-instances --instance-ids i-1234567890abcdef0",
-        "desc": "Start EC2 instance."
-      }
-    ]
-  },
-
-  {
-    "title": "Security / Blockchain",
-    "items": [
-      {
-        "label": "Solidity storage",
-        "code": "pragma solidity ^0.8.0;\ncontract Storage {\n  uint256 public value;\n  function set(uint256 v) public { value = v; }\n}",
-        "desc": "Simple state variable."
-      },
-      {
-        "label": "Solidity constructor",
-        "code": "pragma solidity ^0.8.0;\ncontract MyContract {\n  uint256 public value;\n  constructor(uint256 _val) { value = _val; }\n}",
-        "desc": "Initialize state on deployment."
-      },
-      {
-        "label": "Solidity mapping",
-        "code": "mapping(address => uint256) public balances;",
-        "desc": "Key-value storage for addresses."
-      },
-      {
-        "label": "Solidity function modifiers",
-        "code": "modifier onlyOwner() {\n  require(msg.sender == owner);\n  _;\n}",
-        "desc": "Access control pattern."
-      },
-      {
-        "label": "Solidity events",
-        "code": "event ValueChanged(uint256 newValue);\nfunction set(uint256 v) public {\n  value = v;\n  emit ValueChanged(v);\n}",
-        "desc": "Log changes on-chain."
-      },
-      {
-        "label": "Move module",
-        "code": "module 0x1::hello {\n  public fun hi(): u64 { 42 }\n}",
-        "desc": "Tiny Move example."
-      },
-      { "label": "Move resource", "code": "struct Coin has store { value: u64 }", "desc": "Define resource type." },
-      {
-        "label": "Move function with parameters",
-        "code": "public fun deposit(account: &signer, amount: u64) { /* ... */ }",
-        "desc": "Secure function with signer."
-      },
-      {
-        "label": "Ethereum address",
-        "code": "0x1234567890abcdef1234567890abcdef12345678",
-        "desc": "20-byte hex address."
-      },
-      {
-        "label": "Ethereum transaction",
-        "code": "eth.sendTransaction({from: addr, to: addr2, value: 1 ether})",
-        "desc": "Send ETH on-chain."
-      },
-      {
-        "label": "Smart contract ABI",
-        "code": "[{\"inputs\":[],\"name\":\"myFunc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
-        "desc": "Contract interface for apps."
-      },
-      {
-        "label": "Reentrancy guard (Solidity)",
-        "code": "modifier nonReentrant() {\n  require(!locked, \"Locked\");\n  locked = true;\n  _;\n  locked = false;\n}",
-        "desc": "Prevent reentrancy attacks."
-      },
-      {
-        "label": "Safe math",
-        "code": "using SafeMath for uint256;\nuint256 c = a.add(b);",
-        "desc": "Avoid overflow/underflow."
-      },
-      {
-        "label": "Access control",
-        "code": "contract Ownable { address public owner; modifier onlyOwner { require(msg.sender == owner); _; } }",
-        "desc": "Restrict functions to owner."
-      },
-      {
-        "label": "Generate keypair",
-        "code": "const wallet = ethers.Wallet.createRandom()",
-        "desc": "Create Ethereum wallet."
-      },
-      {
-        "label": "Sign message",
-        "code": "const sig = await wallet.signMessage(\"Hello\")",
-        "desc": "Sign off-chain data."
-      },
-      {
-        "label": "Verify signature",
-        "code": "ethers.utils.verifyMessage(\"Hello\", sig)",
-        "desc": "Recover signer address."
-      }
-    ]
-  },
-  {
-    "title": "Java",
-    "items": [
-      { "label": "Hello World", "code": "public class Hello {\n  public static void main(String[] args) {\n    System.out.println(\"Hello World\");\n  }\n}", "desc": "Basic Java program." },
-      { "label": "Variables", "code": "int x = 10;\nString name = \"Java\";\nfinal double PI = 3.14159;", "desc": "Variable declarations with types." },
-      { "label": "Array", "code": "int[] numbers = {1, 2, 3, 4, 5};\nString[] names = new String[3];", "desc": "Array declaration and initialization." },
-      { "label": "ArrayList", "code": "import java.util.ArrayList;\nArrayList<String> list = new ArrayList<>();\nlist.add(\"item\");\nlist.get(0);", "desc": "Dynamic array with generics." },
-      { "label": "HashMap", "code": "import java.util.HashMap;\nHashMap<String, Integer> map = new HashMap<>();\nmap.put(\"key\", 42);\nint value = map.get(\"key\");", "desc": "Key-value mapping." },
-      { "label": "For loop", "code": "for (int i = 0; i < 10; i++) {\n  System.out.println(i);\n}", "desc": "Traditional for loop." },
-      { "label": "Enhanced for", "code": "for (String item : list) {\n  System.out.println(item);\n}", "desc": "For-each loop over collections." },
-      { "label": "Method", "code": "public static int add(int a, int b) {\n  return a + b;\n}", "desc": "Method with parameters and return type." },
-      { "label": "Class", "code": "public class Person {\n  private String name;\n  private int age;\n  \n  public Person(String name, int age) {\n    this.name = name;\n    this.age = age;\n  }\n  \n  public String getName() { return name; }\n}", "desc": "Class with constructor and getter." },
-      { "label": "Inheritance", "code": "public class Student extends Person {\n  private String school;\n  \n  public Student(String name, int age, String school) {\n    super(name, age);\n    this.school = school;\n  }\n}", "desc": "Class inheritance with super." },
-      { "label": "Interface", "code": "public interface Drawable {\n  void draw();\n  default void print() { System.out.println(\"Drawing\"); }\n}", "desc": "Interface with abstract and default methods." },
-      { "label": "Exception handling", "code": "try {\n  int result = 10 / 0;\n} catch (ArithmeticException e) {\n  System.err.println(\"Error: \" + e.getMessage());\n} finally {\n  System.out.println(\"Cleanup\");\n}", "desc": "Try-catch-finally block." },
-      { "label": "Lambda", "code": "List<String> names = Arrays.asList(\"Alice\", \"Bob\");\nnames.forEach(name -> System.out.println(name));", "desc": "Lambda expression with forEach." },
-      { "label": "Stream API", "code": "List<Integer> evens = numbers.stream()\n  .filter(n -> n % 2 == 0)\n  .collect(Collectors.toList());", "desc": "Functional programming with streams." },
-      { "label": "Optional", "code": "Optional<String> optional = Optional.ofNullable(getValue());\noptional.ifPresent(System.out::println);\nString result = optional.orElse(\"default\");", "desc": "Handle nullable values safely." }
-    ]
-  },
-  {
-    "title": "C# ",
-    "items": [
-      { "label": "Hello World", "code": "using System;\n\nclass Program {\n  static void Main() {\n    Console.WriteLine(\"Hello World\");\n  }\n}", "desc": "Basic C# program." },
-      { "label": "Variables", "code": "int x = 10;\nstring name = \"C#\";\nvar auto = \"inferred type\";\nconst double PI = 3.14159;", "desc": "Variable declarations and type inference." },
-      { "label": "Array & List", "code": "int[] numbers = {1, 2, 3};\nList<string> names = new List<string> {\"Alice\", \"Bob\"};\nnames.Add(\"Charlie\");", "desc": "Arrays and generic collections." },
-      { "label": "Dictionary", "code": "Dictionary<string, int> ages = new Dictionary<string, int>\n{\n  [\"Alice\"] = 25,\n  [\"Bob\"] = 30\n};", "desc": "Key-value collection with initializer." },
-      { "label": "Method", "code": "public static int Add(int a, int b) => a + b;\n\npublic static void Greet(string name = \"World\") {\n  Console.WriteLine($\"Hello {name}\");\n}", "desc": "Methods with expression body and default parameters." },
-      { "label": "Class", "code": "public class Person {\n  public string Name { get; set; }\n  public int Age { get; private set; }\n  \n  public Person(string name, int age) {\n    Name = name;\n    Age = age;\n  }\n}", "desc": "Class with auto-properties and constructor." },
-      { "label": "Interface", "code": "public interface IDrawable {\n  void Draw();\n}\n\npublic class Circle : IDrawable {\n  public void Draw() => Console.WriteLine(\"Drawing circle\");\n}", "desc": "Interface implementation." },
-      { "label": "LINQ", "code": "var evens = numbers.Where(n => n % 2 == 0).ToList();\nvar names = people.Select(p => p.Name).OrderBy(n => n);", "desc": "Language Integrated Query for collections." },
-      { "label": "Async/Await", "code": "public async Task<string> GetDataAsync() {\n  using var client = new HttpClient();\n  return await client.GetStringAsync(\"https://api.com\");\n}", "desc": "Asynchronous programming." },
-      { "label": "Exception handling", "code": "try {\n  var result = Divide(10, 0);\n} catch (DivideByZeroException ex) {\n  Console.WriteLine($\"Error: {ex.Message}\");\n} finally {\n  Console.WriteLine(\"Cleanup\");\n}", "desc": "Try-catch-finally with specific exceptions." },
-      { "label": "Nullable types", "code": "int? nullable = null;\nif (nullable.HasValue) {\n  Console.WriteLine(nullable.Value);\n}\nstring? name = null;", "desc": "Nullable value and reference types." },
-      { "label": "Pattern matching", "code": "var result = value switch {\n  0 => \"zero\",\n  > 0 => \"positive\",\n  < 0 => \"negative\"\n};", "desc": "Switch expressions with patterns." },
-      { "label": "Record", "code": "public record Person(string Name, int Age);\n\nvar person = new Person(\"Alice\", 25);\nvar older = person with { Age = 26 };", "desc": "Immutable record types with with-expressions." },
-      { "label": "Using statement", "code": "using var file = new FileStream(\"data.txt\", FileMode.Open);\n// file automatically disposed", "desc": "Automatic resource disposal." },
-      { "label": "Extension method", "code": "public static class StringExtensions {\n  public static bool IsEmpty(this string str) => string.IsNullOrEmpty(str);\n}\n\nstring text = \"\";\nbool empty = text.IsEmpty();", "desc": "Extend existing types with new methods." }
-    ]
-  },
-  {
-    "title": "PHP",
-    "items": [
-      { "label": "Hello World", "code": "<?php\necho \"Hello World\";\n?>", "desc": "Basic PHP script." },
-      { "label": "Variables", "code": "$name = \"PHP\";\n$age = 25;\n$pi = 3.14159;\ndefine('CONSTANT', 'value');", "desc": "Variables and constants." },
-      { "label": "Arrays", "code": "$fruits = [\"apple\", \"banana\", \"orange\"];\n$person = [\n  \"name\" => \"Alice\",\n  \"age\" => 30\n];", "desc": "Indexed and associative arrays." },
-      { "label": "Functions", "code": "function greet($name = \"World\") {\n  return \"Hello \" . $name;\n}\n\n$add = function($a, $b) { return $a + $b; };", "desc": "Functions and anonymous functions." },
-      { "label": "Classes", "code": "class Person {\n  private $name;\n  public $age;\n  \n  public function __construct($name, $age) {\n    $this->name = $name;\n    $this->age = $age;\n  }\n  \n  public function getName() {\n    return $this->name;\n  }\n}", "desc": "Class with constructor and methods." },
-      { "label": "Inheritance", "code": "class Student extends Person {\n  private $school;\n  \n  public function __construct($name, $age, $school) {\n    parent::__construct($name, $age);\n    $this->school = $school;\n  }\n}", "desc": "Class inheritance." },
-      { "label": "Loops", "code": "for ($i = 0; $i < 10; $i++) {\n  echo $i;\n}\n\nforeach ($fruits as $fruit) {\n  echo $fruit;\n}\n\nforeach ($person as $key => $value) {\n  echo \"$key: $value\";\n}", "desc": "For and foreach loops." },
-      { "label": "Conditionals", "code": "if ($age >= 18) {\n  echo \"Adult\";\n} elseif ($age >= 13) {\n  echo \"Teen\";\n} else {\n  echo \"Child\";\n}", "desc": "If-elseif-else statements." },
-      { "label": "Include/Require", "code": "include 'header.php';\nrequire_once 'config.php';", "desc": "Include external files." },
-      { "label": "Superglobals", "code": "$name = $_GET['name'];\n$email = $_POST['email'];\n$_SESSION['user_id'] = 123;\necho $_SERVER['HTTP_HOST'];", "desc": "Access global variables." },
-      { "label": "Database (PDO)", "code": "$pdo = new PDO('mysql:host=localhost;dbname=test', $user, $pass);\n$stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');\n$stmt->execute([$id]);\n$user = $stmt->fetch();", "desc": "Database operations with PDO." },
-      { "label": "JSON", "code": "$array = ['name' => 'Alice', 'age' => 30];\n$json = json_encode($array);\n$decoded = json_decode($json, true);", "desc": "JSON encoding and decoding." },
-      { "label": "File operations", "code": "$content = file_get_contents('file.txt');\nfile_put_contents('output.txt', $data);\n$lines = file('data.txt', FILE_IGNORE_NEW_LINES);", "desc": "Read and write files." },
-      { "label": "Exception handling", "code": "try {\n  $result = riskyOperation();\n} catch (Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n} finally {\n  cleanup();\n}", "desc": "Try-catch-finally blocks." },
-      { "label": "Namespaces", "code": "namespace MyApp\\Models;\n\nclass User {\n  // class code\n}\n\n// Usage\nuse MyApp\\Models\\User;\n$user = new User();", "desc": "Organize code with namespaces." }
-    ]
-  },
-  {
-    "title": "Ruby",
-    "items": [
-      { "label": "Hello World", "code": "puts \"Hello World\"", "desc": "Basic output in Ruby." },
-      { "label": "Variables", "code": "name = \"Ruby\"\nage = 25\nPI = 3.14159  # constant\n@instance_var = \"instance\"\n@@class_var = \"class\"", "desc": "Variables and constants." },
-      { "label": "Arrays", "code": "fruits = [\"apple\", \"banana\", \"orange\"]\nfruits << \"grape\"  # append\nfruits.push(\"kiwi\")\nfirst = fruits[0]", "desc": "Array operations." },
-      { "label": "Hashes", "code": "person = { name: \"Alice\", age: 30 }\n# or\nperson = { \"name\" => \"Alice\", \"age\" => 30 }\nname = person[:name]", "desc": "Hash (dictionary) usage." },
-      { "label": "Methods", "code": "def greet(name = \"World\")\n  \"Hello #{name}\"\nend\n\ndef add(a, b)\n  a + b  # implicit return\nend", "desc": "Method definition with default parameters." },
-      { "label": "Classes", "code": "class Person\n  attr_accessor :name, :age\n  \n  def initialize(name, age)\n    @name = name\n    @age = age\n  end\n  \n  def greet\n    \"Hi, I'm #{@name}\"\n  end\nend", "desc": "Class with attr_accessor and constructor." },
-      { "label": "Inheritance", "code": "class Student < Person\n  attr_accessor :school\n  \n  def initialize(name, age, school)\n    super(name, age)\n    @school = school\n  end\nend", "desc": "Class inheritance with super." },
-      { "label": "Blocks", "code": "[1, 2, 3].each { |n| puts n }\n\n[1, 2, 3].each do |n|\n  puts n * 2\nend", "desc": "Blocks with each iterator." },
-      { "label": "Iterators", "code": "numbers = [1, 2, 3, 4, 5]\nevens = numbers.select { |n| n.even? }\ndoubled = numbers.map { |n| n * 2 }\nsum = numbers.reduce(0) { |acc, n| acc + n }", "desc": "Common iterator methods." },
-      { "label": "String interpolation", "code": "name = \"Alice\"\nage = 30\nmessage = \"Hello #{name}, you are #{age} years old\"", "desc": "Embed expressions in strings." },
-      { "label": "Symbols", "code": "status = :active\nhash = { status: :pending, priority: :high }\ncase status\nwhen :active\n  \"Running\"\nwhen :pending\n  \"Waiting\"\nend", "desc": "Symbols as lightweight strings." },
-      { "label": "Conditionals", "code": "if age >= 18\n  \"Adult\"\nelsif age >= 13\n  \"Teen\"\nelse\n  \"Child\"\nend\n\n# One-liner\nstatus = age >= 18 ? \"Adult\" : \"Minor\"", "desc": "If statements and ternary operator." },
-      { "label": "Case statement", "code": "case grade\nwhen 'A'\n  \"Excellent\"\nwhen 'B', 'C'\n  \"Good\"\nwhen 'D'..'F'\n  \"Needs improvement\"\nelse\n  \"Invalid grade\"\nend", "desc": "Pattern matching with case." },
-      { "label": "Exception handling", "code": "begin\n  result = risky_operation\nrescue StandardError => e\n  puts \"Error: #{e.message}\"\nensure\n  cleanup\nend", "desc": "Begin-rescue-ensure blocks." },
-      { "label": "Modules", "code": "module Greetings\n  def say_hello\n    \"Hello from module\"\n  end\nend\n\nclass Person\n  include Greetings\nend", "desc": "Mixins with modules." }
-    ]
-  },
+  "title": "Java",
+  "items": [
+    { "label": "Hello World", "code": "public class Hello {\n  public static void main(String[] args) {\n    System.out.println(\"Hello World\");\n  }\n}", "desc": "Basic Java program." },
+    { "label": "Variables", "code": "int x = 10;\nString name = \"Java\";\nfinal double PI = 3.14159;", "desc": "Variable declarations with types." },
+    { "label": "Array", "code": "int[] numbers = {1, 2, 3, 4, 5};\nString[] names = new String[3];", "desc": "Array declaration and initialization." },
+    { "label": "ArrayList", "code": "import java.util.ArrayList;\nArrayList<String> list = new ArrayList<>();\nlist.add(\"item\");\nlist.get(0);", "desc": "Dynamic array with generics." },
+    { "label": "HashMap", "code": "import java.util.HashMap;\nHashMap<String, Integer> map = new HashMap<>();\nmap.put(\"key\", 42);\nint value = map.get(\"key\");", "desc": "Key-value mapping." },
+    { "label": "For loop", "code": "for (int i = 0; i < 10; i++) {\n  System.out.println(i);\n}", "desc": "Traditional for loop." },
+    { "label": "Enhanced for", "code": "for (String item : list) {\n  System.out.println(item);\n}", "desc": "For-each loop over collections." },
+    { "label": "Method", "code": "public static int add(int a, int b) {\n  return a + b;\n}", "desc": "Method with parameters and return type." },
+    { "label": "Class", "code": "public class Person {\n  private String name;\n  private int age;\n  \n  public Person(String name, int age) {\n    this.name = name;\n    this.age = age;\n  }\n  \n  public String getName() { return name; }\n}", "desc": "Class with constructor and getter." },
+    { "label": "Inheritance", "code": "public class Student extends Person {\n  private String school;\n  \n  public Student(String name, int age, String school) {\n    super(name, age);\n    this.school = school;\n  }\n}", "desc": "Class inheritance with super." },
+    { "label": "Interface", "code": "public interface Drawable {\n  void draw();\n  default void print() { System.out.println(\"Drawing\"); }\n}", "desc": "Interface with abstract and default methods." },
+    { "label": "Abstract Class", "code": "public abstract class Shape {\n  abstract double area();\n}", "desc": "Base class with abstract method." },
+    { "label": "Lambda", "code": "List<String> names = Arrays.asList(\"Alice\", \"Bob\");\nnames.forEach(name -> System.out.println(name));", "desc": "Lambda expression with forEach." },
+    { "label": "Stream API", "code": "List<Integer> evens = numbers.stream()\n  .filter(n -> n % 2 == 0)\n  .collect(Collectors.toList());", "desc": "Functional programming with streams." },
+    { "label": "Optional", "code": "Optional<String> optional = Optional.ofNullable(getValue());\noptional.ifPresent(System.out::println);\nString result = optional.orElse(\"default\");", "desc": "Handle nullable values safely." },
+    { "label": "Thread", "code": "Thread t = new Thread(() -> System.out.println(\"Running\"));\nt.start();", "desc": "Create and start a thread." },
+    { "label": "ExecutorService", "code": "ExecutorService ex = Executors.newFixedThreadPool(2);\nex.submit(() -> System.out.println(\"Task\"));\nex.shutdown();", "desc": "Manage thread pool." },
+    { "label": "File I/O", "code": "BufferedReader br = new BufferedReader(new FileReader(\"file.txt\"));\nString line = br.readLine();\nbr.close();", "desc": "Read file line by line." },
+    { "label": "NIO Files", "code": "Path path = Paths.get(\"file.txt\");\nList<String> lines = Files.readAllLines(path);", "desc": "Read entire file using NIO." },
+    { "label": "Socket", "code": "Socket s = new Socket(\"localhost\", 8080);", "desc": "Create TCP connection." },
+    { "label": "URL", "code": "URL url = new URL(\"https://example.com\");\nURLConnection conn = url.openConnection();", "desc": "Open URL connection." },
+    { "label": "Reflection", "code": "Class<?> cls = Class.forName(\"Person\");\nMethod m = cls.getMethod(\"getName\");", "desc": "Access class metadata." },
+    { "label": "Enum", "code": "enum Direction { UP, DOWN, LEFT, RIGHT }", "desc": "Define enum constants." },
+    { "label": "Annotation", "code": "@Override\npublic String toString() { return \"Hello\"; }", "desc": "Mark method overrides." },
+    { "label": "Generics", "code": "public class Box<T> {\n  private T value;\n  public void set(T value) { this.value = value; }\n  public T get() { return value; }\n}", "desc": "Generic class example." },
+    { "label": "Math Utils", "code": "Math.max(5,10);\nMath.min(3,7);\nMath.random();", "desc": "Math class utilities." },
+    { "label": "Collections Utils", "code": "Collections.sort(list);\nCollections.reverse(list);\nCollections.shuffle(list);", "desc": "Helper methods for collections." },
+    { "label": "Arrays Utils", "code": "Arrays.sort(numbers);\nArrays.asList(numbers);", "desc": "Array helper methods." },
+    { "label": "Date & Time", "code": "LocalDate today = LocalDate.now();\nLocalDateTime dt = LocalDateTime.now();", "desc": "Modern date/time API." },
+    { "label": "Try/Catch", "code": "try {\n  int a = 1/0;\n} catch(ArithmeticException e) {\n  e.printStackTrace();\n}", "desc": "Exception handling." },
+    { "label": "Throw", "code": "throw new IllegalArgumentException(\"Error\");", "desc": "Throw exception manually." }
+  ]
+},
+{
+      "title": "C#",
+      "items": [
+        { "label": "Hello World", "code": "using System;\nclass Program { static void Main() { Console.WriteLine(\"Hello World\"); } }", "desc": "Basic C# program." },
+        { "label": "Variables", "code": "int x = 10; string name = \"C#\"; var auto = \"inferred type\"; const double PI = 3.14159;", "desc": "Variable declarations and type inference." },
+        { "label": "Array & List", "code": "int[] numbers = {1,2,3};\nList<string> names = new List<string> {\"Alice\", \"Bob\"};", "desc": "Arrays and generic lists." },
+        { "label": "Dictionary", "code": "Dictionary<string,int> ages = new Dictionary<string,int>{{\"Alice\",25},{\"Bob\",30}};", "desc": "Key-value collections." },
+        { "label": "Method", "code": "public static int Add(int a,int b) => a+b;", "desc": "Function with parameters and return type." },
+        { "label": "Class", "code": "public class Person { public string Name { get; set; } public int Age { get; private set; } public Person(string name,int age){Name=name;Age=age;} }", "desc": "Class with auto-properties and constructor." },
+        { "label": "Interface", "code": "public interface IDrawable { void Draw(); }", "desc": "Interface declaration." },
+        { "label": "Inheritance", "code": "class Student : Person { public string School { get; set; } }", "desc": "Subclassing with inheritance." },
+        { "label": "LINQ", "code": "var evens = numbers.Where(n => n % 2 == 0).ToList();", "desc": "Query collections with LINQ." },
+        { "label": "Async/Await", "code": "public async Task<string> GetDataAsync(){ return await Task.FromResult(\"Data\"); }", "desc": "Asynchronous programming." },
+        { "label": "Exception handling", "code": "try { var result = Divide(10,0); } catch(DivideByZeroException e) { Console.WriteLine(e.Message); } finally { Console.WriteLine(\"Cleanup\"); }", "desc": "Try-catch-finally pattern." },
+        { "label": "Nullable types", "code": "int? nullable = null; string? name = null;", "desc": "Nullable value and reference types." },
+        { "label": "Record", "code": "public record Person(string Name,int Age);", "desc": "Immutable record types." },
+        { "label": "Extension method", "code": "public static class StringExt { public static bool IsEmpty(this string str)=>string.IsNullOrEmpty(str); }", "desc": "Extend existing types with new methods." }
+      ]
+    },
+    {
+      "title": "PHP",
+      "items": [
+        { "label": "Hello World", "code": "<?php echo \"Hello World\"; ?>", "desc": "Basic PHP script." },
+        { "label": "Variables", "code": "$name=\"PHP\";$age=25;$pi=3.14159;define('CONSTANT','value');", "desc": "Variables and constants." },
+        { "label": "Arrays", "code": "$fruits=[\"apple\",\"banana\",\"orange\"];$person=['name'=>'Alice','age'=>30];", "desc": "Indexed and associative arrays." },
+        { "label": "Functions", "code": "function greet($name='World'){return 'Hello '.$name;} $add=function($a,$b){return $a+$b;};", "desc": "Functions and anonymous functions." },
+        { "label": "Classes", "code": "class Person{private $name;public $age;function __construct($name,$age){$this->name=$name;$this->age=$age;} function getName(){return $this->name;}}", "desc": "Class with constructor and methods." },
+        { "label": "Inheritance", "code": "class Student extends Person{private $school; function __construct($name,$age,$school){parent::__construct($name,$age);$this->school=$school;}}", "desc": "Class inheritance." },
+        { "label": "Loops", "code": "for($i=0;$i<10;$i++){echo $i;} foreach($fruits as $fruit){echo $fruit;}", "desc": "For and foreach loops." },
+        { "label": "Conditionals", "code": "if($age>=18){echo 'Adult';} elseif($age>=13){echo 'Teen';} else{echo 'Child';}", "desc": "If-elseif-else statements." },
+        { "label": "Include/Require", "code": "include 'header.php'; require_once 'config.php';", "desc": "Include external files." },
+        { "label": "Database (PDO)", "code": "$pdo=new PDO('mysql:host=localhost;dbname=test',$user,$pass);", "desc": "Database access using PDO." },
+        { "label": "JSON", "code": "$array=['name'=>'Alice','age'=>30];$json=json_encode($array);$decoded=json_decode($json,true);", "desc": "Encode and decode JSON." },
+        { "label": "Exception handling", "code": "try{ riskyOperation(); } catch(Exception $e){echo $e->getMessage();} finally{cleanup();}", "desc": "Try-catch-finally." }
+      ]
+    },
+    {
+      "title": "Ruby",
+      "items": [
+        { "label": "Hello World", "code": "puts \"Hello World\"", "desc": "Basic output." },
+        { "label": "Variables", "code": "name='Ruby';age=25;PI=3.14159;@instance_var='instance';@@class_var='class';", "desc": "Variables and constants." },
+        { "label": "Arrays", "code": "fruits=['apple','banana','orange'];fruits<<'grape';fruits.push('kiwi');first=fruits[0];", "desc": "Array operations." },
+        { "label": "Hashes", "code": "person={name:'Alice',age:30};name=person[:name];", "desc": "Hash usage." },
+        { "label": "Methods", "code": "def greet(name='World');'Hello #{name}';end", "desc": "Method with default parameter." },
+        { "label": "Classes", "code": "class Person; attr_accessor :name,:age; def initialize(name,age);@name=name;@age=age;end; end", "desc": "Class definition with constructor." },
+        { "label": "Inheritance", "code": "class Student < Person; attr_accessor :school; def initialize(name,age,school);super(name,age);@school=school;end; end", "desc": "Subclassing with inheritance." },
+        { "label": "Blocks", "code": "[1,2,3].each{|n| puts n}", "desc": "Block iterator." }
+      ]
+    },
   {
     "title": "Scala",
     "items": [
-      { "label": "Hello World", "code": "object HelloWorld {\n  def main(args: Array[String]): Unit = {\n    println(\"Hello World\")\n  }\n}", "desc": "Basic Scala program." },
+      { "label": "Hello World", "code": "object HelloWorld { def main(args: Array[String]): Unit = { println(\"Hello World\") } }", "desc": "Basic Scala program." },
       { "label": "Variables", "code": "val immutable = \"cannot change\"\nvar mutable = \"can change\"\nlazy val computed = expensiveOperation()", "desc": "Immutable, mutable, and lazy values." },
-      { "label": "Functions", "code": "def add(a: Int, b: Int): Int = a + b\n\nval multiply = (a: Int, b: Int) => a * b\n\ndef greet(name: String = \"World\"): String = s\"Hello $name\"", "desc": "Function definitions and lambda expressions." },
-      { "label": "Case classes", "code": "case class Person(name: String, age: Int)\n\nval alice = Person(\"Alice\", 30)\nval older = alice.copy(age = 31)", "desc": "Immutable data structures." },
+      { "label": "Functions", "code": "def add(a: Int, b: Int): Int = a + b\nval multiply = (a: Int, b: Int) => a * b\ndef greet(name: String = \"World\"): String = s\"Hello $name\"", "desc": "Function definitions and lambda expressions." },
+      { "label": "Case classes", "code": "case class Person(name: String, age: Int)\nval alice = Person(\"Alice\", 30)\nval older = alice.copy(age = 31)", "desc": "Immutable data structures." },
       { "label": "Pattern matching", "code": "def describe(x: Any): String = x match {\n  case 1 => \"one\"\n  case \"hello\" => \"greeting\"\n  case Person(name, _) => s\"Person named $name\"\n  case _ => \"something else\"\n}", "desc": "Pattern matching with case expressions." },
       { "label": "Collections", "code": "val list = List(1, 2, 3)\nval doubled = list.map(_ * 2)\nval evens = list.filter(_ % 2 == 0)\nval sum = list.reduce(_ + _)", "desc": "Immutable collections and operations." },
-      { "label": "Option", "code": "val maybeValue: Option[String] = Some(\"hello\")\nval result = maybeValue match {\n  case Some(value) => value.toUpperCase\n  case None => \"default\"\n}\nval length = maybeValue.map(_.length).getOrElse(0)", "desc": "Handle optional values safely." },
-      { "label": "For comprehensions", "code": "val numbers = List(1, 2, 3)\nval letters = List('a', 'b')\nval combinations = for {\n  n <- numbers\n  l <- letters\n} yield s\"$n$l\"", "desc": "Syntactic sugar for map/flatMap/filter." },
-      { "label": "Classes", "code": "class Counter(private var count: Int = 0) {\n  def increment(): Unit = count += 1\n  def current: Int = count\n}\n\nval counter = new Counter()\ncounter.increment()", "desc": "Class with private state and methods." },
-      { "label": "Traits", "code": "trait Drawable {\n  def draw(): String\n}\n\ntrait Colored {\n  def color: String = \"black\"\n}\n\nclass Circle extends Drawable with Colored {\n  def draw(): String = s\"Drawing a $color circle\"\n}", "desc": "Mixins with traits." },
-      { "label": "Higher-order functions", "code": "def applyTwice[A](f: A => A)(x: A): A = f(f(x))\n\nval increment = (x: Int) => x + 1\nval result = applyTwice(increment)(5)  // 7", "desc": "Functions that take or return functions." },
-      { "label": "Implicits", "code": "implicit class StringOps(s: String) {\n  def isPalindrome: Boolean = s == s.reverse\n}\n\nval result = \"racecar\".isPalindrome  // true", "desc": "Extend existing types with implicit classes." },
-      { "label": "Future", "code": "import scala.concurrent.Future\nimport scala.concurrent.ExecutionContext.Implicits.global\n\nval future = Future {\n  Thread.sleep(1000)\n  \"Hello from future\"\n}\n\nfuture.foreach(println)", "desc": "Asynchronous programming with Futures." },
-      { "label": "Try", "code": "import scala.util.{Try, Success, Failure}\n\nval result = Try {\n  \"10\".toInt\n}\n\nresult match {\n  case Success(value) => println(s\"Got $value\")\n  case Failure(exception) => println(s\"Failed: $exception\")\n}", "desc": "Exception handling with Try." },
-      { "label": "Type parameters", "code": "class Box[T](value: T) {\n  def get: T = value\n  def map[U](f: T => U): Box[U] = new Box(f(value))\n}\n\nval intBox = new Box(42)\nval stringBox = intBox.map(_.toString)", "desc": "Generic types and methods." }
+      { "label": "Option", "code": "val maybeValue: Option[String] = Some(\"hello\")\nval result = maybeValue match { case Some(value) => value.toUpperCase case None => \"default\" }\nval length = maybeValue.map(_.length).getOrElse(0)", "desc": "Handle optional values safely." },
+      { "label": "For comprehensions", "code": "val numbers = List(1, 2, 3)\nval letters = List('a', 'b')\nval combinations = for { n <- numbers; l <- letters } yield s\"$n$l\"", "desc": "Syntactic sugar for map/flatMap/filter." },
+      { "label": "Classes", "code": "class Counter(private var count: Int = 0) { def increment(): Unit = count += 1; def current: Int = count }\nval counter = new Counter(); counter.increment()", "desc": "Class with private state and methods." },
+      { "label": "Traits", "code": "trait Drawable { def draw(): String }\ntrait Colored { def color: String = \"black\" }\nclass Circle extends Drawable with Colored { def draw(): String = s\"Drawing a $color circle\" }", "desc": "Mixins with traits." },
+      { "label": "Higher-order functions", "code": "def applyTwice[A](f: A => A)(x: A): A = f(f(x))\nval increment = (x: Int) => x + 1\nval result = applyTwice(increment)(5)", "desc": "Functions that take or return functions." },
+      { "label": "Implicits", "code": "implicit class StringOps(s: String) { def isPalindrome: Boolean = s == s.reverse }\nval result = \"racecar\".isPalindrome", "desc": "Extend existing types with implicit classes." },
+      { "label": "Future", "code": "import scala.concurrent.Future\nimport scala.concurrent.ExecutionContext.Implicits.global\nval future = Future { Thread.sleep(1000); \"Hello from future\" }\nfuture.foreach(println)", "desc": "Asynchronous programming with Futures." },
+      { "label": "Try", "code": "import scala.util.{Try, Success, Failure}\nval result = Try { \"10\".toInt }\nresult match { case Success(value) => println(s\"Got $value\") case Failure(exception) => println(s\"Failed: $exception\") }", "desc": "Exception handling with Try." },
+      { "label": "Type parameters", "code": "class Box[T](value: T) { def get: T = value; def map[U](f: T => U): Box[U] = new Box(f(value)) }\nval intBox = new Box(42)\nval stringBox = intBox.map(_.toString)", "desc": "Generic types and methods." }
     ]
   },
   {
     "title": "Dart",
     "items": [
-      { "label": "Hello World", "code": "void main() {\n  print('Hello World');\n}", "desc": "Basic Dart program." },
-      { "label": "Variables", "code": "var name = 'Dart';  // inferred type\nString title = 'Developer';\nint age = 25;\ndouble pi = 3.14159;\nbool isActive = true;\nfinal constant = 'cannot change';\nconst compileTime = 42;", "desc": "Variable declarations and types." },
-      { "label": "Functions", "code": "String greet(String name, {String title = 'World'}) {\n  return 'Hello $title $name';\n}\n\n// Arrow function\nint add(int a, int b) => a + b;\n\n// Optional parameters\nvoid log(String message, [String? level]) {\n  print('$level: $message');\n}", "desc": "Function definitions with named and optional parameters." },
-      { "label": "Lists", "code": "List<String> fruits = ['apple', 'banana', 'orange'];\nfruits.add('grape');\nvar numbers = <int>[1, 2, 3];\nvar doubled = numbers.map((n) => n * 2).toList();", "desc": "List operations and transformations." },
-      { "label": "Maps", "code": "Map<String, int> ages = {\n  'Alice': 30,\n  'Bob': 25,\n};\nages['Charlie'] = 35;\nvar keys = ages.keys.toList();", "desc": "Map (dictionary) usage." },
-      { "label": "Classes", "code": "class Person {\n  String name;\n  int age;\n  \n  Person(this.name, this.age);\n  \n  // Named constructor\n  Person.guest() : name = 'Guest', age = 0;\n  \n  void greet() {\n    print('Hi, I\\'m $name');\n  }\n}", "desc": "Class with constructors and methods." },
-      { "label": "Inheritance", "code": "class Student extends Person {\n  String school;\n  \n  Student(String name, int age, this.school) : super(name, age);\n  \n  @override\n  void greet() {\n    super.greet();\n    print('I study at $school');\n  }\n}", "desc": "Class inheritance with method overriding." },
-      { "label": "Mixins", "code": "mixin Flyable {\n  void fly() {\n    print('Flying!');\n  }\n}\n\nclass Bird with Flyable {\n  String name;\n  Bird(this.name);\n}", "desc": "Code reuse with mixins." },
-      { "label": "Async/Await", "code": "Future<String> fetchData() async {\n  await Future.delayed(Duration(seconds: 1));\n  return 'Data loaded';\n}\n\nvoid main() async {\n  var data = await fetchData();\n  print(data);\n}", "desc": "Asynchronous programming." },
-      { "label": "Streams", "code": "Stream<int> countStream() async* {\n  for (int i = 1; i <= 5; i++) {\n    await Future.delayed(Duration(seconds: 1));\n    yield i;\n  }\n}\n\nvoid main() async {\n  await for (int value in countStream()) {\n    print(value);\n  }\n}", "desc": "Asynchronous data streams." },
-      { "label": "Null safety", "code": "String? nullable = null;\nString nonNull = 'Hello';\n\n// Null-aware operators\nint? length = nullable?.length;\nString result = nullable ?? 'default';\nnonNull ??= 'fallback';", "desc": "Handle nullable types safely." },
-      { "label": "Extension methods", "code": "extension StringExtensions on String {\n  bool get isEmail => contains('@');\n  String capitalize() => '${this[0].toUpperCase()}${substring(1)}';\n}\n\nvoid main() {\n  print('hello'.capitalize());  // Hello\n  print('user@example.com'.isEmail);  // true\n}", "desc": "Extend existing classes with new functionality." },
-      { "label": "Generics", "code": "class Box<T> {\n  T value;\n  Box(this.value);\n  \n  T getValue() => value;\n}\n\nBox<int> intBox = Box(42);\nBox<String> stringBox = Box('hello');", "desc": "Generic types for type safety." },
-      { "label": "Exception handling", "code": "try {\n  var result = int.parse('not a number');\n} on FormatException catch (e) {\n  print('Format error: ${e.message}');\n} catch (e) {\n  print('Unknown error: $e');\n} finally {\n  print('Cleanup');\n}", "desc": "Try-catch-finally with specific exceptions." },
-      { "label": "Enums", "code": "enum Status { pending, approved, rejected }\n\nvoid handleStatus(Status status) {\n  switch (status) {\n    case Status.pending:\n      print('Waiting...');\n      break;\n    case Status.approved:\n      print('Success!');\n      break;\n    case Status.rejected:\n      print('Denied');\n      break;\n  }\n}", "desc": "Enumerated types with switch statements." }
+      { "label": "Hello World", "code": "void main() { print('Hello World'); }", "desc": "Basic Dart program." },
+      { "label": "Variables", "code": "var name = 'Dart'; String title = 'Developer'; int age = 25; double pi = 3.14159; bool isActive = true; final constant = 'cannot change'; const compileTime = 42;", "desc": "Variable declarations and types." },
+      { "label": "Functions", "code": "String greet(String name, {String title = 'World'}) { return 'Hello $title $name'; } int add(int a, int b) => a + b; void log(String message, [String? level]) { print('$level: $message'); }", "desc": "Function definitions with named and optional parameters." },
+      { "label": "Lists", "code": "List<String> fruits = ['apple', 'banana', 'orange']; fruits.add('grape'); var numbers = <int>[1, 2, 3]; var doubled = numbers.map((n) => n * 2).toList();", "desc": "List operations and transformations." },
+      { "label": "Maps", "code": "Map<String, int> ages = { 'Alice': 30, 'Bob': 25, }; ages['Charlie'] = 35; var keys = ages.keys.toList();", "desc": "Map (dictionary) usage." },
+      { "label": "Classes", "code": "class Person { String name; int age; Person(this.name, this.age); Person.guest() : name = 'Guest', age = 0; void greet() { print('Hi, I\\'m $name'); } }", "desc": "Class with constructors and methods." },
+      { "label": "Inheritance", "code": "class Student extends Person { String school; Student(String name, int age, this.school) : super(name, age); @override void greet() { super.greet(); print('I study at $school'); } }", "desc": "Class inheritance with method overriding." },
+      { "label": "Mixins", "code": "mixin Flyable { void fly() { print('Flying!'); } } class Bird with Flyable { String name; Bird(this.name); }", "desc": "Code reuse with mixins." },
+      { "label": "Async/Await", "code": "Future<String> fetchData() async { await Future.delayed(Duration(seconds: 1)); return 'Data loaded'; } void main() async { var data = await fetchData(); print(data); }", "desc": "Asynchronous programming." },
+      { "label": "Streams", "code": "Stream<int> countStream() async* { for (int i = 1; i <= 5; i++) { await Future.delayed(Duration(seconds: 1)); yield i; } } void main() async { await for (int value in countStream()) { print(value); } }", "desc": "Asynchronous data streams." },
+      { "label": "Null safety", "code": "String? nullable = null; String nonNull = 'Hello'; int? length = nullable?.length; String result = nullable ?? 'default'; nonNull ??= 'fallback';", "desc": "Handle nullable types safely." },
+      { "label": "Extension methods", "code": "extension StringExtensions on String { bool get isEmail => contains('@'); String capitalize() => '${this[0].toUpperCase()}${substring(1)}'; } void main() { print('hello'.capitalize()); print('user@example.com'.isEmail); }", "desc": "Extend existing classes with new functionality." },
+      { "label": "Generics", "code": "class Box<T> { T value; Box(this.value); T getValue() => value; } Box<int> intBox = Box(42); Box<String> stringBox = Box('hello');", "desc": "Generic types for type safety." },
+      { "label": "Exception handling", "code": "try { var result = int.parse('not a number'); } on FormatException catch (e) { print('Format error: ${e.message}'); } catch (e) { print('Unknown error: $e'); } finally { print('Cleanup'); }", "desc": "Try-catch-finally with specific exceptions." },
+      { "label": "Enums", "code": "enum Status { pending, approved, rejected } void handleStatus(Status status) { switch (status) { case Status.pending: print('Waiting...'); break; case Status.approved: print('Success!'); break; case Status.rejected: print('Denied'); break; } }", "desc": "Enumerated types with switch statements." }
     ]
   },
-{
+  {
     "title": "Go",
     "items": [
       { "label": "Hello World", "code": "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}", "desc": "Basic Go program." },
       { "label": "Variables", "code": "var name string = \"Go\"\nage := 25\nconst PI = 3.14159", "desc": "Variable declarations and constants." },
-      { "label": "Function", "code": "func add(a, b int) int {\n    return a + b\n}", "desc": "Function with parameters and return type." },
-      { "label": "Multiple returns", "code": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}", "desc": "Function returning multiple values." },
-      { "label": "Struct", "code": "type Person struct {\n    Name string\n    Age  int\n}\np := Person{Name: \"Alice\", Age: 30}", "desc": "Define and initialize struct." },
-      { "label": "Method", "code": "func (p Person) Greet() string {\n    return \"Hello, \" + p.Name\n}", "desc": "Method on struct." },
-      { "label": "Pointer", "code": "func (p *Person) SetAge(age int) {\n    p.Age = age\n}", "desc": "Pointer receiver method." },
-      { "label": "Interface", "code": "type Writer interface {\n    Write([]byte) (int, error)\n}", "desc": "Define interface." },
+      { "label": "Function", "code": "func add(a, b int) int { return a + b }", "desc": "Function with parameters and return type." },
+      { "label": "Multiple returns", "code": "func divide(a, b float64) (float64, error) { if b == 0 { return 0, errors.New(\"division by zero\") } return a / b, nil }", "desc": "Function returning multiple values." },
+      { "label": "Struct", "code": "type Person struct { Name string; Age  int }\np := Person{Name: \"Alice\", Age: 30}", "desc": "Define and initialize struct." },
+      { "label": "Method", "code": "func (p Person) Greet() string { return \"Hello, \" + p.Name }", "desc": "Method on struct." },
+      { "label": "Pointer", "code": "func (p *Person) SetAge(age int) { p.Age = age }", "desc": "Pointer receiver method." },
+      { "label": "Interface", "code": "type Writer interface { Write([]byte) (int, error) }", "desc": "Define interface." },
       { "label": "Slice", "code": "nums := []int{1, 2, 3}\nnums = append(nums, 4)", "desc": "Dynamic array operations." },
       { "label": "Map", "code": "m := make(map[string]int)\nm[\"key\"] = 42\nvalue, ok := m[\"key\"]", "desc": "Hash map operations." },
-      { "label": "For loop", "code": "for i := 0; i < 10; i++ {\n    fmt.Println(i)\n}\nfor key, value := range m {\n    fmt.Println(key, value)\n}", "desc": "Loop variations." },
-      { "label": "If statement", "code": "if x > 0 {\n    fmt.Println(\"positive\")\n} else if x < 0 {\n    fmt.Println(\"negative\")\n} else {\n    fmt.Println(\"zero\")\n}", "desc": "Conditional statements." },
-      { "label": "Switch", "code": "switch day {\ncase \"Monday\":\n    fmt.Println(\"Start of work week\")\ndefault:\n    fmt.Println(\"Other day\")\n}", "desc": "Switch statement." },
-      { "label": "Goroutine", "code": "go func() {\n    fmt.Println(\"Running in goroutine\")\n}()", "desc": "Concurrent execution." },
+      { "label": "For loop", "code": "for i := 0; i < 10; i++ { fmt.Println(i) }\nfor key, value := range m { fmt.Println(key, value) }", "desc": "Loop variations." },
+      { "label": "If statement", "code": "if x > 0 { fmt.Println(\"positive\") } else if x < 0 { fmt.Println(\"negative\") } else { fmt.Println(\"zero\") }", "desc": "Conditional statements." },
+      { "label": "Switch", "code": "switch day { case \"Monday\": fmt.Println(\"Start of work week\") default: fmt.Println(\"Other day\") }", "desc": "Switch statement." },
+      { "label": "Goroutine", "code": "go func() { fmt.Println(\"Running in goroutine\") }()", "desc": "Concurrent execution." },
       { "label": "Channel", "code": "ch := make(chan int)\ngo func() { ch <- 42 }()\nvalue := <-ch", "desc": "Communication between goroutines." },
-      { "label": "Error handling", "code": "if err != nil {\n    log.Fatal(err)\n}", "desc": "Standard error handling pattern." },
+      { "label": "Error handling", "code": "if err != nil { log.Fatal(err) }", "desc": "Standard error handling pattern." },
       { "label": "JSON marshal", "code": "import \"encoding/json\"\ndata, err := json.Marshal(person)", "desc": "Convert struct to JSON." },
       { "label": "JSON unmarshal", "code": "var person Person\nerr := json.Unmarshal(data, &person)", "desc": "Parse JSON into struct." },
       { "label": "HTTP server", "code": "http.HandleFunc(\"/\", handler)\nlog.Fatal(http.ListenAndServe(\":8080\", nil))", "desc": "Basic HTTP server." },
@@ -1760,5 +1219,145 @@
     { "label": "AnimationController", "code": "AnimationController(vsync: this, duration: Duration(seconds:1))", "desc": "Custom animations ke liye controller." },
     { "label": "FadeTransition", "code": "FadeTransition(opacity: animation, child: child)", "desc": "Widget ke liye fade-in/out animation." }
   ]
+},
+{
+  "title": "PostgreSQL",
+  "items": [
+    { "label": "Connect DB", "code": "psql -h host -U user -d dbname", "desc": "Connect to PostgreSQL database." },
+    { "label": "List databases", "code": "\\l", "desc": "Show all databases." },
+    { "label": "Connect database", "code": "\\c dbname", "desc": "Connect to a specific database." },
+    { "label": "List tables", "code": "\\dt", "desc": "Show all tables in current database." },
+    { "label": "Describe table", "code": "\\d tablename", "desc": "Show table schema." },
+    { "label": "Create database", "code": "CREATE DATABASE mydb;", "desc": "Create a new database." },
+    { "label": "Drop database", "code": "DROP DATABASE mydb;", "desc": "Delete a database." },
+    { "label": "Create table", "code": "CREATE TABLE users(id SERIAL PRIMARY KEY, name TEXT, age INT);", "desc": "Create a new table." },
+    { "label": "Drop table", "code": "DROP TABLE users;", "desc": "Delete a table." },
+    { "label": "Insert data", "code": "INSERT INTO users(name, age) VALUES('Alice', 25);", "desc": "Insert a row." },
+    { "label": "Insert multiple", "code": "INSERT INTO users(name, age) VALUES('Bob',30),('Charlie',28);", "desc": "Insert multiple rows." },
+    { "label": "Select all", "code": "SELECT * FROM users;", "desc": "Fetch all rows." },
+    { "label": "Select with condition", "code": "SELECT * FROM users WHERE age > 25;", "desc": "Fetch rows matching condition." },
+    { "label": "Update row", "code": "UPDATE users SET age=26 WHERE name='Alice';", "desc": "Update data in table." },
+    { "label": "Delete row", "code": "DELETE FROM users WHERE name='Alice';", "desc": "Delete data from table." },
+    { "label": "Order by", "code": "SELECT * FROM users ORDER BY age DESC;", "desc": "Sort rows." },
+    { "label": "Limit", "code": "SELECT * FROM users LIMIT 5;", "desc": "Limit number of rows." },
+    { "label": "Offset", "code": "SELECT * FROM users OFFSET 10;", "desc": "Skip first n rows." },
+    { "label": "Distinct", "code": "SELECT DISTINCT age FROM users;", "desc": "Get unique values." },
+    { "label": "Count rows", "code": "SELECT COUNT(*) FROM users;", "desc": "Count number of rows." },
+    { "label": "Sum", "code": "SELECT SUM(age) FROM users;", "desc": "Sum of column." },
+    { "label": "Average", "code": "SELECT AVG(age) FROM users;", "desc": "Average value." },
+    { "label": "Min / Max", "code": "SELECT MIN(age), MAX(age) FROM users;", "desc": "Minimum and maximum values." },
+    { "label": "Group by", "code": "SELECT age, COUNT(*) FROM users GROUP BY age;", "desc": "Group rows and aggregate." },
+    { "label": "Having", "code": "SELECT age, COUNT(*) FROM users GROUP BY age HAVING COUNT(*) > 1;", "desc": "Filter groups." },
+    { "label": "Inner join", "code": "SELECT u.name, o.amount FROM users u INNER JOIN orders o ON u.id=o.user_id;", "desc": "Join matching rows from two tables." },
+    { "label": "Left join", "code": "SELECT u.name, o.amount FROM users u LEFT JOIN orders o ON u.id=o.user_id;", "desc": "All users, orders if exist." },
+    { "label": "Right join", "code": "SELECT u.name, o.amount FROM users u RIGHT JOIN orders o ON u.id=o.user_id;", "desc": "All orders, users if exist." },
+    { "label": "Full outer join", "code": "SELECT u.name, o.amount FROM users u FULL OUTER JOIN orders o ON u.id=o.user_id;", "desc": "All rows from both tables." },
+    { "label": "Union", "code": "SELECT name FROM users1 UNION SELECT name FROM users2;", "desc": "Combine results without duplicates." },
+    { "label": "Union all", "code": "SELECT name FROM users1 UNION ALL SELECT name FROM users2;", "desc": "Combine results with duplicates." },
+    { "label": "Substring", "code": "SELECT SUBSTRING(name,1,3) FROM users;", "desc": "Extract substring." },
+    { "label": "Length", "code": "SELECT LENGTH(name) FROM users;", "desc": "Get string length." },
+    { "label": "Upper / Lower", "code": "SELECT UPPER(name), LOWER(name) FROM users;", "desc": "Convert case." },
+    { "label": "Now", "code": "SELECT NOW();", "desc": "Current timestamp." },
+    { "label": "Date add", "code": "SELECT CURRENT_DATE + INTERVAL '7 days';", "desc": "Add days to date." },
+    { "label": "Date diff", "code": "SELECT AGE(NOW(), birth_date) FROM users;", "desc": "Calculate interval." },
+    { "label": "Create index", "code": "CREATE INDEX idx_name ON users(name);", "desc": "Add index on column." },
+    { "label": "Drop index", "code": "DROP INDEX idx_name;", "desc": "Remove index." },
+    { "label": "Transactions", "code": "BEGIN; ... COMMIT;", "desc": "Start and commit transaction." },
+    { "label": "Rollback", "code": "ROLLBACK;", "desc": "Undo transaction." },
+    { "label": "Prepared statement", "code": "PREPARE stmt(int) AS INSERT INTO users(age) VALUES($1);", "desc": "Define reusable query." },
+    { "label": "Execute prepared", "code": "EXECUTE stmt(30);", "desc": "Run prepared statement." },
+    { "label": "Functions", "code": "CREATE FUNCTION add(a INT, b INT) RETURNS INT AS $$ BEGIN RETURN a+b; END; $$ LANGUAGE plpgsql;", "desc": "Define custom function." },
+    { "label": "Call function", "code": "SELECT add(5,10);", "desc": "Call user-defined function." },
+    { "label": "Trigger", "code": "CREATE TRIGGER trg BEFORE INSERT ON users FOR EACH ROW EXECUTE FUNCTION log_insert();", "desc": "Define trigger on table." }
+  ]
+},
+{
+  "title": "Redis",
+  "items": [
+    { "label": "Connect", "code": "redis-cli -h host -p 6379", "desc": "Connect to Redis server." },
+    { "label": "Ping", "code": "PING", "desc": "Check server is alive." },
+    { "label": "Set key", "code": "SET key value", "desc": "Set string value." },
+    { "label": "Get key", "code": "GET key", "desc": "Get string value." },
+    { "label": "Delete key", "code": "DEL key", "desc": "Delete key." },
+    { "label": "Expire key", "code": "EXPIRE key 60", "desc": "Set TTL in seconds." },
+    { "label": "TTL", "code": "TTL key", "desc": "Get remaining time." },
+    { "label": "Exists", "code": "EXISTS key", "desc": "Check if key exists." },
+    { "label": "Keys pattern", "code": "KEYS user:*", "desc": "List keys matching pattern." },
+    { "label": "Rename key", "code": "RENAME oldKey newKey", "desc": "Rename a key." },
+    { "label": "String incr", "code": "INCR counter", "desc": "Increment integer value." },
+    { "label": "String decr", "code": "DECR counter", "desc": "Decrement integer value." },
+    { "label": "Append string", "code": "APPEND key \"more\"", "desc": "Append to existing string." },
+    { "label": "Get range", "code": "GETRANGE key 0 4", "desc": "Get substring." },
+    { "label": "List push left", "code": "LPUSH mylist a b c", "desc": "Add elements to start of list." },
+    { "label": "List push right", "code": "RPUSH mylist a b c", "desc": "Add elements to end of list." },
+    { "label": "List pop left", "code": "LPOP mylist", "desc": "Remove first element." },
+    { "label": "List pop right", "code": "RPOP mylist", "desc": "Remove last element." },
+    { "label": "List range", "code": "LRANGE mylist 0 -1", "desc": "Get all elements." },
+    { "label": "Set add", "code": "SADD myset a b c", "desc": "Add members to set." },
+    { "label": "Set remove", "code": "SREM myset a", "desc": "Remove member from set." },
+    { "label": "Set members", "code": "SMEMBERS myset", "desc": "Get all members." },
+    { "label": "Set is member", "code": "SISMEMBER myset a", "desc": "Check if value exists." },
+    { "label": "Set union", "code": "SUNION set1 set2", "desc": "Union of sets." },
+    { "label": "Set intersection", "code": "SINTER set1 set2", "desc": "Intersection of sets." },
+    { "label": "Hash set", "code": "HSET user:1 name Alice age 25", "desc": "Set fields in hash." },
+    { "label": "Hash get", "code": "HGET user:1 name", "desc": "Get hash field." },
+    { "label": "Hash get all", "code": "HGETALL user:1", "desc": "Get all fields." },
+    { "label": "Hash delete", "code": "HDEL user:1 age", "desc": "Delete hash field." },
+    { "label": "Sorted set add", "code": "ZADD leaderboard 100 user1 200 user2", "desc": "Add members with score." },
+    { "label": "Sorted set range", "code": "ZRANGE leaderboard 0 -1 WITHSCORES", "desc": "Get sorted members." },
+    { "label": "Sorted set remove", "code": "ZREM leaderboard user1", "desc": "Remove member from sorted set." },
+    { "label": "Transactions multi", "code": "MULTI\nSET a 1\nINCR a\nEXEC", "desc": "Execute multiple commands atomically." },
+    { "label": "Watch key", "code": "WATCH key\nMULTI\nSET key 1\nEXEC", "desc": "Optimistic locking." },
+    { "label": "Publish", "code": "PUBLISH channel \"message\"", "desc": "Send message to subscribers." },
+    { "label": "Subscribe", "code": "SUBSCRIBE channel", "desc": "Listen for messages." },
+    { "label": "Eval Lua", "code": "EVAL \"return redis.call('GET', KEYS[1])\" 1 mykey", "desc": "Run Lua script." },
+    { "label": "Flush DB", "code": "FLUSHDB", "desc": "Delete all keys in current database." },
+    { "label": "Flush all", "code": "FLUSHALL", "desc": "Delete all keys in all databases." }
+  ]
+},
+{
+  "title": "Kubernetes",
+  "items": [
+    { "label": "Cluster info", "code": "kubectl cluster-info", "desc": "Display cluster info." },
+    { "label": "Get nodes", "code": "kubectl get nodes", "desc": "List all nodes." },
+    { "label": "Describe node", "code": "kubectl describe node <node>", "desc": "Detailed node info." },
+    { "label": "Get namespaces", "code": "kubectl get ns", "desc": "List all namespaces." },
+    { "label": "Create namespace", "code": "kubectl create ns mynamespace", "desc": "Add new namespace." },
+    { "label": "Delete namespace", "code": "kubectl delete ns mynamespace", "desc": "Remove namespace." },
+    { "label": "Get pods", "code": "kubectl get pods", "desc": "List all pods in current namespace." },
+    { "label": "Get pods in all namespaces", "code": "kubectl get pods -A", "desc": "List pods across namespaces." },
+    { "label": "Describe pod", "code": "kubectl describe pod mypod", "desc": "Detailed pod info." },
+    { "label": "Create pod", "code": "kubectl run mypod --image=nginx", "desc": "Run pod with specified image." },
+    { "label": "Delete pod", "code": "kubectl delete pod mypod", "desc": "Remove pod." },
+    { "label": "Get deployments", "code": "kubectl get deploy", "desc": "List deployments." },
+    { "label": "Describe deployment", "code": "kubectl describe deploy mydeploy", "desc": "Detailed deployment info." },
+    { "label": "Create deployment", "code": "kubectl create deploy mydeploy --image=nginx", "desc": "Run deployment." },
+    { "label": "Scale deployment", "code": "kubectl scale deploy mydeploy --replicas=3", "desc": "Increase or decrease replicas." },
+    { "label": "Delete deployment", "code": "kubectl delete deploy mydeploy", "desc": "Remove deployment." },
+    { "label": "Get services", "code": "kubectl get svc", "desc": "List all services." },
+    { "label": "Describe service", "code": "kubectl describe svc myservice", "desc": "Detailed service info." },
+    { "label": "Expose deployment", "code": "kubectl expose deploy mydeploy --port=80 --type=NodePort", "desc": "Create service for deployment." },
+    { "label": "Logs", "code": "kubectl logs mypod", "desc": "View pod logs." },
+    { "label": "Follow logs", "code": "kubectl logs -f mypod", "desc": "Stream pod logs." },
+    { "label": "Exec into pod", "code": "kubectl exec -it mypod -- /bin/sh", "desc": "Open shell in pod." },
+    { "label": "Apply config", "code": "kubectl apply -f config.yaml", "desc": "Create/update resource from file." },
+    { "label": "Delete resource", "code": "kubectl delete -f config.yaml", "desc": "Delete resource from file." },
+    { "label": "Get configmaps", "code": "kubectl get configmap", "desc": "List configmaps." },
+    { "label": "Describe configmap", "code": "kubectl describe configmap myconfig", "desc": "Show configmap details." },
+    { "label": "Get secrets", "code": "kubectl get secret", "desc": "List secrets." },
+    { "label": "Describe secret", "code": "kubectl describe secret mysecret", "desc": "Show secret details." },
+    { "label": "Rollout status", "code": "kubectl rollout status deploy mydeploy", "desc": "Check rollout progress." },
+    { "label": "Rollback deployment", "code": "kubectl rollout undo deploy mydeploy", "desc": "Revert to previous version." },
+    { "label": "Get events", "code": "kubectl get events", "desc": "List cluster events." },
+    { "label": "Top nodes", "code": "kubectl top nodes", "desc": "Show node CPU/memory usage." },
+    { "label": "Top pods", "code": "kubectl top pods", "desc": "Show pod CPU/memory usage." },
+    { "label": "Port forward", "code": "kubectl port-forward pod/mypod 8080:80", "desc": "Forward local port to pod." },
+    { "label": "Edit resource", "code": "kubectl edit deploy mydeploy", "desc": "Edit resource live." },
+    { "label": "Label resource", "code": "kubectl label pod mypod env=prod", "desc": "Add label to resource." },
+    { "label": "Annotate resource", "code": "kubectl annotate pod mypod description='web app'", "desc": "Add annotation to resource." },
+    { "label": "Get all resources", "code": "kubectl get all", "desc": "List all resource types in namespace." },
+    { "label": "Diff config", "code": "kubectl diff -f config.yaml", "desc": "Show differences with live cluster." }
+  ]
 }
+
   ]

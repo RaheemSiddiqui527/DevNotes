@@ -49,110 +49,128 @@ function NotesCheatSheet() {
     setSelectedCategory(cat || null)
   }, [searchParams])
 
-const iconFor = (title) => {
-  const iconMap = {
-    "Web & Frontend": "🌐",
-    "Backend & APIs": "⚙️",
-    Mobile: "📱",
-    "Data & Machine Learning": "📊",
-    "Systems & Scripting": "🐧",
-    "DevOps / Infra": "☁️",
-    "Security / Blockchain": "🛡️",
-    JavaScript: "🟨",
-    TypeScript: "🔷",
-    Python: "🐍",
-    Java: "☕", 
-    "C#":"C#",       // better C# icon
-    PHP: "🐘",
-    Ruby: "💎",
-    Scala: "🔺",
-    Go: "🐹",
-    Rust: "🦀",
-    SQL: "🗄️",
-    Docker: "🐳",
-    MongoDB: "🍃",
-    "Bash / Shell": "💻",
-    "Regex Quickies": "#️",
-    "HTTP Status Codes": "📄",
-    "Git Essentials": "🌿",
-    "NPM / Yarn": "📦",
-    "Next.js Data Fetching": "⚡",
-    "Flutter": "🦋",
-    "React Patterns": "⚛️",
-    "Dart": "🎯",
-   
-  }
-  return <span aria-hidden="true" className="text-xl">{iconMap[title] || "📘"}</span>
-}
+ const iconFor = (title) => {
+    const iconMap = {
+      "Web & Frontend": "🌐",
+      "Backend & APIs": "⚙️",
+      Mobile: "📱",
+      "Data & Machine Learning": "📊",
+      "Systems & Scripting": "🐧",
+      "DevOps / Infra": "☁️",
+      "Security / Blockchain": "🛡️",
+      JavaScript: "🟨",
+      TypeScript: "🔷",
+      Python: "🐍",
+      Java: "☕",
+      "C#": "/c.shrap.svg",
+      PHP: "🐘",
+      Ruby: "💎",
+      Scala: "🔺",
+      Go: "🐹",
+      Rust: "🦀",
+      SQL: "🗄️",
+      Docker: "🐳",
+      MongoDB: "🍃",
+      "Bash / Shell": "💻",
+      "Regex Quickies": "#️",
+      "HTTP Status Codes": "📄",
+      "Git Essentials": "🌿",
+      "NPM / Yarn": "📦",
+      "Next.js Data Fetching": "⚡",
+      "React Patterns": "⚛️",
+      "Flutter": "🦋",
+      "Dart": "🎯",
+      "Kotlin": "🧬",
+      "PostgreSQL": "🐘",
+      "Redis": "🧠",
+      "Kubernetes": "☸️",
+    }
 
-const logoFor = (title) => {
-  const map = {
-    "Web & Frontend": "html5",
-    "Backend & APIs": "nodedotjs",
-    Mobile: "android",
-    "Data & Machine Learning": "tensorflow",
-    "Systems & Scripting": "linux",
-    "DevOps / Infra": "kubernetes",
-    "Security / Blockchain": "solidity",
-    JavaScript: "javascript",
-    TypeScript: "typescript",
-    Python: "python",
-    Java: "openjdk",
-    "C#": "csharp",
-    PHP: "php",
-    Ruby: "ruby",
-    Scala: "scala",
-    Go: "go",
-    Rust: "rust",
-    SQL: "postgresql",
-    Docker: "docker",
-    MongoDB: "mongodb",
-    "Bash / Shell": "gnubash",
-    "Regex Quickies": null,
-    "HTTP Status Codes": "httpie",
-    "Git Essentials": "git",
-    "NPM / Yarn": "npm",
-    "Next.js Data Fetching": "nextdotjs",
-    "React Patterns": "react",
-    "Flutter": "flutter",
-    "Dart": "Dart",
-   
+    const icon = iconMap[title] || "📘"
+    if (icon.endsWith(".svg") || icon.startsWith("http")) {
+      return <img src={icon} alt={title} className="w-6 h-6 inline-block" />
+    } else {
+      return <span aria-hidden="true" className="text-xl">{icon}</span>
+    }
   }
-  const slug = map[title]
-  return slug ? `https://cdn.simpleicons.org/${slug}` : null
-}
+
+  // logoFor: Simple Icons
+  const logoFor = (title) => {
+    const map = {
+      "Web & Frontend": "html5",
+      "Backend & APIs": "nodedotjs",
+      Mobile: "android",
+      "Data & Machine Learning": "tensorflow",
+      "Systems & Scripting": "linux",
+      "DevOps / Infra": "kubernetes",
+      "Security / Blockchain": "solidity",
+      JavaScript: "javascript",
+      TypeScript: "typescript",
+      Python: "python",
+      Java: "openjdk",
+      PHP: "php",
+      Ruby: "ruby",
+      Scala: "scala",
+      Go: "go",
+      Rust: "rust",
+      SQL: "postgresql",
+      Docker: "docker",
+      MongoDB: "mongodb",
+      "Bash / Shell": "gnubash",
+      "HTTP Status Codes": "httpie",
+      "Git Essentials": "git",
+      "NPM / Yarn": "npm",
+      "Next.js Data Fetching": "nextdotjs",
+      "React Patterns": "react",
+      "Flutter": "flutter",
+      "Dart": "dart",
+      "Kotlin": "kotlin",
+      "PostgreSQL": "postgresql",
+      "Redis": "redis",
+      "Kubernetes": "kubernetes",
+    }
+
+    const slug = map[title]
+    if (slug) return `https://cdn.simpleicons.org/${slug}`
+    return title === "C#" ? "/c.shrap.png" : null
+  }
+
 
 const categoryDescriptions = {
   "Git Essentials": "Core git commands for daily workflows.",
-  "NPM / Yarn": "Package management and scripts.",
-  "Next.js Data Fetching": "Build-time and server-side data fetching.",
-  "React Patterns": "Common hooks and patterns.",
-  "Bash / Shell": "CLI commands for productivity.",
-  Docker: "Containers, images, and commands.",
-  MongoDB: "Connection strings and queries.",
-  "HTTP Status Codes": "Common responses and meanings.",
-  "Regex Quickies": "Useful regular expressions.",
-  JavaScript: "Language essentials and idioms.",
-  TypeScript: "Types, interfaces, and generics.",
-  Python: "Syntax and common utilities.",
-  Java: "Core language constructs.",
-  "C#": "Modern C# features.",
-  PHP: "Language basics and frameworks.",
-  Ruby: "Ruby idioms and Rails snippets.",
-  Scala: "Functional programming examples.",
-  Go: "Goroutines and channels.",
-  Rust: "Ownership, result/option basics.",
-  SQL: "DDL and DML cheats.",
-  "Web & Frontend": "UI, HTML5, CSS, TS and tooling.",
-  "Backend & APIs": "Servers and API frameworks.",
-  Mobile: "Kotlin, Swift, Flutter basics.",
-  "Data & Machine Learning": "R, Julia, MATLAB snippets.",
-  "Systems & Scripting": "C/C++, Bash, Assembly.",
-  "DevOps / Infra": "K8s, Terraform, Ansible.",
-  "Security / Blockchain": "Solidity and Move basics.",
-  "Dart": "Flutter and server-side Dart.",
-  "Flutter": "Widgets, state management.",
+  "NPM / Yarn": "Package management and running project scripts.",
+  "Next.js Data Fetching": "Server-side rendering (SSR) and static site generation (SSG).",
+  "React Patterns": "Reusable patterns, hooks, and optimizations for React.",
+  "Bash / Shell": "Command line utilities and shell scripting essentials.",
+  "Docker": "Containers, images, volumes, and networking basics.",
+  "Kubernetes": "Pod orchestration, deployments, services, and scaling apps.",
+  "MongoDB": "NoSQL database with flexible schemas and common queries.",
+  "HTTP Status Codes": "Standard responses with meaning (2xx, 3xx, 4xx, 5xx).",
+  "Regex Quickies": "Commonly used regular expressions for string patterns.",
+  "JavaScript": "Core language constructs, ES6+ features, and browser APIs.",
+  "TypeScript": "Strong typing, interfaces, generics, and advanced language utilities.",
+  "Python": "General-purpose language for scripting, ML, and automation.",
+  "Rust": "Safe systems programming with ownership, lifetimes, and concurrency.",
+  "Java": "Object-oriented programming and JVM ecosystem.",
+  "C#": "Modern cross-platform .NET language features.",
+  "PHP": "Web scripting, Laravel/Symfony frameworks, and backend basics.",
+  "Kotlin": "Concise modern language, primarily for Android apps.",
+  "Scala": "Functional and object-oriented programming on JVM.",
+  "Dart": "Language designed for Flutter with async and reactive patterns.",
+  "Go": "Fast, lightweight concurrency with goroutines and channels.",
+  "Flutter": "Cross-platform UI toolkit using Dart.",
+  "PostgreSQL": "Relational database with advanced SQL features and indexing.",
+  "Redis": "In-memory store for caching, queues, and pub/sub.",
+  "Web & Frontend": "HTML, CSS, and frontend development utilities.",
+  "Backend & APIs": "Frameworks and tools for building backend services.",
+  "Mobile": "Kotlin, Swift, Flutter and cross-platform app snippets.",
+  "Data & Machine Learning": "R, Julia, Python, and ML/AI utilities.",
+  "Systems & Scripting": "C, C++, Bash, and low-level programming.",
+  "DevOps / Infra": "CI/CD, Terraform, Kubernetes, and infrastructure as code.",
+  "Security / Blockchain": "Cryptography, smart contracts, and blockchain basics."
 }
+
+
 
 
   const filteredSections = useMemo(() => {
@@ -213,7 +231,7 @@ const categoryDescriptions = {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+          className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4"
         >
           Quick References for Daily Dev Work
         </motion.h1>
@@ -344,68 +362,86 @@ const categoryDescriptions = {
     </>
   )}
 
-  {(selectedCategory || query) && filteredSections.length > 0 && (
-    <div className="space-y-10">
-      {filteredSections.map((section, sIdx) => (
-        <section key={section.title}>
-          <motion.h2
+{(selectedCategory || query) && filteredSections.length > 0 && (
+  <div className="space-y-10">
+    {filteredSections.map((section, sIdx) => (
+      <section key={section.title}>
+        
+        {/* ✅ Info Card for Selected Category */}
+        {selectedCategory && selectedCategory === section.title && (
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+            className="mb-6 p-4 sm:p-6 bg-white/10 border border-white/20 rounded-xl shadow-md text-center"
           >
-            <span className="inline-flex items-center gap-2">
-              {logoFor(section.title) ? (
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+              {logoFor(selectedCategory) ? (
                 <img
-                  src={logoFor(section.title)}
-                  alt={`${section.title} logo`}
-                  className="w-6 h-6 sm:w-7 sm:h-7 object-contain inline-block align-middle"
+                  src={logoFor(selectedCategory)}
+                  alt={`${selectedCategory} logo`}
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                 />
               ) : (
-                iconFor(section.title)
+                <div className="text-3xl">{iconFor(selectedCategory)}</div>
               )}
-              <span>{section.title}</span>
-            </span>
-          </motion.h2>
+              <div>
+                <h2 className="text-lg sm:text-xl font-bold text-purple-200">
+                  {selectedCategory}
+                </h2>
+                <p className="text-sm text-gray-300">
+                  {categoryDescriptions[selectedCategory] ||
+                    "Snippets and examples for this category."}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.isArray(section.items) &&
-              section.items.map((item, iIdx) => {
-                const key = `${sIdx}-${iIdx}-${item.label}`
-                return (
-                  <motion.div
-                    key={key}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 hover:border-purple-400/40 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-semibold text-purple-200">{item.label}</h3>
-                        <p className="text-sm text-gray-300 mt-1">{item.desc}</p>
-                      </div>
-                      <button
-                        onClick={() => handleCopy(item.code, key)}
-                        className="text-sm px-3 py-1.5 rounded border border-white/20 hover:border-purple-400/50 text-gray-200 hover:text-white"
-                        aria-label={`Copy ${item.label} code`}
-                      >
-                        {copiedKey === key ? "Copied" : "Copy"}
-                      </button>
+        {/* ✅ Snippets Grid */}
+        <main className="container mx-auto px-4 sm:px-6 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {section.items.map((item, iIdx) => {
+              const key = `${sIdx}-${iIdx}-${item.label}`
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 sm:p-4 shadow-md hover:border-purple-400/40 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="font-semibold text-purple-200">
+                        {item.label}
+                      </h3>
+                      <p className="text-sm text-gray-300 mt-1">
+                        {item.desc}
+                      </p>
                     </div>
-                    <pre className="mt-3 p-3 bg-black/40 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words sm:whitespace-pre">
-                      {item.code}
-                    </pre>
-                  </motion.div>
-                )
-              })}
+                    <button
+                      onClick={() => handleCopy(item.code, key)}
+                      className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5 rounded-md border border-white/20 hover:border-purple-400/50 text-gray-200 hover:text-white"
+                    >
+                      {copiedKey === key ? "Copied" : "Copy"}
+                    </button>
+                  </div>
+
+                  {/* ✅ Code Block */}
+                  <pre className="mt-3 p-3 bg-black/40 rounded text-xs sm:text-sm overflow-x-auto whitespace-pre max-w-full">
+                    {item.code}
+                  </pre>
+                </motion.div>
+              )
+            })}
           </div>
-        </section>
-      ))}
-    </div>
-  )}
+        </main>
+      </section>
+    ))}
+  </div>
+)}
 </main>
 
 
