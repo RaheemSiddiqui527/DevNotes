@@ -251,9 +251,15 @@ const categoryDescriptions = {
       {/* Top Bar */}
       <nav className="sticky top-0 z-40 bg-black/30 backdrop-blur-md border-b border-white/10 pt-[env(safe-area-inset-top)]">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm md:text-base text-gray-300 hover:text-white transition-colors">
-            ← Back to Home
-          </Link>
+          <Link 
+  href="/" 
+  className="flex items-center gap-2 text-sm md:text-base text-gray-300 font-medium px-4 py-2 rounded-full border border-transparent hover:border-purple-500/50 hover:bg-white/5 transition-all duration-300 hover:scale-105"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left">
+    <path d="m12 19-7-7 7-7" /><path d="M19 12H5" />
+  </svg>
+  Back to Home
+</Link>
           <div className="text-center">
             <span className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Notes & Cheat Sheet
