@@ -93,8 +93,9 @@ export default function Home() {
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/notes" className="text-gray-300 hover:text-white transition-colors">Cheat Sheets</Link>
             <Link href="/library" className="text-gray-300 hover:text-white transition-colors">Library</Link>
+            <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link>
           </div>
-          <Link href="/auth" className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors">
+          <Link href="/notes" className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors">
             Get Started
           </Link>
         </div>
@@ -123,21 +124,7 @@ export default function Home() {
         </motion.div>
 
         {/* Quick Search Preview */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="mt-16 max-w-2xl mx-auto">
-          <div className="relative">
-            <input
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Try searching: git push, docker run, useEffect..."
-              className="w-full px-6 py-4 text-lg rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:border-purple-400 placeholder-gray-400"
-            />
-            <svg className="w-6 h-6 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="11" cy="11" r="8" strokeWidth="2"></circle>
-              <path d="M21 21l-4.35-4.35" strokeWidth="2" strokeLinecap="round"></path>
-            </svg>
-          </div>
-          <p className="text-sm text-gray-400 mt-2">Search through 70+ developer commands and snippets</p>
-        </motion.div>
+
       </section>
 
       {/* Quick Categories */}
@@ -208,6 +195,7 @@ export default function Home() {
             <div className="flex space-x-6 mb-4 md:mb-0">
               <Link href="/notes" className="text-gray-400 hover:text-white transition-colors">Cheat Sheets</Link>
               <Link href="/library" className="text-gray-400 hover:text-white transition-colors">Library</Link>
+              <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link>
             </div>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (

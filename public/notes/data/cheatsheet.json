@@ -1358,6 +1358,231 @@
     { "label": "Get all resources", "code": "kubectl get all", "desc": "List all resource types in namespace." },
     { "label": "Diff config", "code": "kubectl diff -f config.yaml", "desc": "Show differences with live cluster." }
   ]
+},
+{
+  "title": "Swift",
+  "items": [
+    { "label": "Hello World", "code": "print(\"Hello, World!\")", "desc": "Print text to the console." },
+    { "label": "Variables", "code": "var name = \"John\"", "desc": "Declare a mutable variable." },
+    { "label": "Constants", "code": "let pi = 3.14", "desc": "Declare an immutable constant." },
+    { "label": "Type Annotation", "code": "var age: Int = 25", "desc": "Explicitly define variable type." },
+    { "label": "Strings", "code": "let greeting = \"Hello\" + \" World\"", "desc": "Concatenate strings." },
+    { "label": "String Interpolation", "code": "print(\"My age is \\(age)\")", "desc": "Insert variable values in strings." },
+    { "label": "Arrays", "code": "var nums = [1,2,3]", "desc": "Create an array." },
+    { "label": "Dictionaries", "code": "var user = [\"name\":\"Alice\", \"age\":30]", "desc": "Create a dictionary." },
+    { "label": "Sets", "code": "let colors: Set = [\"red\",\"green\",\"blue\"]", "desc": "Create a set." },
+    { "label": "If Statement", "code": "if age > 18 { print(\"Adult\") }", "desc": "Conditional execution." },
+    { "label": "Switch Statement", "code": "switch age { case 18: print(\"Adult\"); default: print(\"Other\") }", "desc": "Switch-based branching." },
+    { "label": "For Loop", "code": "for i in 1...5 { print(i) }", "desc": "Range-based loop." },
+    { "label": "While Loop", "code": "while age < 30 { age += 1 }", "desc": "Loop while condition holds." },
+    { "label": "Functions", "code": "func greet(name: String) -> String { return \"Hello, \\(name)\" }", "desc": "Define a function with return type." },
+    { "label": "Closures", "code": "let add = { (a:Int,b:Int) -> Int in return a+b }", "desc": "Anonymous function (closure)." },
+    { "label": "Optional", "code": "var middleName: String? = nil", "desc": "Declare an optional variable." },
+    { "label": "Optional Binding", "code": "if let name = middleName { print(name) }", "desc": "Safely unwrap an optional." },
+    { "label": "Guard Statement", "code": "func test(x:Int?) { guard let val = x else { return } print(val) }", "desc": "Exit early if condition fails." },
+    { "label": "Classes", "code": "class Person { var name:String; init(name:String){ self.name = name } }", "desc": "Define a class with initializer." },
+    { "label": "Structs", "code": "struct Point { var x:Int; var y:Int }", "desc": "Define a struct." },
+    { "label": "Enums", "code": "enum Direction { case north, south, east, west }", "desc": "Define an enum." },
+    { "label": "Protocols", "code": "protocol Drawable { func draw() }", "desc": "Define a protocol (interface)." },
+    { "label": "Extensions", "code": "extension Int { var squared: Int { return self * self } }", "desc": "Add functionality to existing types." },
+    { "label": "Error Handling", "code": "do { try risky() } catch { print(error) }", "desc": "Handle errors with try-catch." },
+    { "label": "Throwing Functions", "code": "func risky() throws { throw NSError() }", "desc": "Define a function that can throw errors." },
+    { "label": "Generics", "code": "func swap<T>(_ a: inout T, _ b: inout T) { let temp=a; a=b; b=temp }", "desc": "Generic function." },
+    { "label": "Tuples", "code": "let person = (\"Alice\", 30)", "desc": "Store multiple values in one variable." },
+    { "label": "Destructuring Tuples", "code": "let (n,a) = person", "desc": "Extract tuple values into variables." },
+    { "label": "Ranges", "code": "for i in 0..<5 { print(i) }", "desc": "Half-open range operator." },
+    { "label": "Nil Coalescing", "code": "let name = middleName ?? \"Guest\"", "desc": "Provide default if optional is nil." },
+    { "label": "Type Casting", "code": "if let p = obj as? Person { print(p.name) }", "desc": "Safe type casting." },
+    { "label": "Static Properties", "code": "struct Math { static let pi = 3.14 }", "desc": "Static property in a struct." },
+    { "label": "Lazy Properties", "code": "class Data { lazy var file = loadFile() }", "desc": "Lazy-loaded property." },
+    { "label": "Computed Properties", "code": "var area: Int { return width * height }", "desc": "Property that calculates value." },
+    { "label": "Property Observers", "code": "var score:Int=0 { didSet{ print(score) } }", "desc": "Run code when property changes." },
+    { "label": "Async/Await", "code": "func fetch() async -> String { return \"Done\" }", "desc": "Define an async function." },
+    { "label": "DispatchQueue", "code": "DispatchQueue.global().async { print(\"Background\") }", "desc": "Run code in background thread." },
+    { "label": "SwiftUI Example", "code": "Text(\"Hello World\")", "desc": "Basic SwiftUI text view." },
+    { "label": "Combine Example", "code": "Just(5).sink { print($0) }", "desc": "Publisher/subscriber in Combine framework." }
+  ]
+},
+   {
+  "title": "C",
+  "items": [
+    { "label": "Hello World", "code": "#include <stdio.h>\nint main(){ printf(\"Hello, World!\\n\"); return 0; }", "desc": "Basic C program printing to console." },
+    { "label": "Variables", "code": "int age = 25;", "desc": "Declare an integer variable." },
+    { "label": "Constants", "code": "const float PI = 3.14;", "desc": "Define a constant value." },
+    { "label": "Macros", "code": "#define MAX 100", "desc": "Define a macro constant." },
+    { "label": "Input", "code": "scanf(\"%d\", &age);", "desc": "Read integer input from user." },
+    { "label": "Output", "code": "printf(\"Age: %d\", age);", "desc": "Print formatted output." },
+    { "label": "If Statement", "code": "if(age > 18){ printf(\"Adult\"); }", "desc": "Conditional branching." },
+    { "label": "If Else", "code": "if(a>b) printf(\"A\"); else printf(\"B\");", "desc": "If-else structure." },
+    { "label": "Switch", "code": "switch(day){ case 1: printf(\"Mon\"); break; }", "desc": "Switch-case control structure." },
+    { "label": "For Loop", "code": "for(int i=0; i<5; i++){ printf(\"%d\",i); }", "desc": "Loop with counter." },
+    { "label": "While Loop", "code": "while(i<5){ i++; }", "desc": "Loop while condition is true." },
+    { "label": "Do While Loop", "code": "do{ i++; }while(i<5);", "desc": "Loop executes at least once." },
+    { "label": "Arrays", "code": "int nums[3] = {1,2,3};", "desc": "Define an array." },
+    { "label": "2D Arrays", "code": "int matrix[2][2] = {{1,2},{3,4}};", "desc": "Matrix (2D array)." },
+    { "label": "Strings", "code": "char name[] = \"Alice\";", "desc": "String as char array." },
+    { "label": "String Input", "code": "scanf(\"%s\", name);", "desc": "Read a string." },
+    { "label": "String Functions", "code": "strlen(name);", "desc": "Find length of string." },
+    { "label": "Functions", "code": "int add(int a,int b){ return a+b; }", "desc": "Define a function." },
+    { "label": "Function Prototype", "code": "int add(int,int);", "desc": "Function declaration." },
+    { "label": "Recursion", "code": "int fact(int n){ if(n<=1) return 1; return n*fact(n-1); }", "desc": "Recursive factorial function." },
+    { "label": "Pointers", "code": "int *ptr = &age;", "desc": "Pointer variable storing memory address." },
+    { "label": "Pointer Dereference", "code": "printf(\"%d\", *ptr);", "desc": "Access value at pointer." },
+    { "label": "Pointer Arithmetic", "code": "ptr++;", "desc": "Move pointer to next memory location." },
+    { "label": "Malloc", "code": "int *arr = malloc(5 * sizeof(int));", "desc": "Dynamic memory allocation." },
+    { "label": "Free Memory", "code": "free(arr);", "desc": "Free allocated memory." },
+    { "label": "Struct", "code": "struct Person { char name[20]; int age; };", "desc": "Define a struct." },
+    { "label": "Struct Variable", "code": "struct Person p1 = {\"Alice\", 25};", "desc": "Create struct instance." },
+    { "label": "Typedef Struct", "code": "typedef struct { int x; int y; } Point;", "desc": "Use typedef with struct." },
+    { "label": "Union", "code": "union Data { int i; float f; char c; };", "desc": "Union with shared memory." },
+    { "label": "Enum", "code": "enum Week {Mon, Tue, Wed};", "desc": "Define an enum." },
+    { "label": "File Write", "code": "FILE *f=fopen(\"test.txt\",\"w\"); fprintf(f,\"Hello\"); fclose(f);", "desc": "Write to a file." },
+    { "label": "File Read", "code": "FILE *f=fopen(\"test.txt\",\"r\"); fscanf(f,\"%s\",data); fclose(f);", "desc": "Read from a file." },
+    { "label": "Command Line Args", "code": "int main(int argc, char *argv[]){ printf(\"%s\", argv[1]); }", "desc": "Use command-line arguments." },
+    { "label": "Preprocessor Include", "code": "#include <math.h>", "desc": "Include a header file." },
+    { "label": "Math Function", "code": "sqrt(16);", "desc": "Math library function." },
+    { "label": "Define Inline Function", "code": "inline int square(int x){ return x*x; }", "desc": "Inline optimization." },
+    { "label": "Goto Statement", "code": "goto label; label: printf(\"Hello\");", "desc": "Jump to label." },
+    { "label": "Break", "code": "for(int i=0;i<5;i++){ if(i==3) break; }", "desc": "Exit loop early." },
+    { "label": "Continue", "code": "for(int i=0;i<5;i++){ if(i==2) continue; }", "desc": "Skip iteration in loop." },
+    { "label": "Static Variable", "code": "static int count = 0;", "desc": "Preserve value across function calls." }
+  ]
 }
-
+,
+{
+  "title": "C++",
+  "items": [
+    { "label": "Hello World", "code": "#include <iostream>\nusing namespace std;\nint main(){ cout << \"Hello, World!\"; return 0; }", "desc": "Basic C++ program." },
+    { "label": "Variables", "code": "int age = 21; double pi = 3.14;", "desc": "Declare variables with types." },
+    { "label": "Const", "code": "const int max = 100;", "desc": "Constant variable." },
+    { "label": "Input", "code": "cin >> age;", "desc": "Read user input." },
+    { "label": "Output", "code": "cout << age;", "desc": "Print output to console." },
+    { "label": "If Else", "code": "if(age>18) cout<<\"Adult\"; else cout<<\"Minor\";", "desc": "Conditional branching." },
+    { "label": "Switch", "code": "switch(day){ case 1: cout<<\"Mon\"; break; }", "desc": "Switch-case statement." },
+    { "label": "For Loop", "code": "for(int i=0;i<5;i++){ cout<<i; }", "desc": "Iterative loop." },
+    { "label": "While Loop", "code": "while(i<5){ i++; }", "desc": "Loop with condition." },
+    { "label": "Do While", "code": "do{ i++; } while(i<5);", "desc": "Executes at least once." },
+    { "label": "Array", "code": "int arr[3] = {1,2,3};", "desc": "Fixed-size array." },
+    { "label": "Vector", "code": "vector<int> v = {1,2,3};", "desc": "Dynamic array from STL." },
+    { "label": "String", "code": "string name = \"Alice\";", "desc": "C++ string object." },
+    { "label": "String Concatenation", "code": "string full = first + last;", "desc": "Join strings." },
+    { "label": "Function", "code": "int add(int a,int b){ return a+b; }", "desc": "Define a function." },
+    { "label": "Function Overloading", "code": "int add(int a,int b); double add(double a,double b);", "desc": "Same function name, different params." },
+    { "label": "Recursion", "code": "int fact(int n){ return n<=1?1:n*fact(n-1); }", "desc": "Recursive function." },
+    { "label": "Class", "code": "class Person{ public: string name; int age; };", "desc": "Define a class." },
+    { "label": "Object", "code": "Person p; p.name=\"Bob\";", "desc": "Create an object of a class." },
+    { "label": "Constructor", "code": "Person(string n){ name=n; }", "desc": "Special method to initialize objects." },
+    { "label": "Destructor", "code": "~Person(){ cout<<\"Destroyed\"; }", "desc": "Cleanup when object is deleted." },
+    { "label": "Inheritance", "code": "class Student: public Person{}", "desc": "Derive a class from another." },
+    { "label": "Polymorphism", "code": "virtual void speak(){ cout<<\"Hi\"; }", "desc": "Runtime polymorphism with virtual functions." },
+    { "label": "Abstract Class", "code": "class Shape{ virtual void draw()=0; };", "desc": "Class with pure virtual functions." },
+    { "label": "Operator Overloading", "code": "Point operator+(Point p);", "desc": "Custom operator definition." },
+    { "label": "Templates", "code": "template <typename T> T add(T a,T b){ return a+b; }", "desc": "Generic function." },
+    { "label": "Exception Handling", "code": "try{ throw 1; }catch(int e){ cout<<e; }", "desc": "Handle runtime errors." },
+    { "label": "File Write", "code": "ofstream f(\"test.txt\"); f<<\"Hello\";", "desc": "Write to a file." },
+    { "label": "File Read", "code": "ifstream f(\"test.txt\"); string s; f>>s;", "desc": "Read from a file." },
+    { "label": "Namespaces", "code": "namespace ns{ int x=5; }", "desc": "Encapsulate names." },
+    { "label": "Lambda Function", "code": "auto add=[](int a,int b){ return a+b; };", "desc": "Anonymous function." },
+    { "label": "STL Sort", "code": "sort(v.begin(), v.end());", "desc": "Sort vector elements." },
+    { "label": "STL Map", "code": "map<int,string> m; m[1]=\"One\";", "desc": "Key-value store." },
+    { "label": "STL Set", "code": "set<int> s={1,2,3};", "desc": "Unique sorted elements." },
+    { "label": "Smart Pointer", "code": "unique_ptr<int> p = make_unique<int>(5);", "desc": "Automatic memory management." },
+    { "label": "Pointer", "code": "int *ptr = &age;", "desc": "Raw pointer example." },
+    { "label": "Reference", "code": "int& ref = age;", "desc": "Reference variable." },
+    { "label": "Static Variable", "code": "static int count=0;", "desc": "Value persists across calls." },
+    { "label": "Friend Function", "code": "friend void show(Person p);", "desc": "Allow non-member access to private members." },
+    { "label": "Const Method", "code": "int getAge() const { return age; }", "desc": "Method that cannot modify object." },
+    { "label": "Inline Function", "code": "inline int square(int x){ return x*x; }", "desc": "Suggest compiler to inline function." }
+  ]
+},
+  {
+    "title": "R",
+    "items": [
+      { "label": "Hello World", "code": "print(\"Hello World\")", "desc": "Print output." },
+      { "label": "Vector", "code": "v <- c(1,2,3,4)", "desc": "Create a numeric vector." },
+      { "label": "Data Frame", "code": "df <- data.frame(x=1:3, y=c('a','b','c'))", "desc": "Create a data frame." },
+      { "label": "Mean", "code": "mean(v)", "desc": "Compute the mean of a vector." },
+      { "label": "Plot", "code": "plot(v)", "desc": "Basic plotting." }
+    ]
+  },
+  {
+    "title": "Julia",
+    "items": [
+      { "label": "Hello World", "code": "println(\"Hello, World!\")", "desc": "Print text in Julia." },
+      { "label": "Variable", "code": "x = 42", "desc": "Assign a variable." },
+      { "label": "Function", "code": "f(x) = x^2", "desc": "Define a function." },
+      { "label": "Array", "code": "arr = [1,2,3,4]", "desc": "Define an array." },
+      { "label": "For loop", "code": "for i in 1:5 println(i) end", "desc": "For loop in Julia." }
+    ]
+  },
+  {
+    "title": "Perl",
+    "items": [
+      { "label": "Hello World", "code": "print \"Hello, World\\n\";", "desc": "Print text in Perl." },
+      { "label": "Variable", "code": "$x = 10;", "desc": "Scalar variable." },
+      { "label": "Array", "code": "@arr = (1,2,3);", "desc": "Array variable." },
+      { "label": "Hash", "code": "%hash = ('a'=>1, 'b'=>2);", "desc": "Hash (associative array)." },
+      { "label": "Subroutine", "code": "sub add { my($a,$b)=@_; return $a+$b; }", "desc": "Define a subroutine." }
+    ]
+  },
+  {
+    "title": "Haskell",
+    "items": [
+      { "label": "Hello World", "code": "main = putStrLn \"Hello, World!\"", "desc": "Print text in Haskell." },
+      { "label": "Variable", "code": "x = 42", "desc": "Immutable variable." },
+      { "label": "Function", "code": "square x = x * x", "desc": "Define a function." },
+      { "label": "List", "code": "nums = [1,2,3,4]", "desc": "Define a list." },
+      { "label": "Map", "code": "map (*2) [1,2,3]", "desc": "Apply a function to a list." }
+    ]
+  },
+  {
+    "title": "Elixir",
+    "items": [
+      { "label": "Hello World", "code": "IO.puts(\"Hello, World!\")", "desc": "Print text in Elixir." },
+      { "label": "Variable", "code": "x = 42", "desc": "Assign a variable." },
+      { "label": "Function", "code": "defmodule Math do\n  def add(a, b), do: a+b\nend", "desc": "Define a module and function." },
+      { "label": "List", "code": "list = [1,2,3]", "desc": "Define a list." },
+      { "label": "Pipe Operator", "code": "[1,2,3] |> Enum.map(&(&1*2))", "desc": "Use pipe operator for transformations." }
+    ]
+  },
+  {
+    "title": "Erlang",
+    "items": [
+      { "label": "Hello World", "code": "io:format(\"Hello, World!~n\").", "desc": "Print text in Erlang." },
+      { "label": "Variable", "code": "X = 42.", "desc": "Assign a variable." },
+      { "label": "Tuple", "code": "{ok, Value}", "desc": "Define a tuple." },
+      { "label": "List", "code": "[1,2,3,4]", "desc": "Define a list." },
+      { "label": "Function", "code": "add(A,B) -> A+B.", "desc": "Define a function." }
+    ]
+  },
+  {
+    "title": "MATLAB",
+    "items": [
+      { "label": "Hello World", "code": "disp('Hello World')", "desc": "Display output." },
+      { "label": "Variable", "code": "x = 10;", "desc": "Assign a variable." },
+      { "label": "Matrix", "code": "A = [1 2; 3 4];", "desc": "Define a 2x2 matrix." },
+      { "label": "Plot", "code": "plot(x, y)", "desc": "Plot graph." },
+      { "label": "Function", "code": "function y = square(x)\n  y = x^2;\nend", "desc": "Define a function." }
+    ]
+  },
+  {
+    "title": "SAS",
+    "items": [
+      { "label": "Print", "code": "proc print data=mydata;", "desc": "Print dataset." },
+      { "label": "Variable", "code": "data mydata; x=10; run;", "desc": "Define a variable in a dataset." },
+      { "label": "If condition", "code": "if x > 0 then y=1;", "desc": "Conditional in SAS." },
+      { "label": "Procedure", "code": "proc means data=mydata;", "desc": "Compute descriptive statistics." },
+      { "label": "Import CSV", "code": "proc import datafile='file.csv' out=mydata dbms=csv replace;", "desc": "Import CSV file." }
+    ]
+  },
+  {
+    "title": "Assembly",
+    "items": [
+      { "label": "Hello World (Linux x86)", "code": "section .data\nmsg db 'Hello, World!',0Ah\nsection .text\nglobal _start\n_start:\n mov eax,4\n mov ebx,1\n mov ecx,msg\n mov edx,13\n int 0x80\n mov eax,1\n xor ebx,ebx\n int 0x80", "desc": "Minimal Hello World in Assembly." },
+      { "label": "Move", "code": "mov eax, 5", "desc": "Move a value into a register." },
+      { "label": "Add", "code": "add eax, ebx", "desc": "Add values in registers." },
+      { "label": "Sub", "code": "sub eax, 1", "desc": "Subtract 1 from register eax." },
+      { "label": "Loop", "code": "dec ecx\njnz loop", "desc": "Simple loop in Assembly." }
+    ]
+  }
   ]

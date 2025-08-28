@@ -3,119 +3,69 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
+// Icons - You'll need a library like lucide-react or similar
+// For this example, we'll use inline SVGs
+const icons = {
+  website: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-globe">
+      <circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" />
+    </svg>
+  ),
+  book: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-text">
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" /><path d="M8 8h6" /><path d="M8 12h8" /><path d="M8 16h8" />
+    </svg>
+  ),
+  course: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-graduation-cap">
+      <path d="M21.42 10.962L2.58 1.038C2.33 0.916 2 1.096 2 1.378V23c0 .35 0 .596.118.824.119.228.324.376.575.452.25.076.54.02.775-.152l18.84-9.925C21.84 13.313 22 13.065 22 12.75V12c0-.282-.162-.516-.388-.638z" />
+      <path d="M16 16v-6l-4 2-4-2v6l4 2z" />
+    </svg>
+  )
+}
+
+const ResourceCard = ({ item, index }) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <motion.a
+      key={item.url}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="relative block overflow-hidden rounded-xl border border-white/20 bg-white/5 p-5 shadow-xl transition-all duration-300 hover:scale-[1.03]"
+    >
+      <motion.div
+        className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300"
+        animate={{
+          opacity: isHovered ? 1 : 0,
+          background: isHovered
+            ? "radial-gradient(circle at center, rgba(168, 85, 247, 0.2) 0%, rgba(0,0,0,0) 70%)"
+            : "rgba(0,0,0,0)",
+        }}
+      />
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="text-purple-300">{icons[item.type]}</div>
+          <div className="font-semibold text-purple-200">
+            {item.name}
+          </div>
+        </div>
+        <div className="text-sm text-gray-400">
+          {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+        </div>
+      </div>
+    </motion.a>
+  )
+}
+
 export default function LibraryPage() {
-  const [files, setFiles] = useState([])
-  const [scope, setScope] = useState('mine') // 'mine' | 'all'
-  const [me, setMe] = useState(null)
-  const isAdmin = (() => {
-    const emails = (process.env.NEXT_PUBLIC_ADMIN_EMAILS || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean)
-    return !!(me?.email && emails.includes(String(me.email).toLowerCase()))
-  })()
-  const [isUploading, setIsUploading] = useState(false)
-  const [message, setMessage] = useState("")
-  const [authState, setAuthState] = useState('unknown') // 'unknown' | 'ok' | 'unauth'
-
-  const formatSize = (bytes) => {
-    if (bytes === 0) return "0 B"
-    if (!bytes) return ""
-    const i = Math.floor(Math.log(bytes) / Math.log(1024))
-    const sizes = ["B", "KB", "MB", "GB", "TB"]
-    const value = (bytes / Math.pow(1024, i)).toFixed(i === 0 ? 0 : 1)
-    return `${value} ${sizes[i]}`
-  }
-
-  const fetchFiles = async () => {
-    try {
-      const url = scope === 'all' ? '/api/files?scope=all' : '/api/files'
-      const res = await fetch(url, { cache: 'no-store' })
-      if (res.status === 401) {
-        setAuthState('unauth')
-        setFiles([])
-        return
-      }
-      const data = await res.json()
-      setFiles(Array.isArray(data.files) ? data.files : [])
-      setAuthState('ok')
-    } catch (_) {
-      setMessage('Failed to load files')
-      setAuthState('ok')
-    }
-  }
-
-  useEffect(() => { fetchFiles() }, [scope])
-  useEffect(() => {
-    const loadMe = async () => {
-      try {
-        const res = await fetch('/api/auth/me', { cache: 'no-store' })
-        const data = await res.json()
-        setMe(data.user)
-      } catch (_) { setMe(null) }
-    }
-    loadMe()
-  }, [])
-
-  const onUpload = async (e) => {
-    const selected = Array.from(e.target.files || [])
-    if (!selected.length) return
-    setIsUploading(true)
-    setMessage("")
-    try {
-      const fd = new FormData()
-      for (const f of selected) {
-        if (f.size > 100 * 1024 * 1024) { // 100MB limit
-          setMessage('File too large. Max 100MB.')
-          continue
-        }
-        fd.append('file', f)
-      }
-      if (![...fd.keys()].length) return
-      const res = await fetch('/api/files', { method: 'POST', body: fd })
-      if (res.status === 401) {
-        setAuthState('unauth')
-        setMessage('Please sign in to upload files.')
-        return
-      }
-      const data = await res.json()
-      if (!res.ok) {
-        setMessage(data.error || 'Upload failed')
-        return
-      }
-      setMessage(`${(data.saved || []).length} file(s) uploaded`)
-      await fetchFiles()
-      e.target.value = ''
-    } catch (_) {
-      setMessage('Upload failed due to network error')
-    } finally {
-      setIsUploading(false)
-      setTimeout(() => setMessage(''), 3000)
-    }
-  }
-
-  const viewFile = (id) => {
-    window.open(`/api/files?id=${encodeURIComponent(id)}`, '_blank', 'noopener,noreferrer')
-  }
-
-  const downloadFile = async (id, name) => {
-    try {
-      const url = `/api/files?id=${encodeURIComponent(id)}&download=1`
-      const a = document.createElement('a')
-      a.href = url
-      a.download = name || 'download'
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-    } catch (_) {}
-  }
-
-  const deleteFile = async (id) => {
-    try {
-      const res = await fetch(`/api/files?id=${encodeURIComponent(id)}`, { method: 'DELETE' })
-      if (!res.ok) return
-      setFiles((prev) => prev.filter((f) => f.id !== id))
-    } catch (_) {}
-  }
-
-  // Curated resources (unchanged)
   const resources = [
     {
       category: "Docs & References",
@@ -123,6 +73,7 @@ export default function LibraryPage() {
         { name: "MDN Web Docs", url: "https://developer.mozilla.org", type: "website" },
         { name: "Python Docs", url: "https://docs.python.org/3/", type: "website" },
         { name: "Docker Docs", url: "https://docs.docker.com/", type: "website" },
+        { name: "JavaScript.info", url: "https://javascript.info/", type: "website" },
       ],
     },
     {
@@ -131,6 +82,8 @@ export default function LibraryPage() {
         { name: "Eloquent JavaScript", url: "https://eloquentjavascript.net/", type: "book" },
         { name: "Think Python", url: "https://greenteapress.com/wp/think-python-2e/", type: "book" },
         { name: "Dive Into Docker", url: "https://docker-curriculum.com/", type: "book" },
+        { name: "Rust Book", url: "https://doc.rust-lang.org/book/", type: "book" },
+        { name: "The Go Programming Language", url: "https://www.gopl.io/", type: "book" },
       ],
     },
     {
@@ -139,21 +92,40 @@ export default function LibraryPage() {
         { name: "FreeCodeCamp", url: "https://www.freecodecamp.org/", type: "course" },
         { name: "Frontend Masters", url: "https://frontendmasters.com/", type: "course" },
         { name: "CS50 (Harvard)", url: "https://cs50.harvard.edu/x/", type: "course" },
+        { name: "The Odin Project", url: "https://www.theodinproject.com/", type: "course" },
+        { name: "Full Stack Open", url: "https://fullstackopen.com/en/", type: "course" },
       ],
     },
-  ]
+    {
+      category: "Language Docs",
+      items: [
+        { name: "Java Docs", url: "https://docs.oracle.com/en/java/", type: "website" },
+        { name: "C++ Reference", url: "https://en.cppreference.com/w/", type: "website" },
+        { name: "Go Docs", url: "https://go.dev/doc/", type: "website" },
+        { name: "Rust Docs", url: "https://doc.rust-lang.org/", type: "website" },
+        { name: "PHP Manual", url: "https://www.php.net/manual/en/", type: "website" },
+        { name: "Ruby Docs", url: "https://www.ruby-lang.org/en/documentation/", type: "website" },
+      ],
+    },
+  ];
 
   return (
     <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white">
       {/* Top Bar */}
       <nav className="sticky top-0 z-40 bg-black/30 backdrop-blur-md border-b border-white/10 pt-[env(safe-area-inset-top)]">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm md:text-base text-gray-300 hover:text-white transition-colors">
-            ← Back to Home
-          </Link>
+          <Link 
+  href="/" 
+  className="flex items-center gap-2 text-sm md:text-base text-gray-300 font-medium px-4 py-2 rounded-full border border-transparent hover:border-purple-500/50 hover:bg-white/5 transition-all duration-300 hover:scale-105"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left">
+    <path d="m12 19-7-7 7-7" /><path d="M19 12H5" />
+  </svg>
+  Back to Home
+</Link>
           <div className="text-center">
             <span className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Library
+              Notes & Cheat Sheet
             </span>
           </div>
           <div className="w-24" />
@@ -161,128 +133,42 @@ export default function LibraryPage() {
       </nav>
 
       {/* Header */}
-      <header className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-5 sm:pb-6 text-center">
+      <header className="container mx-auto px-4 sm:px-6 pt-16 md:pt-24 pb-8 md:pb-12 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+          transition={{ duration: 0.6 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-300 via-purple-400 to-pink-400 bg-clip-text text-transparent"
         >
           Your Personal Dev Library
         </motion.h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
-          Upload files are stored securely on the server and available to view or download.
-        </p>
-      </header>
-
-      {/* Library Actions + List */}
-      <section className="container mx-auto px-4 sm:px-6 pb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5"
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-300 max-w-2xl mx-auto text-lg"
         >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-bold text-purple-200">My Files</h2>
-              <p className="text-gray-300 text-sm">Supported: PDF, EPUB, TXT, MD. Max 100MB per file.</p>
-            </div>
-            <div className="flex items-center gap-3">
-              {isAdmin && (
-                <div className="inline-flex rounded-lg border border-white/20 overflow-hidden">
-                  <button onClick={() => setScope('mine')} className={`px-3 py-2 text-sm ${scope==='mine' ? 'bg-white/20 text-white' : 'text-gray-300 hover:bg-white/10'}`}>My Files</button>
-                  <button onClick={() => setScope('all')} className={`px-3 py-2 text-sm ${scope==='all' ? 'bg-white/20 text-white' : 'text-gray-300 hover:bg-white/10'}`}>All Files</button>
-                </div>
-              )}
-              <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 hover:border-purple-400/50 bg-white/10 text-gray-200 hover:text-white">
-                <input
-                  type="file"
-                  multiple
-                  accept=".pdf,.epub,.txt,.md,application/pdf,application/epub+zip,text/plain,text/markdown"
-                  onChange={onUpload}
-                  className="hidden"
-                  disabled={isUploading || authState !== 'ok'}
-                />
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 16V4m0 0l-4 4m4-4l4 4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 16.5V19a2 2 0 01-2 2H6a2 2 0 01-2-2v-2.5" strokeWidth="2" strokeLinecap="round"/></svg>
-                {isUploading ? 'Uploading...' : 'Upload File(s)'}
-              </label>
-            </div>
-          </div>
-
-          {message && (
-            <div className="mt-3 text-sm text-purple-200">{message}</div>
-          )}
-
-          <div className="mt-5">
-            {authState === 'unauth' ? (
-              <div className="text-gray-300 text-sm">
-                Please sign in to manage your files. <Link href="/auth" className="text-purple-300 underline underline-offset-4">Go to login</Link>
-              </div>
-            ) : files.length === 0 ? (
-              <div className="text-gray-400 text-sm">No files yet. Use the Upload button to add your files.</div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {files.map((b) => (
-                  <div key={b.id} className="bg-black/40 rounded-lg border border-white/10 p-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <div className="font-semibold text-purple-200 truncate" title={b.name}>{b.name}</div>
-                        <div className="text-xs text-gray-400 mt-1">
-                          {(b.type || 'file')} • {formatSize(b.size)} • {new Date(b.createdAt).toLocaleString()}
-                        </div>
-                      </div>
-                      <div className="flex-shrink-0 flex flex-wrap gap-2">
-                        <button onClick={() => viewFile(b.id)} className="text-sm px-3 py-1.5 rounded border border-white/20 hover:border-purple-400/50 text-gray-200 hover:text-white">View</button>
-                        <button onClick={() => downloadFile(b.id, b.name)} className="text-sm px-3 py-1.5 rounded border border-white/20 hover:border-purple-400/50 text-gray-200 hover:text-white">Download</button>
-                        {b.mine && (
-                          <button onClick={() => deleteFile(b.id)} className="text-sm px-3 py-1.5 rounded border border-white/20 hover:border-pink-400/50 text-gray-200 hover:text-white">Delete</button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </motion.div>
-      </section>
+          Explore a curated list of free resources, docs, books, and courses to enhance your development skills.
+        </motion.p>
+      </header>
 
       {/* Resources */}
       <section className="container mx-auto px-4 sm:px-6 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-6"
-        >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Curated Resources
-          </h2>
-          <p className="text-gray-300">Docs, books and courses to explore</p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {resources.map((res) => (
+        <div className="space-y-12">
+          {resources.map((res, resIndex) => (
             <section key={res.category}>
               <motion.h3
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-lg md:text-xl font-semibold mb-3 text-purple-200"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="text-2xl md:text-3xl font-bold mb-6 text-purple-200"
               >
                 {res.category}
               </motion.h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {res.items.map((item) => (
-                  <a
-                    key={item.url}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-4 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm hover:border-purple-400/50 transition-colors"
-                  >
-                    <div className="font-medium text-purple-200">{item.name}</div>
-                    <div className="text-xs text-gray-400">{item.type}</div>
-                  </a>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {res.items.map((item, index) => (
+                  <ResourceCard key={item.url} item={item} index={index} />
                 ))}
               </div>
             </section>
@@ -290,55 +176,49 @@ export default function LibraryPage() {
         </div>
       </section>
 
-    <footer className="bg-black/50 py-8 border-t border-white/20">
-  <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    
-    {/* Left: Branding */}
-    <div className="text-gray-300 font-medium">
-      DevNotes • Developer Cheat Sheets <br className="md:hidden" />
-      <span className="text-sm text-gray-400">by CodeWithRaheem</span>
-    </div>
-
-    {/* Right: Social & Info */}
-    <div className="flex flex-col md:flex-row items-center gap-4">
-      <p className="text-gray-400 text-sm">
-        Updated regularly • Copy & use safely
-      </p>
-      <div className="flex gap-4 mt-2 md:mt-0">
-        <a href="https://github.com/RaheemSiddiqui527" target="_blank" rel="noopener noreferrer">
-          <img 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
-            alt="GitHub" 
-            className="w-5 h-5 filter invert hover:invert-0 transition"
-          />
-        </a>
-        <a href="https://twitter.com/codewithraheem" target="_blank" rel="noopener noreferrer">
-          <img 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" 
-            alt="Twitter" 
-            className="w-5 h-5 filter invert hover:invert-0 transition"
-          />
-        </a>
-        <a href="https://www.linkedin.com/in/codewithraheem" target="_blank" rel="noopener noreferrer">
-          <img 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" 
-            alt="LinkedIn" 
-            className="w-5 h-5 filter invert hover:invert-0 transition"
-          />
-        </a>
-        <a href="https://www.instagram.com/codewithraheem" target="_blank" rel="noopener noreferrer">
-          <img 
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" 
-            alt="Instagram" 
-            className="w-5 h-5 filter invert hover:invert-0 transition"
-          />
-        </a>
-      </div>
-    </div>
-
-  </div>
-</footer>
-
+      <footer className="bg-black/50 py-8 border-t border-white/20">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-gray-300 font-medium">
+            DevNotes • Developer Cheat Sheets <br className="md:hidden" />
+            <span className="text-sm text-gray-400">by CodeWithRaheem</span>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p className="text-gray-400 text-sm">
+              Updated regularly • Copy & use safely
+            </p>
+            <div className="flex gap-4 mt-2 md:mt-0">
+              <a href="https://github.com/RaheemSiddiqui527" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                  alt="GitHub"
+                  className="w-5 h-5 filter invert hover:invert-0 transition"
+                />
+              </a>
+              <a href="https://twitter.com/codewithraheem" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
+                  alt="Twitter"
+                  className="w-5 h-5 filter invert hover:invert-0 transition"
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/codewithraheem" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
+                  alt="LinkedIn"
+                  className="w-5 h-5 filter invert hover:invert-0 transition"
+                />
+              </a>
+              <a href="https://www.instagram.com/codewithraheem" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
+                  alt="Instagram"
+                  className="w-5 h-5 filter invert hover:invert-0 transition"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

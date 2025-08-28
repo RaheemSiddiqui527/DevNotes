@@ -49,92 +49,117 @@ function NotesCheatSheet() {
     setSelectedCategory(cat || null)
   }, [searchParams])
 
- const iconFor = (title) => {
-    const iconMap = {
-      "Web & Frontend": "🌐",
-      "Backend & APIs": "⚙️",
-      Mobile: "📱",
-      "Data & Machine Learning": "📊",
-      "Systems & Scripting": "🐧",
-      "DevOps / Infra": "☁️",
-      "Security / Blockchain": "🛡️",
-      JavaScript: "🟨",
-      TypeScript: "🔷",
-      Python: "🐍",
-      Java: "☕",
-      "C#": "/C.shrap.png",
-      PHP: "🐘",
-      Ruby: "💎",
-      Scala: "🔺",
-      Go: "🐹",
-      Rust: "🦀",
-      SQL: "🗄️",
-      Docker: "🐳",
-      MongoDB: "🍃",
-      "Bash / Shell": "💻",
-      "Regex Quickies": "#️",
-      "HTTP Status Codes": "📄",
-      "Git Essentials": "🌿",
-      "NPM / Yarn": "📦",
-      "Next.js Data Fetching": "⚡",
-      "React Patterns": "⚛️",
-      "Flutter": "🦋",
-      "Dart": "🎯",
-      "Kotlin": "🧬",
-      "PostgreSQL": "🐘",
-      "Redis": "🧠",
-      "Kubernetes": "☸️",
-    }
+const iconFor = (title) => {
+  const iconMap = {
+    "Web & Frontend": "🌐",
+    "Backend & APIs": "⚙️",
+    Mobile: "📱",
+    "Data & Machine Learning": "📊",
+    "Systems & Scripting": "🐧",
+    "DevOps / Infra": "☁️",
+    "Security / Blockchain": "🛡️",
+    JavaScript: "🟨",
+    TypeScript: "🔷",
+    Python: "🐍",
+    Java: "☕",
+    "C#": "🟦",
+    PHP: "🐘",
+    Ruby: "💎",
+    Scala: "🔺",
+    Go: "🐹",
+    Rust: "🦀",
+    SQL: "🗄️",
+    Docker: "🐳",
+    MongoDB: "🍃",
+    "Bash / Shell": "💻",
+    "Regex Quickies": "#️",
+    "HTTP Status Codes": "📄",
+    "Git Essentials": "🌿",
+    "NPM / Yarn": "📦",
+    "Next.js Data Fetching": "⚡",
+    "React Patterns": "⚛️",
+    Flutter: "🦋",
+    Dart: "🎯",
+    Kotlin: "🧬",
+    PostgreSQL: "🐘",
+    Redis: "🧠",
+    Kubernetes: "☸️",
 
-    const icon = iconMap[title] || "📘"
-    if (icon.endsWith(".png") || icon.startsWith("http")) {
-      return <img src={icon} alt={title} className="w-6 h-6 inline-block" />
-    } else {
-      return <span aria-hidden="true" className="text-xl">{icon}</span>
-    }
+    // New languages
+    Swift: "🍎",
+    C: "📘",
+    "C++": "➕",
+    R: "📊",
+    Julia: "🔢",
+    Perl: "🧵",
+    Haskell: "λ",
+    Elixir: "💧",
+    Erlang: "🧪",
+    MATLAB: "📐",
+    SAS: "📑",
+    Assembly: "⚙️",
   }
 
-  // logoFor: Simple Icons
-  const logoFor = (title) => {
-    const map = {
-      "Web & Frontend": "html5",
-      "Backend & APIs": "nodedotjs",
-      Mobile: "android",
-      "Data & Machine Learning": "tensorflow",
-      "Systems & Scripting": "linux",
-      "DevOps / Infra": "kubernetes",
-      "Security / Blockchain": "solidity",
-      JavaScript: "javascript",
-      TypeScript: "typescript",
-      Python: "python",
-      Java: "openjdk",
-      PHP: "php",
-      Ruby: "ruby",
-      Scala: "scala",
-      Go: "go",
-      Rust: "rust",
-      SQL: "postgresql",
-      Docker: "docker",
-      MongoDB: "mongodb",
-      "Bash / Shell": "gnubash",
-      "HTTP Status Codes": "httpie",
-      "Git Essentials": "git",
-      "NPM / Yarn": "npm",
-      "Next.js Data Fetching": "nextdotjs",
-      "React Patterns": "react",
-      "Flutter": "flutter",
-      "Dart": "dart",
-      "Kotlin": "kotlin",
-      "PostgreSQL": "postgresql",
-      "Redis": "redis",
-      "Kubernetes": "kubernetes",
-    }
+  const icon = iconMap[title] || "📘"
+  if (icon) {
+    return <span aria-hidden="true" className="text-xl">{icon}</span>
+  }
+}
 
-    const slug = map[title]
-    if (slug) return `https://cdn.simpleicons.org/${slug}`
-    return title === "C#" ? "/c.shrap.png" : null
+// logoFor: Simple Icons
+const logoFor = (title) => {
+  const map = {
+    "Web & Frontend": "html5",
+    "Backend & APIs": "nodedotjs",
+    Mobile: "android",
+    "Data & Machine Learning": "tensorflow",
+    "Systems & Scripting": "linux",
+    "DevOps / Infra": "kubernetes",
+    "Security / Blockchain": "solidity",
+    JavaScript: "javascript",
+    TypeScript: "typescript",
+    Python: "python",
+    Java: "openjdk",
+    PHP: "php",
+    Ruby: "ruby",
+    Scala: "scala",
+    Go: "go",
+    Rust: "rust",
+    SQL: "postgresql",
+    Docker: "docker",
+    MongoDB: "mongodb",
+    "Bash / Shell": "gnubash",
+    "HTTP Status Codes": "httpie",
+    "Git Essentials": "git",
+    "NPM / Yarn": "npm",
+    "Next.js Data Fetching": "nextdotjs",
+    "React Patterns": "react",
+    Flutter: "flutter",
+    Dart: "dart",
+    Kotlin: "kotlin",
+    PostgreSQL: "postgresql",
+    Redis: "redis",
+    Kubernetes: "kubernetes",
+
+    // New languages logos
+    Swift: "swift",
+    C: "c",
+    "C++": "cplusplus",
+    R: "r",
+    Julia: "julia",
+    Perl: "perl",
+    Haskell: "haskell",
+    Elixir: "elixir",
+    Erlang: "erlang",
+    MATLAB: "matlab",
+    SAS: "sas",
+    Assembly: "gnuemacs",
   }
 
+  const slug = map[title]
+  if (slug) return `https://cdn.simpleicons.org/${slug}`
+  return null
+}
 
 const categoryDescriptions = {
   "Git Essentials": "Core git commands for daily workflows.",
@@ -142,35 +167,47 @@ const categoryDescriptions = {
   "Next.js Data Fetching": "Server-side rendering (SSR) and static site generation (SSG).",
   "React Patterns": "Reusable patterns, hooks, and optimizations for React.",
   "Bash / Shell": "Command line utilities and shell scripting essentials.",
-  "Docker": "Containers, images, volumes, and networking basics.",
-  "Kubernetes": "Pod orchestration, deployments, services, and scaling apps.",
-  "MongoDB": "NoSQL database with flexible schemas and common queries.",
+  Docker: "Containers, images, volumes, and networking basics.",
+  Kubernetes: "Pod orchestration, deployments, services, and scaling apps.",
+  MongoDB: "NoSQL database with flexible schemas and common queries.",
   "HTTP Status Codes": "Standard responses with meaning (2xx, 3xx, 4xx, 5xx).",
   "Regex Quickies": "Commonly used regular expressions for string patterns.",
-  "JavaScript": "Core language constructs, ES6+ features, and browser APIs.",
-  "TypeScript": "Strong typing, interfaces, generics, and advanced language utilities.",
-  "Python": "General-purpose language for scripting, ML, and automation.",
-  "Rust": "Safe systems programming with ownership, lifetimes, and concurrency.",
-  "Java": "Object-oriented programming and JVM ecosystem.",
+  JavaScript: "Core language constructs, ES6+ features, and browser APIs.",
+  TypeScript: "Strong typing, interfaces, generics, and advanced language utilities.",
+  Python: "General-purpose language for scripting, ML, and automation.",
+  Rust: "Safe systems programming with ownership, lifetimes, and concurrency.",
+  Java: "Object-oriented programming and JVM ecosystem.",
   "C#": "Modern cross-platform .NET language features.",
-  "PHP": "Web scripting, Laravel/Symfony frameworks, and backend basics.",
-  "Kotlin": "Concise modern language, primarily for Android apps.",
-  "Scala": "Functional and object-oriented programming on JVM.",
-  "Dart": "Language designed for Flutter with async and reactive patterns.",
-  "Go": "Fast, lightweight concurrency with goroutines and channels.",
-  "Flutter": "Cross-platform UI toolkit using Dart.",
-  "PostgreSQL": "Relational database with advanced SQL features and indexing.",
-  "Redis": "In-memory store for caching, queues, and pub/sub.",
+  PHP: "Web scripting, Laravel/Symfony frameworks, and backend basics.",
+  Kotlin: "Concise modern language, primarily for Android apps.",
+  Scala: "Functional and object-oriented programming on JVM.",
+  Dart: "Language designed for Flutter with async and reactive patterns.",
+  Go: "Fast, lightweight concurrency with goroutines and channels.",
+  Flutter: "Cross-platform UI toolkit using Dart.",
+  PostgreSQL: "Relational database with advanced SQL features and indexing.",
+  Redis: "In-memory store for caching, queues, and pub/sub.",
   "Web & Frontend": "HTML, CSS, and frontend development utilities.",
   "Backend & APIs": "Frameworks and tools for building backend services.",
-  "Mobile": "Kotlin, Swift, Flutter and cross-platform app snippets.",
+  Mobile: "Kotlin, Swift, Flutter and cross-platform app snippets.",
   "Data & Machine Learning": "R, Julia, Python, and ML/AI utilities.",
   "Systems & Scripting": "C, C++, Bash, and low-level programming.",
   "DevOps / Infra": "CI/CD, Terraform, Kubernetes, and infrastructure as code.",
-  "Security / Blockchain": "Cryptography, smart contracts, and blockchain basics."
+  "Security / Blockchain": "Cryptography, smart contracts, and blockchain basics.",
+
+  // New descriptions
+  Swift: "Language for iOS, macOS, watchOS, and tvOS apps.",
+  C: "Low-level programming language close to hardware.",
+  "C++": "Extension of C with object-oriented features and high performance.",
+  R: "Statistical computing and data visualization.",
+  Julia: "High-performance language for numerical and scientific computing.",
+  Perl: "Practical language for text manipulation and scripting.",
+  Haskell: "Pure functional programming with strong type system.",
+  Elixir: "Scalable functional programming built on Erlang VM.",
+  Erlang: "Distributed, fault-tolerant systems programming.",
+  MATLAB: "Numerical computing and data visualization platform.",
+  SAS: "Statistical analysis and business intelligence.",
+  Assembly: "Low-level language for direct hardware control.",
 }
-
-
 
 
   const filteredSections = useMemo(() => {
