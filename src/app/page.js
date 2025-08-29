@@ -330,89 +330,98 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 pt-20 pb-16 text-center relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
+     <section className="container mx-auto px-4 sm:px-6 pt-20 pb-16 text-center relative">
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, type: "spring" }}
+  >
+    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-10 leading-snug sm:leading-tight relative">
+      <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 blur-3xl -z-10" />
+      <div className="mb-3 sm:mb-4">
+        <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+          Function
+        </span>{" "}
+        <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+          DeveloperNotes
+        </span>
+        <span className="text-gray-300">()</span>{" "}
+      </div>
+      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          return
+        </span>{" "}
+        <span className="text-orange-400">"</span>
+        <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-emerald-400 bg-clip-text text-transparent">
+          Cheat Sheets 
+        </span>
+        <span className="text-orange-400">"</span>
+      </div>
+    </h1>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="text-base sm:text-xl md:text-2xl mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed"
+    >
+      <span className="text-green-400 block mb-2">// Your go-to resource for quick references, code snippets,</span>
+      <span className="text-green-400">
+        // and a personal library. Everything stored locally for maximum privacy.
+      </span>
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.6, duration: 0.5 }}
+      className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8"
+    >
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+          href="/notes"
+          className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-xl hover:shadow-purple-500/25 text-white"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-5xl font-bold mb-8 leading-tight relative">
-            <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 blur-3xl -z-10" />
-            <div className="mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">Function</span>{' '}
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">DeveloperNotes</span>
-              <span className="text-gray-300">()</span>{' '}
-            </div>
-            <div className="text-4xl md:text-5xl lg:text-6xl">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">return</span>{' '}
-              <span className="text-orange-400">"</span>
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-emerald-400 bg-clip-text text-transparent">
-                Cheat Sheet
-              </span>
-              <span className="text-orange-400">"</span>
-            </div>
-          </h1>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed"
-          >
-            <span className="text-green-400 block mb-2">// Your go-to resource for quick references, code snippets,</span>
-            <span className="text-green-400">// and a personal library. Everything stored locally for maximum privacy.</span>
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link 
-                href="/notes" 
-                className="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 rounded-xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-purple-500/25 text-white"
-              >
-                Explore Cheat Sheets
-              </Link>
-            </motion.div>
+          Explore Cheat Sheets
+        </Link>
+      </motion.div>
 
-            <motion.button 
-              onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })} 
-              className="px-8 py-4 border-2 border-orange-500 hover:border-orange-400 rounded-xl font-semibold text-lg transition-all duration-300 text-orange-400 hover:bg-orange-500/10 hover:shadow-lg hover:shadow-orange-500/20"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-purple-400">learn</span>
-              <span className="text-gray-300">.</span>
-              <span className="text-yellow-400">more</span>
-              <span className="text-gray-300">()</span>
-            </motion.button>
-          </motion.div>
+      <motion.button
+        onClick={() => document.getElementById("features").scrollIntoView({ behavior: "smooth" })}
+        className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-orange-500 hover:border-orange-400 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 text-orange-400 hover:bg-orange-500/10 hover:shadow-lg hover:shadow-orange-500/20"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="text-purple-400">learn</span>
+        <span className="text-gray-300">.</span>
+        <span className="text-yellow-400">more</span>
+        <span className="text-gray-300">()</span>
+      </motion.button>
+    </motion.div>
 
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 text-sm"
-          >
-            <span className="px-4 py-2 bg-blue-500/20 rounded-full border border-blue-500/30 text-blue-300">
-              200+ Commands
-            </span>
-            <span className="px-4 py-2 bg-emerald-500/20 rounded-full border border-emerald-500/30 text-emerald-300">
-              Lightning Fast
-            </span>
-            <span className="px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30 text-purple-300">
-              Privacy First
-            </span>
-            <span className="px-4 py-2 bg-orange-500/20 rounded-full border border-orange-500/30 text-orange-300">
-              Completely Free
-            </span>
-          </motion.div>
-        </motion.div>
-      </section>
+    {/* Quick Stats */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, duration: 0.6 }}
+      className="flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm"
+    >
+      <span className="px-3 py-2 bg-blue-500/20 rounded-full border border-blue-500/30 text-blue-300">
+        200+ Commands
+      </span>
+      <span className="px-3 py-2 bg-emerald-500/20 rounded-full border border-emerald-500/30 text-emerald-300">
+        Lightning Fast
+      </span>
+      <span className="px-3 py-2 bg-purple-500/20 rounded-full border border-purple-500/30 text-purple-300">
+        Privacy First
+      </span>
+      <span className="px-3 py-2 bg-orange-500/20 rounded-full border border-orange-500/30 text-orange-300">
+        Completely Free
+      </span>
+    </motion.div>
+  </motion.div>
+</section>
+
 
       {/* Quick Categories */}
       <section className="container mx-auto px-6 py-20">
@@ -489,10 +498,10 @@ export default function Home() {
               }} />
             </div>
 
-            <div className="relative z-10 w-full max-w-[90%] mx-auto px-4 py-8">
+           <div className="relative z-10 w-full max-w-[90%] mx-auto px-4 py-8 min-h-screen">
   {/* Code Snippet */}
   <div className="bg-gray-900 p-4 rounded-lg text-left overflow-x-auto text-sm sm:text-base font-mono mb-6">
-    <pre className="whitespace-pre-wrap">
+    <pre className="whitespace-pre-wrap break-words">
       <code>
         <span className="text-purple-400">if</span>
         <span className="text-gray-300"> (</span>
@@ -511,7 +520,7 @@ export default function Home() {
   </div>
 
   {/* Buttons */}
-  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4">
+  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4 mb-8">
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
       <Link 
         href="/notes" 
@@ -529,7 +538,7 @@ export default function Home() {
         Build Your Library
       </Link>
     </motion.div>
-</div>
+  </div>
 </div>
           </div>
         </motion.div>
