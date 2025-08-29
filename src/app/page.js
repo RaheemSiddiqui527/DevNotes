@@ -498,7 +498,8 @@ export default function Home() {
               }} />
             </div>
 
-           <div className="relative z-10 w-full max-w-[90%] mx-auto px-4 py-8 min-h-screen">
+           <div className="relative z-10 w-full max-w-[90%] mx-auto px-4 py-8">
+
   {/* Code Snippet */}
   <div className="bg-gray-900 p-4 rounded-lg text-left overflow-x-auto text-sm sm:text-base font-mono mb-6">
     <pre className="whitespace-pre-wrap break-words">
