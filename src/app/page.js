@@ -489,55 +489,48 @@ export default function Home() {
               }} />
             </div>
 
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="text-purple-400">if</span>{' '}
-                <span className="text-gray-300">(</span>
-                <span className="text-cyan-400">developer.needsQuickReference</span>
-                <span className="text-gray-300">)</span>{' '}
-                <span className="text-gray-300">{'{'}</span>
-              </h2>
-              
-              <div className="text-gray-300 leading-relaxed space-y-4 text-lg mb-8">
-                <p className="ml-8">
-                  <span className="text-purple-400">return</span>{' '}
-                  <span className="text-orange-400">"</span>
-                  <span className="text-emerald-400">Start using DevNotes today!</span>
-                  <span className="text-orange-400">"</span>
-                  <span className="text-gray-300">;</span>
-                </p>
-              </div>
-              
-              <p className="text-gray-300 text-lg mb-2">
-                <span className="text-gray-300">{'}'}</span>
-              </p>
+            <div className="relative z-10 w-full max-w-[90%] mx-auto px-4 py-8">
+  {/* Code Snippet */}
+  <div className="bg-gray-900 p-4 rounded-lg text-left overflow-x-auto text-sm sm:text-base font-mono mb-6">
+    <pre className="whitespace-pre-wrap">
+      <code>
+        <span className="text-purple-400">if</span>
+        <span className="text-gray-300"> (</span>
+        <span className="text-cyan-400">developer.needsQuickReference</span>
+        <span className="text-gray-300">) {'{'}</span>
+        {"\n  "}
+        <span className="text-purple-400">return</span>{' '}
+        <span className="text-orange-400">"</span>
+        <span className="text-emerald-400">Start using DevNotes today!</span>
+        <span className="text-orange-400">"</span>
+        <span className="text-gray-300">;</span>
+        {"\n"}
+        <span className="text-gray-300">{'}'}</span>
+      </code>
+    </pre>
+  </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link 
-                    href="/notes" 
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-blue-500/25 text-white"
-                  >
-                    Start Coding Faster
-                  </Link>
-                </motion.div>
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4">
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+      <Link 
+        href="/notes" 
+        className="block text-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl font-semibold text-base transition-all duration-300 shadow-xl hover:shadow-blue-500/25 text-white w-full"
+      >
+        Start Coding Faster
+      </Link>
+    </motion.div>
 
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link 
-                    href="/library" 
-                    className="px-8 py-4 border-2 border-emerald-500 hover:border-emerald-400 rounded-xl font-semibold text-lg transition-all duration-300 text-emerald-400 hover:bg-emerald-500/10 hover:shadow-lg hover:shadow-emerald-500/20"
-                  >
-                    Build Your Library
-                  </Link>
-                </motion.div>
-              </div>
-
-              <div className="text-center mt-6">
-                <p className="text-gray-400 text-sm">
-                  <span className="text-green-400">// No signup required. Start immediately.</span>
-                </p>
-              </div>
-            </div>
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+      <Link 
+        href="/library" 
+        className="block text-center px-6 py-3 border-2 border-emerald-500 hover:border-emerald-400 rounded-xl font-semibold text-base transition-all duration-300 text-emerald-400 hover:bg-emerald-500/10 hover:shadow-lg hover:shadow-emerald-500/20 w-full"
+      >
+        Build Your Library
+      </Link>
+    </motion.div>
+</div>
+</div>
           </div>
         </motion.div>
       </section>
