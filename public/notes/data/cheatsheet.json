@@ -920,6 +920,48 @@
         { "label": "Cookies", "code": "document.cookie = \"name=John; path=/; max-age=3600\";", "desc": "Set cookie." }
       ]
     },
+      {
+      "title": "HTML5",
+      "items": [
+        { "label": "Basic structure", "code": "<!DOCTYPE html>\n<html lang='en'>\n<head>\n  <meta charset='UTF-8'>\n  <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n  <title>Page</title>\n</head>\n<body>\n  <h1>Hello World</h1>\n</body>\n</html>", "desc": "HTML5 skeleton." },
+        { "label": "Semantics", "code": "<header>...</header>\n<nav>...</nav>\n<main>\n  <section>...</section>\n  <article>...</article>\n</main>\n<footer>...</footer>", "desc": "Semantic layout tags." },
+        { "label": "Headings", "code": "<h1>Main</h1>\n<h2>Sub</h2>\n<h3>Sub-sub</h3>", "desc": "h1–h6 for titles." },
+        { "label": "Text formatting", "code": "<p>Paragraph</p>\n<strong>Bold</strong>\n<em>Italic</em>\n<mark>Highlight</mark>", "desc": "Basic text tags." },
+        { "label": "Links", "code": "<a href='https://example.com' target='_blank'>Visit</a>", "desc": "Anchor hyperlink." },
+        { "label": "Image", "code": "<img src='img.jpg' alt='desc' width='200'/>", "desc": "Image with alt text." },
+        { "label": "Lists", "code": "<ul><li>Item</li></ul>\n<ol><li>Item</li></ol>\n<dl><dt>Term</dt><dd>Definition</dd></dl>", "desc": "Unordered, ordered, definition lists." },
+        { "label": "Table", "code": "<table>\n  <tr><th>Name</th><th>Age</th></tr>\n  <tr><td>John</td><td>30</td></tr>\n</table>", "desc": "Table with rows & columns." },
+        { "label": "Forms", "code": "<form>\n  <input type='text' name='name' required />\n  <input type='email' name='email' />\n  <textarea></textarea>\n  <button type='submit'>Submit</button>\n</form>", "desc": "Form elements with validation." },
+        { "label": "Input types", "code": "<input type='text'>\n<input type='email'>\n<input type='number'>\n<input type='date'>\n<input type='file'>\n<input type='checkbox'>\n<input type='radio'>", "desc": "Common input types." },
+        { "label": "Multimedia", "code": "<video controls src='video.mp4'></video>\n<audio controls src='audio.mp3'></audio>", "desc": "Embed media." },
+        { "label": "Iframe", "code": "<iframe src='https://example.com' width='400' height='300'></iframe>", "desc": "Embed another page." },
+        { "label": "Canvas", "code": "<canvas id='myCanvas' width='200' height='100'></canvas>", "desc": "Drawing area." },
+        { "label": "Meta tags", "code": "<meta charset='UTF-8'>\n<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n<meta name='description' content='Cheatsheet'>", "desc": "SEO & responsive meta tags." }
+      ]
+    },
+    {
+      "title": "CSS3",
+      "items": [
+        { "label": "Selectors", "code": "div {}\n#id {}\n.class {}\ninput[type='text'] {}", "desc": "Basic selectors." },
+        { "label": "Colors", "code": "color: red;\nbackground-color: #00f;\nbackground: linear-gradient(to right, red, blue);", "desc": "Color & gradient." },
+        { "label": "Box model", "code": ".box { width:100px; height:100px; margin:10px; padding:10px; border:1px solid black; }", "desc": "Content + padding + border + margin." },
+        { "label": "Typography", "code": "font-family: Arial, sans-serif;\nfont-size: 16px;\nfont-weight: bold;\ntext-align: center;\nline-height: 1.5;", "desc": "Font & text styles." },
+        { "label": "Background", "code": "background-image: url('img.jpg');\nbackground-size: cover;\nbackground-position: center;\nbackground-repeat: no-repeat;", "desc": "Background properties." },
+        { "label": "Flexbox", "code": ".flex { display:flex; justify-content:center; align-items:center; gap:1rem; }", "desc": "Flex container." },
+        { "label": "Grid", "code": ".grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }", "desc": "Grid layout." },
+        { "label": "Position", "code": ".abs { position:absolute; top:10px; left:10px; }\n.rel { position:relative; }\n.fix { position:fixed; bottom:0; }", "desc": "Positioning elements." },
+        { "label": "Z-index", "code": ".box { position:relative; z-index:10; }", "desc": "Stack order." },
+        { "label": "Media query", "code": "@media (max-width:768px){ body { font-size:14px; } }", "desc": "Responsive styles." },
+        { "label": "Pseudo-classes", "code": "a:hover { color:red; }\ninput:focus { border:1px solid blue; }\nli:first-child { font-weight:bold; }", "desc": "Interactive states." },
+        { "label": "Pseudo-elements", "code": "p::before { content:'👉 '; }\np::after { content:' ✅'; }", "desc": "Insert virtual elements." },
+        { "label": "Transition", "code": ".btn { transition: all 0.3s ease; }\n.btn:hover { transform: scale(1.1); }", "desc": "Smooth transition." },
+        { "label": "Animation", "code": "@keyframes fade { from{opacity:0;} to{opacity:1;} }\n.box { animation: fade 1s ease-in; }", "desc": "Custom animation." },
+        { "label": "Transform", "code": ".rotate { transform: rotate(45deg); }\n.scale { transform: scale(1.2); }\n.translate { transform: translateX(50px); }", "desc": "2D/3D transforms." },
+        { "label": "Shadow", "code": "box-shadow: 2px 2px 10px rgba(0,0,0,0.3);\ntext-shadow: 1px 1px 2px #333;", "desc": "Shadows for box/text." },
+        { "label": "Flex & Grid shortcut", "code": ".center { display:flex; justify-content:center; align-items:center; }\n.grid-2 { display:grid; grid-template-columns: 1fr 1fr; }", "desc": "Quick layouts." }
+      
+      ]
+    },
     {
       "title": "Backend & APIs",
       "items": [

@@ -20,7 +20,7 @@ export const metadata = {
     "privacy first notes",
   ],
   verification: {
-    google:"IkzMs-iymGtdkGAk-ai5P6-sYaSM7KjGDRpEoopc9_4" , // ✅ correct way
+    google: "IkzMs-iymGtdkGAk-ai5P6-sYaSM7KjGDRpEoopc9_4", // ✅ Google Search Console verification
   },
   authors: [{ name: "DevNotes" }],
   creator: "DevNotes",
@@ -29,11 +29,11 @@ export const metadata = {
     title: "DevNotes - Developer Cheat Sheets & Local Library",
     description:
       "Cheat sheets, code snippets, and a private library. Built for developers who value speed and privacy.",
-    url: "https://devnotes.site.vercel.app", // change to your domain
+    url: "https://devnotes.site", // ✅ replace with your final domain
     siteName: "DevNotes",
     images: [
       {
-        url: "https://devnotes.site.vercel.app/og-image.png", // add a preview image in /public
+        url: "https://devnotes.site/og-image.png", // ✅ make sure this exists in /public
         width: 1200,
         height: 630,
         alt: "DevNotes Preview",
@@ -48,18 +48,37 @@ export const metadata = {
     description:
       "Your go-to resource for quick developer references. Store notes locally, no servers, no tracking.",
     creator: "@codewithraheem", // optional
-    images: ["https://devnotes.site.vercel.app/og-image.png"],
+    images: ["https://devnotes.site/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://devnotes.site", // ✅ canonical URL for SEO
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
+    other: {
+      rel: "mask-icon",
+      url: "/safari-pinned-tab.svg",
+    },
   },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Adsense meta tag must be included here or in src/app/head.js */}
+        <meta name="google-adsense-account" content="ca-pub-8077696966351174" />
+      </head>
       <body className={inter.className}>
         {children}
       </body>
