@@ -74,7 +74,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* ✅ Adsense meta tag must be included here or in src/app/head.js */}
         <meta name="google-adsense-account" content="ca-pub-8077696966351174" />
